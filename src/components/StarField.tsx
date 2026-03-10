@@ -208,7 +208,6 @@ const StarField = () => {
     resize();
     animationId = requestAnimationFrame(draw);
     window.addEventListener("resize", resize);
-    window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("click", onClick);
 
     return () => {
