@@ -87,10 +87,6 @@ const StarField = () => {
       };
     };
 
-    const onMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
-    };
-
     let lastTime = performance.now();
     let shootTimer = 0;
     let lastClickTime = 0;
