@@ -131,9 +131,7 @@ const StarField = () => {
         ctx.fillRect(0, 0, w, h);
       }
 
-      // Mouse parallax
-      const mx = (mouseRef.current.x - centerX) / centerX;
-      const my = (mouseRef.current.y - centerY) / centerY;
+      // No mouse parallax — stars stay fixed
 
       // Click burst
       const clickAge = now - lastClickTime;
