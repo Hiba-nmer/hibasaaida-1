@@ -6,7 +6,7 @@ import workLaundry from "@/assets/work-laundry.jpg";
 import workLogo from "@/assets/work-logo.jpg";
 import workResearch from "@/assets/work-research.jpg";
 import workVolunteer from "@/assets/work-volunteer.jpg";
-import workProposal from "@/assets/work-proposal.jpg";
+
 import designLvBag from "@/assets/design-lv-bag.jpg";
 import designYoyoso from "@/assets/design-yoyoso.jpg";
 import designLibre from "@/assets/design-libre.jpg";
