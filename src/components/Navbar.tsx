@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-large.webp";
 
 const navItems = ["Home", "About", "Experience", "Work", "Skills", "Contact"];
 
