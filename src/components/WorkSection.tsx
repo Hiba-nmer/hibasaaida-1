@@ -20,8 +20,7 @@ const projects = [
   { title: "Laundry App Marketing Plan", desc: "Detailed marketing strategy and business plan for mobile laundry application", file: "/files/Laundry_App_Marketing_Plan.pdf", image: workLaundry },
   { title: "Logo Guidelines", desc: "Brand identity guidelines and logo usage specifications for consistent branding", file: "/files/Logo_Guidelines.pdf", image: workLogo },
   { title: "Marketing Research Methodology", desc: "Research framework and methodology for comprehensive market analysis", file: "/files/Marketing_Research_Methodology.pdf", image: workResearch },
-  { title: "Volunteer at Work Leadership", desc: "Presentation showcasing leadership skills and volunteer experience in professional competition", image: workVolunteer },
-  { title: "Project Proposal Presentation", desc: "AI-powered project proposal presentation showcasing innovative business ideas", link: "https://app.presentations.ai/view/Q5ysg6", image: workProposal },
+  { title: "Volunteer at Work Leadership", desc: "Presentation showcasing leadership skills and volunteer experience in professional competition", link: "https://app.presentations.ai/view/Q5ysg6", image: workVolunteer },
 ];
 
 const designImages = [designLvBag, designYoyoso, designLibre, designBoeing, designChanel, designFlowers, designBurger];
