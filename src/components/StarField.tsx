@@ -142,12 +142,8 @@ const StarField = () => {
       for (const star of stars) {
         star.angle += star.speed * dt;
 
-        const parallaxFactor = star.radius / (Math.sqrt(w * w + h * h) / 2);
-        const px = mx * parallaxFactor * 120;
-        const py = my * parallaxFactor * 120;
-
-        const baseX = centerX + Math.cos(star.angle) * star.radius + px;
-        const baseY = centerY + Math.sin(star.angle) * star.radius + py;
+        const baseX = centerX + Math.cos(star.angle) * star.radius;
+        const baseY = centerY + Math.sin(star.angle) * star.radius;
 
         // Gentle push away from click point
         let cpx = 0, cpy = 0;
