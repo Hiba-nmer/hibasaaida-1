@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import crownImage from "@/assets/crown.png";
 
 const ContactSection = () => {
@@ -22,7 +22,7 @@ const ContactSection = () => {
           <p className="mt-4 text-lg text-muted-foreground">Ready to transform your brand? Let's collaborate and make magic happen.</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,6 +55,20 @@ const ContactSection = () => {
             <p className="text-sm text-muted-foreground mb-1">Location</p>
             <p className="text-sm text-foreground font-medium">Tulkarm, Palestine</p>
           </motion.div>
+          <motion.a
+            href="https://www.linkedin.com/in/hiba-saaidah"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 text-center hover:bg-card hover:border-primary/40 transition-all duration-300"
+          >
+            <Linkedin className="w-6 h-6 text-primary mx-auto mb-3" />
+            <p className="text-sm text-muted-foreground mb-1">LinkedIn</p>
+            <p className="text-sm text-foreground font-medium">Hiba Saaidah</p>
+          </motion.a>
         </div>
 
         <motion.form
