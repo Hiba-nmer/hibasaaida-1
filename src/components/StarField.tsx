@@ -213,7 +213,6 @@ const StarField = () => {
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("click", onClick);
     };
   }, []);

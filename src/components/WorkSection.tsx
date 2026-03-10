@@ -24,8 +24,16 @@ const projects = [
   { title: "Project Proposal Presentation", desc: "AI-powered project proposal presentation showcasing innovative business ideas", link: "https://app.presentations.ai/view/Q5ysg6", image: workProposal },
 ];
 
-const designImages = [designLvBag, designYoyoso, designLibre, designBoeing, designChanel, designFlowers];
-const designTitles = ["LV Capucines — Product Ad", "YOYOSO — Product Promotion", "YSL Libre — Perfume Ad", "Boeing — Vintage Poster", "Chanel Coco Noir — Ad Design", "Flowers — Photography"];
+const designImages = [designLvBag, designYoyoso, designLibre, designBoeing, designChanel, designFlowers, designBurger];
+const designTitles = [
+  "LV Capucines — Product Ad",
+  "YOYOSO — Product Promotion",
+  "YSL Libre — Perfume Ad",
+  "Boeing — Vintage Poster (Photoshop)",
+  "Chanel Coco Noir — Ad Design",
+  "Flowers — Photography (Photoshop)",
+  "Delicious Burger — Food Ad (Photoshop)",
+];
 
 const WorkSection = () => {
   const [showDesigns, setShowDesigns] = useState(false);
