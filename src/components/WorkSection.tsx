@@ -13,6 +13,7 @@ import designLibre from "@/assets/design-libre.jpg";
 import designBoeing from "@/assets/design-boeing.jpg";
 import designChanel from "@/assets/design-chanel.png";
 import designFlowers from "@/assets/design-flowers.jpg";
+import designBurger from "@/assets/design-burger.jpg";
 
 const projects = [
   { title: "CleanSwift Marketing Plan", desc: "Comprehensive PowerPoint presentation showcasing marketing strategy and business planning", file: "/files/CleanSwift_Marketing_Plan.pptx", image: workCleanswift },
