@@ -47,11 +47,11 @@ const experiences = [
   },
   {
     num: "06",
-    company: "English Teacher",
-    role: "Teaching Institute – Tulkarm",
-    period: "Jan 2023 – 2024",
-    tags: ["Education", "Communication", "Leadership"],
-    desc: "Developed innovative support systems for students to boost confidence and improve grades. Successfully maintained full class attendance through engaging teaching strategies.",
+    company: "Digital Marketing Specialist Training",
+    role: "SheTech Project – Tahaluf Consulting & Galaxy Training Center",
+    period: "Feb 2026 – Present",
+    tags: ["Digital Marketing", "SEO/SEM", "AI Tools", "E-Commerce"],
+    desc: "Supported by the U.S. Department of State. Currently undertaking an intensive 96-hour professional training program focused on advanced Digital Marketing strategies and Tech Entrepreneurship. Mastering core digital marketing pillars including SEO, SEM, Social Media Marketing, and Email/Content Marketing. Leveraging AI Tools in Marketing and Analytics to optimize campaign performance. Developing a comprehensive Capstone Project integrating e-commerce business models and tech entrepreneurship skills. Gaining specialized expertise in Freelancing, Marketing Business Models, and Soft Skills for the digital industry.",
   },
 ];
 
