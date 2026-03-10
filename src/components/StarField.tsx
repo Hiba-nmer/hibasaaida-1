@@ -87,10 +87,6 @@ const StarField = () => {
       };
     };
 
-    const onMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
-    };
-
     let lastTime = performance.now();
     let shootTimer = 0;
     let lastClickTime = 0;
@@ -131,9 +127,7 @@ const StarField = () => {
         ctx.fillRect(0, 0, w, h);
       }
 
-      // Mouse parallax
-      const mx = (mouseRef.current.x - centerX) / centerX;
-      const my = (mouseRef.current.y - centerY) / centerY;
+      // No mouse parallax — stars stay fixed
 
       // Click burst
       const clickAge = now - lastClickTime;
@@ -144,12 +138,8 @@ const StarField = () => {
       for (const star of stars) {
         star.angle += star.speed * dt;
 
-        const parallaxFactor = star.radius / (Math.sqrt(w * w + h * h) / 2);
-        const px = mx * parallaxFactor * 120;
-        const py = my * parallaxFactor * 120;
-
-        const baseX = centerX + Math.cos(star.angle) * star.radius + px;
-        const baseY = centerY + Math.sin(star.angle) * star.radius + py;
+        const baseX = centerX + Math.cos(star.angle) * star.radius;
+        const baseY = centerY + Math.sin(star.angle) * star.radius;
 
         // Gentle push away from click point
         let cpx = 0, cpy = 0;
@@ -218,13 +208,11 @@ const StarField = () => {
     resize();
     animationId = requestAnimationFrame(draw);
     window.addEventListener("resize", resize);
-    window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("click", onClick);
 
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("click", onClick);
     };
   }, []);
