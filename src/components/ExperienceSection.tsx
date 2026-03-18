@@ -31,14 +31,6 @@ const experiences = [
   },
   {
     num: "04",
-    company: "Yes Style Marketing Company",
-    role: "Marketing Intern – Tulkarm",
-    period: "April 2024 – 2025",
-    tags: ["SWOT", "PESTEL", "Campaign Planning"],
-    desc: "Created a full marketing plan using SWOT and PESTEL analysis. Applied segmentation, targeting, and positioning strategies. Helped develop new approaches to engage customers and expand market reach.",
-  },
-  {
-    num: "05",
     company: "Social Media Manager",
     role: "Freelance Digital Marketing",
     period: "Mar 2021 – Dec 2022",
