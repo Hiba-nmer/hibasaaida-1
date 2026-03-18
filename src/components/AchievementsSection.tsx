@@ -28,7 +28,7 @@ const AchievementsSection = () => {
           <p className="mt-4 text-lg text-muted-foreground">Recognition & Awards</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="max-w-2xl mx-auto">
           {achievements.map((item, i) => (
             <motion.div
               key={i}
