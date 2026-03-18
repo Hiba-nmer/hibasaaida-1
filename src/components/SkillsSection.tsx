@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import flowersSky from "@/assets/flowers-sky.png";
 
 const skillGroups = [
-  { title: "E-Commerce", skills: ["Online Store Management", "SEO Optimization", "Data Analysis", "Digital Marketing"] },
-  { title: "Business", skills: ["Project Management", "Strategic Planning", "Market Analysis", "Business Management"] },
-  { title: "Technical", skills: ["Java Programming", "JavaScript & CSS", "Python & SQL", "Graphic Design"] },
-  { title: "Tools I Master", skills: ["Canva", "Adobe Photoshop", "Adobe Illustrator", "AI Tools"] },
+  { title: "E-Commerce", skills: ["Online Store Management", "SEO Optimization", "Data Analysis"] },
+  { title: "Marketing", skills: ["Market & Competitor Analysis", "Campaign Planning", "Strategy Development", "Performance Analysis"] },
+  { title: "Business", skills: ["Project Management", "Strategic Planning"] },
+  { title: "Technical", skills: ["Java", "HTML & PHP", "SQL", "Graphic Design"] },
+  { title: "Design Tools", skills: ["Adobe Photoshop", "Adobe Illustrator", "Canva", "AI Tools"] },
+  { title: "Soft Skills", skills: ["Emotional Intelligence", "Effective Teamwork", "Communication", "Diplomatic Handling"] },
 ];
 
 const SkillsSection = () => {
@@ -28,7 +30,7 @@ const SkillsSection = () => {
           <p className="mt-4 text-lg text-muted-foreground">My Creative Arsenal</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillGroups.map((group, i) => (
             <motion.div
               key={i}
