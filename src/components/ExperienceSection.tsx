@@ -38,7 +38,7 @@ const experiences = [
     desc: "Enhanced social media engagement by 10% and optimized audience interaction, boosting customer satisfaction. Managed project timelines effectively, reducing delivery times by 30%.",
   },
   {
-    num: "06",
+    num: "05",
     company: "Digital Marketing Specialist Training",
     role: "SheTech Project – Tahaluf Consulting & Galaxy Training Center",
     period: "Feb 2026 – Present",

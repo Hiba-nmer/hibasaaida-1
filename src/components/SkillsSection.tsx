@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import flowersSky from "@/assets/flowers-sky.png";
 
 const skillGroups = [
-  { title: "E-Commerce", skills: ["Online Store Management", "SEO Optimization", "Data Analysis", "Digital Marketing"] },
-  { title: "Business", skills: ["Project Management", "Strategic Planning", "Market Analysis", "Business Management"] },
-  { title: "Technical", skills: ["Java Programming", "JavaScript & CSS", "Python & SQL", "Graphic Design"] },
-  { title: "Tools I Master", skills: ["Canva", "Adobe Photoshop", "Adobe Illustrator", "AI Tools"] },
+  { title: "E-Commerce", skills: ["Online Store Management", "SEO Optimization", "Data Analysis"] },
+  { title: "Marketing", skills: ["Market & Competitor Analysis", "Campaign Planning", "Strategy Development", "Performance Analysis"] },
+  { title: "Business", skills: ["Project Management", "Strategic Planning"] },
+  { title: "Technical", skills: ["Java", "HTML & PHP", "SQL", "Graphic Design"] },
+  { title: "Design Tools", skills: ["Adobe Photoshop", "Adobe Illustrator", "Canva", "AI Tools"] },
+  { title: "Soft Skills", skills: ["Emotional Intelligence", "Effective Teamwork", "Communication", "Diplomatic Handling"] },
 ];
 
 const SkillsSection = () => {
