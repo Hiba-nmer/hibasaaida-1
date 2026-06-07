@@ -29,6 +29,7 @@ const Index = () => {
       <ExperienceSection />
       <AchievementsSection />
       <WorkSection />
+      <InstagramPortfolio />
       <SkillsSection />
       <ContactSection />
       <footer className="relative py-8 text-center border-t border-border">
