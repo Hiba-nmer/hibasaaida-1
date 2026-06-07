@@ -37,11 +37,11 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-8 space-y-2"
         >
-          <p className="text-lg md:text-xl text-foreground/80 font-medium">
+          <p className="text-xl md:text-2xl text-foreground/90 font-medium tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
             E-Commerce & Digital Marketing Specialist
           </p>
-          <p className="text-base md:text-lg text-muted-foreground">
-            Creative Strategist | Designer | Web Builder
+          <p className="text-lg md:text-xl text-muted-foreground italic tracking-wider" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            Creative Strategist · Designer · Web Builder
           </p>
         </motion.div>
 
