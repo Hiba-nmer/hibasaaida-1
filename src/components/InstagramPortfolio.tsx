@@ -1,34 +1,20 @@
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
+import v1 from "@/assets/gemini_generated_video_4dc3a9c4.mp4.asset.json";
+import v2 from "@/assets/gemini_generated_video_6fca0afa.mp4.asset.json";
+import v3 from "@/assets/gemini_generated_video_07374afb.mp4.asset.json";
+import v4 from "@/assets/gemini_generated_video_c97403c1.mp4.asset.json";
+import v5 from "@/assets/gemini_generated_video_785e0908.mp4.asset.json";
 
 // Easy to replace — swap src + caption for each post
 const posts = [
-  {
-    src: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&q=80",
-    caption: "Victorian Elegance",
-    height: "h-[420px]",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=800&q=80",
-    caption: "Every drop tells a story...",
-    height: "h-[280px]",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=800&q=80",
-    caption: "Spanish Whisper",
-    height: "h-[320px]",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=800&q=80",
-    caption: "Oud & Amber",
-    height: "h-[380px]",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1567203150702-93cf1c4ec48d?w=800&q=80",
-    caption: "Khaleeji Soul",
-    height: "h-[260px]",
-  },
+  { src: v1.url, caption: "Victorian Elegance", height: "h-[420px]" },
+  { src: v2.url, caption: "Every drop tells a story...", height: "h-[280px]" },
+  { src: v3.url, caption: "Spanish Whisper", height: "h-[320px]" },
+  { src: v4.url, caption: "Oud & Amber", height: "h-[380px]" },
+  { src: v5.url, caption: "Khaleeji Soul", height: "h-[260px]" },
 ];
+
 
 const GOLD = "#D4AF37";
 
@@ -129,12 +115,16 @@ const InstagramPortfolio = () => {
                     border: "1px solid rgba(212,175,55,0.15)",
                   }}
                 >
-                  <img
+                  <video
                     src={post.src}
-                    alt={post.caption}
-                    loading="lazy"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                   />
+
                   {/* Glassmorphism overlay */}
                   <div
                     className="absolute inset-0 flex items-center justify-center px-6 opacity-0 group-hover:opacity-100 transition-all duration-500"
