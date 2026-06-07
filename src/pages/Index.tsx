@@ -5,6 +5,7 @@ import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import WorkSection from "@/components/WorkSection";
+import InstagramPortfolio from "@/components/InstagramPortfolio";
 import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
 import StarField from "@/components/StarField";
