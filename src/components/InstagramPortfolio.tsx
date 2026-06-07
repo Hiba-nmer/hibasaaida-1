@@ -115,12 +115,16 @@ const InstagramPortfolio = () => {
                     border: "1px solid rgba(212,175,55,0.15)",
                   }}
                 >
-                  <img
+                  <video
                     src={post.src}
-                    alt={post.caption}
-                    loading="lazy"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                   />
+
                   {/* Glassmorphism overlay */}
                   <div
                     className="absolute inset-0 flex items-center justify-center px-6 opacity-0 group-hover:opacity-100 transition-all duration-500"
