@@ -51,7 +51,7 @@ const HeroSection = () => {
           transition={{ delay: 1.2, duration: 1 }}
           className="mt-16 text-muted-foreground text-sm flex flex-col items-center gap-2"
         >
-          <span>Scroll to explore</span>
+          <span className="italic tracking-[0.3em] uppercase" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
