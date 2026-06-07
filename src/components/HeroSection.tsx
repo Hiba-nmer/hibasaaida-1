@@ -37,11 +37,11 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-8 space-y-2"
         >
-          <p className="text-lg md:text-xl text-foreground/80 font-medium">
+          <p className="text-xl md:text-2xl text-foreground/90 font-medium tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
             E-Commerce & Digital Marketing Specialist
           </p>
-          <p className="text-base md:text-lg text-muted-foreground">
-            Creative Strategist | Designer | Web Builder
+          <p className="text-lg md:text-xl text-muted-foreground italic tracking-wider" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            Creative Strategist · Designer · Web Builder
           </p>
         </motion.div>
 
@@ -51,7 +51,7 @@ const HeroSection = () => {
           transition={{ delay: 1.2, duration: 1 }}
           className="mt-16 text-muted-foreground text-sm flex flex-col items-center gap-2"
         >
-          <span>Scroll to explore</span>
+          <span className="italic tracking-[0.3em] uppercase" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
