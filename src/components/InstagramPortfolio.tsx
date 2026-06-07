@@ -5,14 +5,28 @@ import v2 from "@/assets/gemini_generated_video_6fca0afa.mp4.asset.json";
 import v3 from "@/assets/gemini_generated_video_07374afb.mp4.asset.json";
 import v4 from "@/assets/gemini_generated_video_c97403c1.mp4.asset.json";
 import v5 from "@/assets/gemini_generated_video_785e0908.mp4.asset.json";
+import img1 from "@/assets/perfume_img_20260526_100701_579.jpg.asset.json";
+import img2 from "@/assets/perfume_file_00000000e9ac720a88e312362d328aa0.png.asset.json";
+import img3 from "@/assets/perfume_img_20260526_100701_447.jpg.asset.json";
+import img4 from "@/assets/perfume_img_20260526_100701_650.jpg.asset.json";
+import img5 from "@/assets/perfume_screenshot_20260520_193203.png.asset.json";
+import img6 from "@/assets/perfume_img_20260520_194944_530.jpg.asset.json";
+
+type Post = { type: "video" | "image"; src: string; caption: string; height: string };
 
 // Easy to replace — swap src + caption for each post
-const posts = [
-  { src: v1.url, caption: "Victorian Elegance", height: "h-[420px]" },
-  { src: v2.url, caption: "Every drop tells a story...", height: "h-[280px]" },
-  { src: v3.url, caption: "Spanish Whisper", height: "h-[320px]" },
-  { src: v4.url, caption: "Oud & Amber", height: "h-[380px]" },
-  { src: v5.url, caption: "Khaleeji Soul", height: "h-[260px]" },
+const posts: Post[] = [
+  { type: "image", src: img1.url, caption: "Spicy Weather", height: "h-[420px]" },
+  { type: "video", src: v1.url, caption: "Victorian Elegance", height: "h-[280px]" },
+  { type: "image", src: img2.url, caption: "Hard to forget you", height: "h-[460px]" },
+  { type: "video", src: v2.url, caption: "Every drop tells a story...", height: "h-[260px]" },
+  { type: "image", src: img3.url, caption: "Spanish Whisper", height: "h-[380px]" },
+  { type: "video", src: v3.url, caption: "Golden Hour", height: "h-[300px]" },
+  { type: "image", src: img4.url, caption: "Main Accords", height: "h-[440px]" },
+  { type: "video", src: v4.url, caption: "Oud & Amber", height: "h-[320px]" },
+  { type: "image", src: img5.url, caption: "Heart Notes", height: "h-[360px]" },
+  { type: "video", src: v5.url, caption: "Khaleeji Soul", height: "h-[260px]" },
+  { type: "image", src: img6.url, caption: "Timeless Composition", height: "h-[400px]" },
 ];
 
 
@@ -115,15 +129,24 @@ const InstagramPortfolio = () => {
                     border: "1px solid rgba(212,175,55,0.15)",
                   }}
                 >
-                  <video
-                    src={post.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
-                  />
+                  {post.type === "video" ? (
+                    <video
+                      src={post.src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                    />
+                  ) : (
+                    <img
+                      src={post.src}
+                      alt={post.caption}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                    />
+                  )}
 
                   {/* Glassmorphism overlay */}
                   <div
