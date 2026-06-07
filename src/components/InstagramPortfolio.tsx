@@ -129,15 +129,24 @@ const InstagramPortfolio = () => {
                     border: "1px solid rgba(212,175,55,0.15)",
                   }}
                 >
-                  <video
-                    src={post.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
-                  />
+                  {post.type === "video" ? (
+                    <video
+                      src={post.src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                    />
+                  ) : (
+                    <img
+                      src={post.src}
+                      alt={post.caption}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                    />
+                  )}
 
                   {/* Glassmorphism overlay */}
                   <div
