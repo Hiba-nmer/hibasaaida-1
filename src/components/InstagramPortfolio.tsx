@@ -5,6 +5,9 @@ import v2 from "@/assets/gemini_generated_video_6fca0afa.mp4.asset.json";
 import v3 from "@/assets/gemini_generated_video_07374afb.mp4.asset.json";
 import v4 from "@/assets/gemini_generated_video_c97403c1.mp4.asset.json";
 import v5 from "@/assets/gemini_generated_video_785e0908.mp4.asset.json";
+import vNew1 from "@/assets/gemini_generated_video_78c159f4.mp4.asset.json";
+import vNew2 from "@/assets/gemini_generated_video_979fcb94.mp4.asset.json";
+import vNew3 from "@/assets/gemini_generated_video_e52ccfe2.mp4.asset.json";
 import img1 from "@/assets/perfume_img_20260526_100701_579.jpg.asset.json";
 import img2 from "@/assets/instagram_books_roses.png.asset.json";
 import img3 from "@/assets/instagram_base_notes.png.asset.json";
@@ -20,22 +23,25 @@ type Post = {
 };
 
 const posts: Post[] = [
-  { type: "image", src: img1.url, caption: "Spicy Weather", height: "h-[420px]" },
-  { type: "video", src: v1.url, caption: "Victorian Elegance", height: "h-[280px]" },
+  { type: "video", src: vNew1.url, caption: "Spanish Whisper", height: "h-[420px]" },
+  { type: "image", src: img2.url, caption: "Timeless Mood", height: "h-[400px]" },
+  { type: "video", src: vNew2.url, caption: "Victorian Elegance", height: "h-[430px]" },
+  { type: "image", src: img6.url, caption: "Crafted to Last", height: "h-[410px]" },
   { type: "image", src: img5.url, caption: "Top Notes", height: "h-[430px]" },
-  { type: "video", src: v2.url, caption: "Every drop tells a story...", height: "h-[260px]" },
+  { type: "video", src: v1.url, caption: "Every drop tells a story...", height: "h-[280px]" },
+  { type: "video", src: vNew3.url, caption: "Khaleeji Soul", height: "h-[420px]" },
+  { type: "image", src: img1.url, caption: "Spicy Weather", height: "h-[400px]" },
   { type: "image", src: img4.url, caption: "Heart Notes", height: "h-[420px]" },
-  { type: "video", src: v3.url, caption: "Golden Hour", height: "h-[300px]" },
+  { type: "video", src: v2.url, caption: "Golden Hour", height: "h-[300px]" },
   { type: "image", src: img3.url, caption: "Base Notes", height: "h-[430px]" },
-  { type: "video", src: v4.url, caption: "Oud & Amber", height: "h-[320px]" },
-  { type: "image", src: img2.url, caption: "Timeless Mood", height: "h-[390px]" },
-  { type: "video", src: v5.url, caption: "Khaleeji Soul", height: "h-[260px]" },
-  { type: "image", src: img6.url, caption: "Crafted to Last", height: "h-[420px]" },
+  { type: "video", src: v3.url, caption: "Oud & Amber", height: "h-[280px]" },
+  { type: "video", src: v4.url, caption: "Midnight Bloom", height: "h-[320px]" },
+  { type: "video", src: v5.url, caption: "Eternal Echo", height: "h-[260px]" },
 ];
 
-const ACCENT = "#274472";
-const ACCENT_SOFT = "#7F97C2";
-const ACCENT_BORDER = "rgba(92, 126, 184, 0.28)";
+const ACCENT = "#0E1E3A";
+const ACCENT_SOFT = "#5B7AAE";
+const ACCENT_BORDER = "rgba(91, 122, 174, 0.32)";
 
 const InstagramPortfolio = () => {
   return (
