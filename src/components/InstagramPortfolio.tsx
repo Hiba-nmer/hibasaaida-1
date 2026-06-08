@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import v1 from "@/assets/gemini_generated_video_4dc3a9c4.mp4.asset.json";
-import v2 from "@/assets/gemini_generated_video_6fca0afa.mp4.asset.json";
-import v3 from "@/assets/gemini_generated_video_07374afb.mp4.asset.json";
 import v4 from "@/assets/gemini_generated_video_c97403c1.mp4.asset.json";
-import v5 from "@/assets/gemini_generated_video_785e0908.mp4.asset.json";
 import vNew1 from "@/assets/gemini_generated_video_78c159f4.mp4.asset.json";
 import vNew2 from "@/assets/gemini_generated_video_979fcb94.mp4.asset.json";
 import vNew3 from "@/assets/gemini_generated_video_e52ccfe2.mp4.asset.json";
@@ -14,6 +11,9 @@ import img3 from "@/assets/instagram_base_notes.png.asset.json";
 import img4 from "@/assets/instagram_heart_notes.png.asset.json";
 import img5 from "@/assets/instagram_top_notes.png.asset.json";
 import img6 from "@/assets/instagram_vintage_card.png.asset.json";
+import imgHorse from "@/assets/insta_horse_arch.png.asset.json";
+import imgApples from "@/assets/insta_apples_music.png.asset.json";
+import imgFruit from "@/assets/insta_fruit_bowl.png.asset.json";
 
 type Post = {
   type: "video" | "image";
@@ -23,25 +23,29 @@ type Post = {
 };
 
 const posts: Post[] = [
+  // Top: two videos with matching image placed between them
   { type: "video", src: vNew1.url, caption: "Spanish Whisper", height: "h-[420px]" },
-  { type: "image", src: img2.url, caption: "Timeless Mood", height: "h-[400px]" },
+  { type: "image", src: imgHorse.url, caption: "Victorian Garden", height: "h-[430px]" },
   { type: "video", src: vNew2.url, caption: "Victorian Elegance", height: "h-[430px]" },
-  { type: "image", src: img6.url, caption: "Crafted to Last", height: "h-[410px]" },
-  { type: "image", src: img5.url, caption: "Top Notes", height: "h-[430px]" },
-  { type: "video", src: v1.url, caption: "Every drop tells a story...", height: "h-[280px]" },
+  // Companion images around the two videos
+  { type: "image", src: imgApples.url, caption: "Heart of Nature", height: "h-[420px]" },
+  { type: "image", src: imgFruit.url, caption: "Royal Still Life", height: "h-[440px]" },
+  // Third video lower with its companions
   { type: "video", src: vNew3.url, caption: "Khaleeji Soul", height: "h-[420px]" },
   { type: "image", src: img1.url, caption: "Spicy Weather", height: "h-[400px]" },
-  { type: "image", src: img4.url, caption: "Heart Notes", height: "h-[420px]" },
-  { type: "video", src: v2.url, caption: "Golden Hour", height: "h-[300px]" },
+  { type: "image", src: img2.url, caption: "Timeless Mood", height: "h-[400px]" },
+  // Remaining images below
   { type: "image", src: img3.url, caption: "Base Notes", height: "h-[430px]" },
-  { type: "video", src: v3.url, caption: "Oud & Amber", height: "h-[280px]" },
+  { type: "image", src: img4.url, caption: "Heart Notes", height: "h-[420px]" },
+  { type: "image", src: img5.url, caption: "Top Notes", height: "h-[430px]" },
+  { type: "image", src: img6.url, caption: "Crafted to Last", height: "h-[410px]" },
+  { type: "video", src: v1.url, caption: "Every drop tells a story...", height: "h-[280px]" },
   { type: "video", src: v4.url, caption: "Midnight Bloom", height: "h-[320px]" },
-  { type: "video", src: v5.url, caption: "Eternal Echo", height: "h-[260px]" },
 ];
 
-const ACCENT = "#0E1E3A";
-const ACCENT_SOFT = "#5B7AAE";
-const ACCENT_BORDER = "rgba(91, 122, 174, 0.32)";
+const ACCENT = "#1F3A2B";
+const ACCENT_SOFT = "#7BA17C";
+const ACCENT_BORDER = "rgba(123, 161, 124, 0.32)";
 
 const InstagramPortfolio = () => {
   return (
@@ -107,16 +111,16 @@ const InstagramPortfolio = () => {
                   color: ACCENT_SOFT,
                   fontFamily: "'Inter', sans-serif",
                   background:
-                    "linear-gradient(135deg, rgba(39,68,114,0.05) 0%, rgba(39,68,114,0.01) 100%)",
-                  boxShadow: "0 0 0 1px rgba(127,151,194,0.06) inset",
+                    "linear-gradient(135deg, rgba(31,58,43,0.05) 0%, rgba(31,58,43,0.01) 100%)",
+                  boxShadow: "0 0 0 1px rgba(123,161,124,0.06) inset",
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.background =
-                    "linear-gradient(135deg, rgba(39,68,114,0.18) 0%, rgba(39,68,114,0.06) 100%)")
+                    "linear-gradient(135deg, rgba(31,58,43,0.22) 0%, rgba(31,58,43,0.08) 100%)")
                 }
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.background =
-                    "linear-gradient(135deg, rgba(39,68,114,0.05) 0%, rgba(39,68,114,0.01) 100%)")
+                    "linear-gradient(135deg, rgba(31,58,43,0.05) 0%, rgba(31,58,43,0.01) 100%)")
                 }
               >
                 <Instagram size={14} strokeWidth={1.5} />
@@ -163,7 +167,7 @@ const InstagramPortfolio = () => {
                     className="absolute inset-0 flex items-center justify-center px-6 opacity-0 group-hover:opacity-100 transition-all duration-500"
                     style={{
                       background:
-                        "linear-gradient(135deg, rgba(7,12,24,0.78) 0%, rgba(16,22,36,0.58) 100%)",
+                        "linear-gradient(135deg, rgba(10,20,14,0.78) 0%, rgba(16,30,22,0.58) 100%)",
                       backdropFilter: "blur(8px)",
                       WebkitBackdropFilter: "blur(8px)",
                     }}
