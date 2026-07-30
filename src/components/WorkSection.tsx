@@ -6,6 +6,8 @@ import workLaundry from "@/assets/work-laundry.jpg";
 import workLogo from "@/assets/work-logo.jpg";
 import workResearch from "@/assets/work-research.jpg";
 import workVolunteer from "@/assets/work-volunteer.jpg";
+import workKarmolPlan from "@/assets/work-karmol-plan.jpg";
+import workKarmolResearch from "@/assets/work-karmol-research.jpg";
 
 import designLvBag from "@/assets/design-lv-bag.jpg";
 import designYoyoso from "@/assets/design-yoyoso.jpg";
@@ -21,6 +23,8 @@ const projects = [
   { title: "Logo Guidelines", desc: "Brand identity guidelines and logo usage specifications for consistent branding", file: "/files/Logo_Guidelines.pdf", image: workLogo },
   { title: "Marketing Research Methodology", desc: "Research framework and methodology for comprehensive market analysis", file: "/files/Marketing_Research_Methodology.pdf", image: workResearch },
   { title: "Volunteer at Work Leadership", desc: "Presentation showcasing leadership skills and volunteer experience in professional competition", link: "https://app.presentations.ai/view/Q5ysg6", image: workVolunteer },
+  { title: "Karmol — Final Marketing Plan", desc: "Client work for Karmol, a retail shop I worked with: full marketing plan covering positioning, market study, competitor analysis, pricing and campaign roadmap", file: "/files/Karmol_Final_Plan_EN.docx", image: workKarmolPlan },
+  { title: "Karmol — Original Marketing Plan & Market Study", desc: "Client work for Karmol: the original marketing plan with market research, competitor benchmarking, target audience analysis and strategic recommendations", file: "/files/Karmol_Original_Marketing_Plan_EN.docx", image: workKarmolResearch },
 ];
 
 const designImages = [designLvBag, designYoyoso, designLibre, designBoeing, designChanel, designFlowers, designBurger];
