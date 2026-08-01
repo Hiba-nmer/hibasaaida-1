@@ -3,10 +3,10 @@
 // supabase function: mcp
 // Bundled from src/lib/mcp/index.ts by @lovable.dev/mcp-js.
 // src/lib/mcp/index.ts
-import { defineMcp } from "npm:@lovable.dev/mcp-js@0.25.0";
+import { defineMcp } from "npm:@lovable.dev/mcp-js@0.25.1";
 
 // src/lib/mcp/tools/get-contact.ts
-import { defineTool } from "npm:@lovable.dev/mcp-js@0.25.0";
+import { defineTool } from "npm:@lovable.dev/mcp-js@0.25.1";
 
 // src/lib/mcp/data.ts
 var profile = {
@@ -56,6 +56,13 @@ var experience = [
     period: "Mar 2021 \u2013 Dec 2022",
     tags: ["Social Media", "Project Management", "Client Relations"],
     description: "Enhanced social media engagement by 10% and optimized audience interaction. Managed project timelines effectively, reducing delivery times by 30%."
+  },
+  {
+    company: "Karunya University \u2013 Coimbatore, India",
+    role: "Marketing & Market Research Training (University Agreement)",
+    period: "2 Months",
+    tags: ["International", "Market Research", "Competitor Analysis", "India"],
+    description: "Completed a two-month training program in India through a university partnership agreement, covering all aspects of marketing: market research, competitor analysis, consumer behaviour, data-driven strategy and reporting. Main tasks: conducting market research and analysing industry trends and competitors, analysing quantitative and qualitative data to support decision-making, contributing to business strategy development and operational efficiency, and preparing reports, presentations."
   },
   {
     company: "SheTech Project \u2013 Tahaluf Consulting & Galaxy Training Center",
@@ -152,7 +159,7 @@ var get_contact_default = defineTool({
 });
 
 // src/lib/mcp/tools/get-profile.ts
-import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.25.0";
+import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.25.1";
 var get_profile_default = defineTool2({
   name: "get_profile",
   title: "Get profile",
@@ -166,7 +173,7 @@ var get_profile_default = defineTool2({
 });
 
 // src/lib/mcp/tools/list-experience.ts
-import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.25.0";
+import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.25.1";
 var list_experience_default = defineTool3({
   name: "list_experience",
   title: "List experience",
@@ -182,7 +189,7 @@ var list_experience_default = defineTool3({
 });
 
 // src/lib/mcp/tools/list-projects.ts
-import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.25.0";
+import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.25.1";
 import { z } from "npm:zod@^3.25.76";
 var list_projects_default = defineTool4({
   name: "list_projects",
@@ -205,7 +212,7 @@ var list_projects_default = defineTool4({
 });
 
 // src/lib/mcp/tools/list-skills.ts
-import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.25.0";
+import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.25.1";
 var list_skills_default = defineTool5({
   name: "list_skills",
   title: "List skills",
@@ -234,5 +241,5 @@ var mcp_default = defineMcp({
 });
 
 // lovable-mcp-supabase-entry.ts
-import { createSupabaseHandler } from "npm:@lovable.dev/mcp-js@0.25.0/stacks/supabase";
+import { createSupabaseHandler } from "npm:@lovable.dev/mcp-js@0.25.1/stacks/supabase";
 Deno.serve(createSupabaseHandler(mcp_default, { functionName: "mcp" }));
