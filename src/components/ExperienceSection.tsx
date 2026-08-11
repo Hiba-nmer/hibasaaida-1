@@ -8,7 +8,7 @@ const experiences = [
     num: "01",
     company: "Bank of Palestine",
     role: "Marketing Training Program",
-    period: "April 2025 – Present",
+    period: "April 2025 – Completed",
     tags: ["Marketing", "Events", "Banking"],
     desc: "Completed an intensive training program and represented the Bank in promotional events. Attracted and engaged potential clients by distributing materials, explaining services, and delivering tailored marketing messages. Achieved outstanding results during one promotional day by successfully opening 35 new accounts.",
     certificate: bankCertificate,
@@ -17,9 +17,9 @@ const experiences = [
     num: "02",
     company: "Roya Palestinian Organization",
     role: "Life Skills Trainer",
-    period: "July 2025 – Present",
+    period: "July 2025 – Completed",
     tags: ["Training", "Youth Development", "Communication"],
-    desc: "Completed a six-day training program specializing as a youth life skills trainer. Currently working with community organizations to train teenagers in communication, self-confidence, and time management. Redesigned the training program to include practical communication simulations.",
+    desc: "Completed a six-day training program specializing as a youth life skills trainer. Worked with community organizations to train teenagers in communication, self-confidence, and time management. Redesigned the training program to include practical communication simulations.",
   },
   {
     num: "03",
@@ -27,7 +27,7 @@ const experiences = [
     role: "EFE Palestine & Palestine Technical University",
     period: "2024",
     tags: ["Career Ready", "Employability", "Professional Growth"],
-    desc: "Participated in a career readiness program aimed at preparing graduating students for the labor market. Acquired practical employability skills such as communication, teamwork, problem-solving, and professional ethics.",
+    desc: "Completed a career readiness program aimed at preparing graduating students for the labor market. Acquired practical employability skills such as communication, teamwork, problem-solving, and professional ethics.",
   },
   {
     num: "04",
@@ -35,7 +35,7 @@ const experiences = [
     role: "Freelance Digital Marketing",
     period: "Mar 2021 – Dec 2022",
     tags: ["Social Media", "Project Management", "Client Relations"],
-    desc: "Enhanced social media engagement by 10% and optimized audience interaction, boosting customer satisfaction. Managed project timelines effectively, reducing delivery times by 30%.",
+    desc: "Completed freelance work that enhanced social media engagement by 10% and optimized audience interaction, boosting customer satisfaction. Managed project timelines effectively, reducing delivery times by 30%.",
   },
   {
     num: "05",
@@ -43,7 +43,7 @@ const experiences = [
     role: "Marketing Plans, Market & Competitor Studies",
     period: "4 Months",
     tags: ["Marketing Plans", "Market Study", "Competitor Analysis", "Retail"],
-    desc: "Worked with several local shops and retail businesses over four months, building complete marketing plans, market studies, competitor analyses, pricing positioning and campaign roadmaps — including the Karmol marketing plan featured in my work section.",
+    desc: "Completed a four-month engagement with several local shops and retail businesses, building complete marketing plans, market studies, competitor analyses, pricing positioning and campaign roadmaps — including the Karmol marketing plan featured in my work section.",
   },
   {
     num: "06",
@@ -57,9 +57,9 @@ const experiences = [
     num: "07",
     company: "SheTech Project – Tahaluf Consulting & Galaxy Training Center",
     role: "Digital Marketing Specialist Training",
-    period: "Feb 2026 – Present",
+    period: "Feb 2026 – Completed",
     tags: ["Digital Marketing", "SEO/SEM", "AI Tools", "E-Commerce"],
-    desc: "Supported by the U.S. Department of State. Currently undertaking an intensive 96-hour professional training program focused on advanced Digital Marketing strategies and Tech Entrepreneurship. Mastering core digital marketing pillars including SEO, SEM, Social Media Marketing, and Email/Content Marketing. Leveraging AI Tools in Marketing and Analytics to optimize campaign performance. Developing a comprehensive Capstone Project integrating e-commerce business models and tech entrepreneurship skills. Gaining specialized expertise in Freelancing, Marketing Business Models, and Soft Skills for the digital industry.",
+    desc: "Completed a 96-hour professional training program supported by the U.S. Department of State, focused on advanced Digital Marketing strategies and Tech Entrepreneurship. Mastered core digital marketing pillars including SEO, SEM, Social Media Marketing, and Email/Content Marketing. Leveraged AI Tools in Marketing and Analytics to optimize campaign performance. Developed a comprehensive Capstone Project integrating e-commerce business models and tech entrepreneurship skills, and gained specialized expertise in Freelancing, Marketing Business Models, and Soft Skills for the digital industry.",
   },
 ];
 

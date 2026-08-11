@@ -32,30 +32,30 @@ var experience = [
   {
     company: "Bank of Palestine",
     role: "Marketing Training Program",
-    period: "April 2025 \u2013 Present",
+    period: "April 2025 \u2013 Completed",
     tags: ["Marketing", "Events", "Banking"],
     description: "Completed an intensive training program and represented the Bank in promotional events. Attracted and engaged potential clients by distributing materials, explaining services, and delivering tailored marketing messages. Opened 35 new accounts during one promotional day."
   },
   {
     company: "Roya Palestinian Organization",
     role: "Life Skills Trainer",
-    period: "July 2025 \u2013 Present",
+    period: "July 2025 \u2013 Completed",
     tags: ["Training", "Youth Development", "Communication"],
-    description: "Six-day specialization as a youth life skills trainer. Trains teenagers in communication, self-confidence, and time management, and redesigned the training program to include practical communication simulations."
+    description: "Completed a six-day specialization as a youth life skills trainer. Worked with community organizations to train teenagers in communication, self-confidence, and time management, and redesigned the training program to include practical communication simulations."
   },
   {
     company: "EFE Palestine & Palestine Technical University",
     role: "Career Readiness Training",
     period: "2024",
     tags: ["Career Ready", "Employability", "Professional Growth"],
-    description: "Career readiness program preparing graduating students for the labor market: communication, teamwork, problem-solving, and professional ethics."
+    description: "Completed a career readiness program preparing graduating students for the labor market: communication, teamwork, problem-solving, and professional ethics."
   },
   {
     company: "Freelance Digital Marketing",
     role: "Social Media Manager",
     period: "Mar 2021 \u2013 Dec 2022",
     tags: ["Social Media", "Project Management", "Client Relations"],
-    description: "Enhanced social media engagement by 10% and optimized audience interaction. Managed project timelines effectively, reducing delivery times by 30%."
+    description: "Completed freelance social media management work that enhanced engagement by 10% and optimized audience interaction. Managed project timelines effectively, reducing delivery times by 30%."
   },
   {
     company: "Karunya University \u2013 Coimbatore, India",
@@ -67,9 +67,9 @@ var experience = [
   {
     company: "SheTech Project \u2013 Tahaluf Consulting & Galaxy Training Center",
     role: "Digital Marketing Specialist Training",
-    period: "Feb 2026 \u2013 Present",
+    period: "Feb 2026 \u2013 Completed",
     tags: ["Digital Marketing", "SEO/SEM", "AI Tools", "E-Commerce"],
-    description: "Supported by the U.S. Department of State. Intensive 96-hour program in advanced digital marketing and tech entrepreneurship: SEO, SEM, social media, email/content marketing, AI tools in marketing and analytics, plus a capstone project on e-commerce business models."
+    description: "Completed a 96-hour professional training program supported by the U.S. Department of State, focused on advanced digital marketing and tech entrepreneurship: SEO, SEM, social media, email/content marketing, AI tools in marketing and analytics, plus a capstone project on e-commerce business models."
   }
 ];
 var achievements = [
