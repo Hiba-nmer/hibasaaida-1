@@ -49,9 +49,9 @@ const experiences = [
     num: "06",
     company: "Karunya University – Coimbatore, India",
     role: "Marketing & Market Research Training (University Agreement)",
-    period: "2 Months",
+    period: "2 Months (Ongoing)",
     tags: ["International", "Market Research", "Competitor Analysis", "India"],
-    desc: "Completed a two-month training program in India through a university partnership agreement, covering all aspects of marketing: market research, competitor analysis, consumer behaviour, data-driven strategy and reporting. Main tasks: conducting market research and analysing industry trends and competitors, analysing quantitative and qualitative data to support decision-making, contributing to business strategy development and operational efficiency, and preparing reports, presentations.",
+    desc: "Currently undertaking a two-month training program in India through a university partnership agreement, covering all aspects of marketing: market research, competitor analysis, consumer behaviour, data-driven strategy and reporting. Main tasks: conducting market research and analysing industry trends and competitors, analysing quantitative and qualitative data to support decision-making, contributing to business strategy development and operational efficiency, and preparing reports, presentations.",
   },
   {
     num: "07",
