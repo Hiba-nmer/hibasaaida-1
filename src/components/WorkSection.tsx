@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useWebMCP } from "use-webmcp-tool";
+import { runWebMCPTool } from "@/lib/webmcp-telemetry";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
 import workCleanswift from "@/assets/work-cleanswift.jpg";
@@ -41,6 +43,17 @@ const designTitles = [
 const WorkSection = () => {
   const [showDesigns, setShowDesigns] = useState(false);
   const [currentDesign, setCurrentDesign] = useState(0);
+
+  useWebMCP({
+    name: "read_portfolio_work",
+    description: "Read the projects and graphic designs displayed in My Work without opening or downloading anything.",
+    annotations: { readOnlyHint: true, untrustedContentHint: true },
+    execute: () => runWebMCPTool("read_portfolio_work", () => [
+      ...projects.map((project) => `${project.title}: ${project.desc}`),
+      `Graphic designs: ${designTitles.join("; ")}`,
+      ...(showDesigns ? [`Open design: ${designTitles[currentDesign]}`] : []),
+    ].join("\n")),
+  });
 
   return (
     <section id="work" className="py-24 px-6">

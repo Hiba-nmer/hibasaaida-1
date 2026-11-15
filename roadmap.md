@@ -1,0 +1,3 @@
+- [x] Preserve existing public remote MCP tools.
+- [x] Add browser-local portfolio reading and navigation tools.
+- [x] Verify tools and extract the remote catalog (five remote tools; three browser tools exercised with a test adapter).

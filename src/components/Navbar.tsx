@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo-large.webp";
+import { useWebMCP } from "use-webmcp-tool";
+import { runWebMCPTool } from "@/lib/webmcp-telemetry";
 
 const navItems = ["Home", "About", "Experience", "Work", "Skills", "Contact"];
 
@@ -10,11 +12,38 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const scrollTo = (id: string) => {
+    if (typeof id !== "string" || !navItems.includes(id)) {
+      throw new Error("Unknown section; expected Home, About, Experience, Work, Skills, or Contact.");
+    }
+    const el = document.getElementById(id.toLowerCase());
+    if (!el) throw new Error("Section is unavailable.");
     setActive(id);
     setMenuOpen(false);
-    const el = document.getElementById(id.toLowerCase());
-    el?.scrollIntoView({ behavior: "smooth" });
+    el.scrollIntoView({ behavior: "smooth" });
   };
+
+  useWebMCP({
+    name: "list_portfolio_sections",
+    description: "List the portfolio sections available in the navigation.",
+    annotations: { readOnlyHint: true },
+    execute: () => runWebMCPTool("list_portfolio_sections", () => navItems.join(", ")),
+  });
+
+  useWebMCP({
+    name: "navigate_portfolio",
+    description: "Scroll to a portfolio section using the page navigation.",
+    annotations: { readOnlyHint: false },
+    inputSchema: {
+      type: "object",
+      properties: { section: { type: "string", enum: navItems, description: "The portfolio section to visit." } },
+      required: ["section"],
+      additionalProperties: false,
+    },
+    execute: ({ section }: { section: string }) => runWebMCPTool("navigate_portfolio", () => {
+      scrollTo(section);
+      return `Navigated to ${section}.`;
+    }),
+  });
 
   return (
     <>

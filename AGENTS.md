@@ -1,0 +1,2 @@
+## Agent integrations
+- Keep remote MCP tools in `src/lib/mcp/` limited to intentionally public portfolio data; browser tools belong in the components owning their controls and use `useWebMCP` with shared actions and fail-open telemetry, so browser state never leaks into server tools.
