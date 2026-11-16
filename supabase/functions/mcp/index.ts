@@ -8,142 +8,375 @@ import { defineMcp } from "npm:@lovable.dev/mcp-js@0.25.1";
 // src/lib/mcp/tools/get-contact.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.25.1";
 
-// src/lib/mcp/data.ts
-var profile = {
-  name: "Hiba Saaydeh",
-  headline: "E-Commerce & Digital Marketing Specialist",
-  subtitle: "Creative Strategist | Designer | Web Builder",
-  location: "Tulkarm, Palestine",
-  summary: "A highly motivated E-Commerce and Business Administration student with strong skills in digital marketing, programming, and graphic design. Fluent in English with high emotional intelligence and excellent diplomacy. Integrates marketing strategy, visual design, and coding into one seamless workflow \u2014 from idea to fully functional digital product.",
-  highlights: [
-    "The Strategist \u2014 analytical thinking applied to creative challenges.",
-    "The Communicator \u2014 national-level debate winner, strong persuasion and diplomacy.",
-    "The Professional \u2014 marketing strategy, design, and code in one workflow."
-  ]
+// src/content/portfolio.ts
+import { tx } from "npm:@/lib/language";
+import karmolArabicPlan from "npm:@/assets/karmol-arabic-marketing-plan.pdf.asset.json";
+var navItems = [
+  { id: "home", label: tx("Home", "\u0627\u0644\u0631\u0626\u064A\u0633\u064A\u0629") },
+  { id: "about", label: tx("About", "\u0639\u0646\u064A") },
+  { id: "methodology", label: tx("Methodology", "\u0645\u0646\u0647\u062C\u064A\u062A\u064A") },
+  { id: "experience", label: tx("Experience", "\u0627\u0644\u062E\u0628\u0631\u0629") },
+  { id: "work", label: tx("Case Studies", "\u062F\u0631\u0627\u0633\u0627\u062A \u0627\u0644\u062D\u0627\u0644\u0629") },
+  { id: "creative", label: tx("Creative", "\u0623\u0639\u0645\u0627\u0644\u064A \u0627\u0644\u0625\u0628\u062F\u0627\u0639\u064A\u0629") },
+  { id: "skills", label: tx("Skills", "\u0627\u0644\u0645\u0647\u0627\u0631\u0627\u062A") },
+  { id: "contact", label: tx("Contact", "\u062A\u0648\u0627\u0635\u0644") }
+];
+var siteCopy = {
+  languageSwitcher: tx("Switch to Arabic", "\u0627\u0644\u062A\u0628\u062F\u064A\u0644 \u0625\u0644\u0649 \u0627\u0644\u0625\u0646\u062C\u0644\u064A\u0632\u064A\u0629"),
+  menuOpen: tx("Open navigation", "\u0641\u062A\u062D \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u062A\u0646\u0642\u0644"),
+  menuClose: tx("Close navigation", "\u0625\u063A\u0644\u0627\u0642 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u062A\u0646\u0642\u0644"),
+  hero: {
+    eyebrow: tx("Strategy \xB7 Intelligence \xB7 Sustainable Growth", "\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \xB7 \u0630\u0643\u0627\u0621 \xB7 \u0646\u0645\u0648 \u0645\u0633\u062A\u062F\u0627\u0645"),
+    name: tx("Heba Al-Sayda", "\u0647\u0628\u0629 \u0633\u0639\u0627\u064A\u062F\u0629"),
+    roles: tx(
+      "Brand Growth Specialist & Strategic Marketer | Facilitator, Trainer & Business Manager",
+      "\u0623\u062E\u0635\u0627\u0626\u064A\u0629 \u0646\u0645\u0648 \u0627\u0644\u0639\u0644\u0627\u0645\u0627\u062A \u0627\u0644\u062A\u062C\u0627\u0631\u064A\u0629 \u0648\u0645\u0633\u0648\u0642\u0629 \u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 | \u0645\u064A\u0633\u0631\u0629\u060C \u0645\u062F\u0631\u0628\u0629\u060C \u0648\u0645\u062F\u064A\u0631\u0629 \u0623\u0639\u0645\u0627\u0644"
+    ),
+    bio: tx(
+      "I dive deep into business anatomy, analyze data using AI and Excel, and build sustainable growth strategies that turn challenges into real business impact.",
+      "\u0623\u063A\u0648\u0635 \u0641\u064A \u0623\u0639\u0645\u0627\u0642 \u0627\u0644\u0628\u0632\u0646\u0633\u060C \u0623\u062D\u0644\u0644 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0628\u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0623\u062F\u0648\u0627\u062A \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A \u0648 Excel\u060C \u0648\u0623\u0628\u0646\u064A \u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0627\u062A \u0646\u0645\u0648 \u0645\u0633\u062A\u062F\u0627\u0645\u0629 \u062A\u062D\u0648\u0644 \u0627\u0644\u062A\u062D\u062F\u064A\u0627\u062A \u0625\u0644\u0649 \u0646\u062A\u0627\u0626\u062C \u062D\u0642\u064A\u0642\u064A\u0629 \u0648\u0623\u0631\u0642\u0627\u0645 \u0645\u0644\u0645\u0648\u0633\u0629."
+    ),
+    primaryCta: tx("Explore My Work", "\u062A\u0635\u0641\u062D \u0623\u0639\u0645\u0627\u0644\u064A \u0648\u0645\u0634\u0627\u0631\u064A\u0639\u064A"),
+    secondaryCta: tx("Get in Touch", "\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u064A"),
+    scroll: tx("Scroll to explore", "\u0645\u0631\u0631 \u0644\u0627\u0633\u062A\u0643\u0634\u0627\u0641 \u0623\u0639\u0645\u0627\u0644\u064A")
+  },
+  about: {
+    eyebrow: tx("Beyond conventional marketing", "\u0623\u0628\u0639\u062F \u0645\u0646 \u0627\u0644\u062A\u0633\u0648\u064A\u0642 \u0627\u0644\u062A\u0642\u0644\u064A\u062F\u064A"),
+    title: tx("Business thinking, built for growth", "\u062A\u0641\u0643\u064A\u0631 \u062A\u062C\u0627\u0631\u064A \u064A\u0635\u0646\u0639 \u0627\u0644\u0646\u0645\u0648"),
+    description: tx(
+      "I connect business diagnostics, customer insight, creative execution, and measurable performance in one clear growth system.",
+      "\u0623\u0631\u0628\u0637 \u0628\u064A\u0646 \u062A\u0634\u062E\u064A\u0635 \u0627\u0644\u0623\u0639\u0645\u0627\u0644\u060C \u0648\u0641\u0647\u0645 \u0627\u0644\u0639\u0645\u0644\u0627\u0621\u060C \u0648\u0627\u0644\u062A\u0646\u0641\u064A\u0630 \u0627\u0644\u0625\u0628\u062F\u0627\u0639\u064A\u060C \u0648\u0642\u064A\u0627\u0633 \u0627\u0644\u0623\u062F\u0627\u0621 \u0636\u0645\u0646 \u0645\u0646\u0638\u0648\u0645\u0629 \u0646\u0645\u0648 \u0648\u0627\u0636\u062D\u0629 \u0648\u0642\u0627\u0628\u0644\u0629 \u0644\u0644\u0642\u064A\u0627\u0633."
+    ),
+    imageAlt: tx("Abstract artwork representing creative strategy", "\u0639\u0645\u0644 \u0641\u0646\u064A \u062A\u062C\u0631\u064A\u062F\u064A \u064A\u0639\u0628\u0631 \u0639\u0646 \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0627\u0644\u0625\u0628\u062F\u0627\u0639\u064A\u0629"),
+    cards: [
+      {
+        num: "01",
+        title: tx("Business Analyst", "\u0645\u062D\u0644\u0644\u0629 \u0623\u0639\u0645\u0627\u0644"),
+        desc: tx(
+          "I examine the business model, internal challenges, customer journey, and numbers before recommending any marketing action.",
+          "\u0623\u062F\u0631\u0633 \u0646\u0645\u0648\u0630\u062C \u0627\u0644\u0639\u0645\u0644 \u0648\u0627\u0644\u062A\u062D\u062F\u064A\u0627\u062A \u0627\u0644\u062F\u0627\u062E\u0644\u064A\u0629 \u0648\u0631\u062D\u0644\u0629 \u0627\u0644\u0639\u0645\u064A\u0644 \u0648\u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u0642\u0628\u0644 \u0627\u0644\u062A\u0648\u0635\u064A\u0629 \u0628\u0623\u064A \u062E\u0637\u0648\u0629 \u062A\u0633\u0648\u064A\u0642\u064A\u0629."
+        )
+      },
+      {
+        num: "02",
+        title: tx("Growth Strategist", "\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0646\u0645\u0648"),
+        desc: tx(
+          "I turn market research, competitor intelligence, AI tools, and Excel analysis into focused positioning and sustainable growth plans.",
+          "\u0623\u062D\u0648\u0644 \u0623\u0628\u062D\u0627\u062B \u0627\u0644\u0633\u0648\u0642 \u0648\u062A\u062D\u0644\u064A\u0644 \u0627\u0644\u0645\u0646\u0627\u0641\u0633\u064A\u0646 \u0648\u0623\u062F\u0648\u0627\u062A \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A \u0648Excel \u0625\u0644\u0649 \u062A\u0645\u0648\u0636\u0639 \u0648\u0627\u0636\u062D \u0648\u062E\u0637\u0637 \u0646\u0645\u0648 \u0645\u0633\u062A\u062F\u0627\u0645\u0629."
+        )
+      },
+      {
+        num: "03",
+        title: tx("Facilitator & Business Leader", "\u0645\u064A\u0633\u0631\u0629 \u0648\u0642\u0627\u0626\u062F\u0629 \u0623\u0639\u0645\u0627\u0644"),
+        desc: tx(
+          "I facilitate practical learning, coordinate teams and projects, and translate strategy into organized execution with clear ownership.",
+          "\u0623\u064A\u0633\u0651\u0631 \u062A\u062C\u0627\u0631\u0628 \u062A\u0639\u0644\u0645 \u062A\u0637\u0628\u064A\u0642\u064A\u0629\u060C \u0648\u0623\u0646\u0633\u0642 \u0627\u0644\u0641\u0631\u0642 \u0648\u0627\u0644\u0645\u0634\u0627\u0631\u064A\u0639\u060C \u0648\u0623\u062D\u0648\u0644 \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0625\u0644\u0649 \u062A\u0646\u0641\u064A\u0630 \u0645\u0646\u0638\u0645 \u0628\u0645\u0633\u0624\u0648\u0644\u064A\u0627\u062A \u0648\u0627\u0636\u062D\u0629."
+        )
+      }
+    ]
+  },
+  methodology: {
+    eyebrow: tx("How I turn insight into impact", "\u0643\u064A\u0641 \u0623\u062D\u0648\u0644 \u0627\u0644\u0645\u0639\u0631\u0641\u0629 \u0625\u0644\u0649 \u0623\u062B\u0631"),
+    title: tx("My Strategic Brand Growth Methodology", "\u0645\u0646\u0647\u062C\u064A\u062A\u064A \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0641\u064A \u0646\u0645\u0648 \u0627\u0644\u0639\u0644\u0627\u0645\u0627\u062A \u0627\u0644\u062A\u062C\u0627\u0631\u064A\u0629"),
+    description: tx(
+      "Four connected pillars move every project from the right questions to measurable, sustainable growth.",
+      "\u0623\u0631\u0628\u0639 \u0631\u0643\u0627\u0626\u0632 \u0645\u062A\u0631\u0627\u0628\u0637\u0629 \u062A\u0646\u0642\u0644 \u0643\u0644 \u0645\u0634\u0631\u0648\u0639 \u0645\u0646 \u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u0627\u0644\u0635\u062D\u064A\u062D\u0629 \u0625\u0644\u0649 \u0646\u0645\u0648 \u0645\u0633\u062A\u062F\u0627\u0645 \u0642\u0627\u0628\u0644 \u0644\u0644\u0642\u064A\u0627\u0633."
+    )
+  },
+  experience: {
+    eyebrow: tx("Professional & research track record", "\u0645\u0633\u064A\u0631\u062A\u064A \u0627\u0644\u0645\u0647\u0646\u064A\u0629 \u0648\u0627\u0644\u0628\u062D\u062B\u064A\u0629"),
+    title: tx("Experience grounded in real execution", "\u062E\u0628\u0631\u0629 \u0645\u0628\u0646\u064A\u0629 \u0639\u0644\u0649 \u062A\u0646\u0641\u064A\u0630 \u062D\u0642\u064A\u0642\u064A"),
+    description: tx(
+      "Consulting, field campaigns, international research, facilitation, and academic inquiry\u2014all connected by evidence-led decisions.",
+      "\u0627\u0633\u062A\u0634\u0627\u0631\u0627\u062A \u0648\u062D\u0645\u0644\u0627\u062A \u0645\u064A\u062F\u0627\u0646\u064A\u0629 \u0648\u0623\u0628\u062D\u0627\u062B \u062F\u0648\u0644\u064A\u0629 \u0648\u062A\u064A\u0633\u064A\u0631 \u0648\u0628\u062D\u062B \u0623\u0643\u0627\u062F\u064A\u0645\u064A\u060C \u062A\u062C\u0645\u0639\u0647\u0627 \u0642\u0631\u0627\u0631\u0627\u062A \u0645\u0628\u0646\u064A\u0629 \u0639\u0644\u0649 \u0627\u0644\u062F\u0644\u064A\u0644."
+    ),
+    viewCertificate: tx("View Certificate", "\u0639\u0631\u0636 \u0627\u0644\u0634\u0647\u0627\u062F\u0629"),
+    certificateAlt: tx("Professional certificate", "\u0634\u0647\u0627\u062F\u0629 \u0645\u0647\u0646\u064A\u0629")
+  },
+  work: {
+    eyebrow: tx("Selected strategy engagements", "\u0646\u0645\u0627\u0630\u062C \u0645\u0646 \u0645\u0634\u0627\u0631\u064A\u0639\u064A \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629"),
+    title: tx("Featured Case Studies", "\u062F\u0631\u0627\u0633\u0627\u062A \u062D\u0627\u0644\u0629 \u0645\u062E\u062A\u0627\u0631\u0629"),
+    description: tx(
+      "Structured work that shows the business question, analytical approach, strategic direction, and practical deliverables.",
+      "\u0623\u0639\u0645\u0627\u0644 \u0645\u0646\u0638\u0645\u0629 \u062A\u0639\u0631\u0636 \u0633\u0624\u0627\u0644 \u0627\u0644\u0639\u0645\u0644\u060C \u0648\u0627\u0644\u0645\u0646\u0647\u062C \u0627\u0644\u062A\u062D\u0644\u064A\u0644\u064A\u060C \u0648\u0627\u0644\u062A\u0648\u062C\u0647 \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u060C \u0648\u0627\u0644\u0645\u062E\u0631\u062C\u0627\u062A \u0627\u0644\u0639\u0645\u0644\u064A\u0629."
+    ),
+    deliverables: tx("Case study deliverables", "\u0645\u0644\u0641\u0627\u062A \u062F\u0631\u0627\u0633\u0629 \u0627\u0644\u062D\u0627\u0644\u0629"),
+    download: tx("Download", "\u062A\u062D\u0645\u064A\u0644"),
+    supportingTitle: tx("Research, Identity & Presentations", "\u0623\u0628\u062D\u0627\u062B \u0648\u0647\u0648\u064A\u0629 \u0648\u0639\u0631\u0648\u0636 \u062A\u0642\u062F\u064A\u0645\u064A\u0629"),
+    supportingDescription: tx("Additional strategy and communication resources.", "\u0645\u0635\u0627\u062F\u0631 \u0625\u0636\u0627\u0641\u064A\u0629 \u0641\u064A \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0648\u0627\u0644\u062A\u0648\u0627\u0635\u0644."),
+    viewPresentation: tx("View Presentation", "\u0639\u0631\u0636 \u0627\u0644\u062A\u0642\u062F\u064A\u0645")
+  },
+  creative: {
+    eyebrow: tx("Creative & visual production", "\u0627\u0644\u0625\u0646\u062A\u0627\u062C \u0627\u0644\u0625\u0628\u062F\u0627\u0639\u064A \u0648\u0627\u0644\u0628\u0635\u0631\u064A"),
+    title: tx("Photoshop Design Showcase", "\u0645\u0639\u0631\u0636 \u062A\u0635\u0627\u0645\u064A\u0645 \u0627\u0644\u0641\u0648\u062A\u0648\u0634\u0648\u0628"),
+    description: tx(
+      "A curated selection of professional advertising and visual concepts created with Adobe Photoshop.",
+      "\u0645\u062C\u0645\u0648\u0639\u0629 \u0645\u062E\u062A\u0627\u0631\u0629 \u0645\u0646 \u0627\u0644\u0625\u0639\u0644\u0627\u0646\u0627\u062A \u0648\u0627\u0644\u0645\u0641\u0627\u0647\u064A\u0645 \u0627\u0644\u0628\u0635\u0631\u064A\u0629 \u0627\u0644\u0627\u062D\u062A\u0631\u0627\u0641\u064A\u0629 \u0627\u0644\u0645\u0635\u0645\u0645\u0629 \u0628\u0627\u0633\u062A\u062E\u062F\u0627\u0645 Adobe Photoshop."
+    ),
+    openGallery: tx("Open design gallery", "\u0641\u062A\u062D \u0645\u0639\u0631\u0636 \u0627\u0644\u062A\u0635\u0627\u0645\u064A\u0645"),
+    designsCount: tx("7 designs", "7 \u062A\u0635\u0627\u0645\u064A\u0645"),
+    previous: tx("Previous design", "\u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0627\u0644\u0633\u0627\u0628\u0642"),
+    next: tx("Next design", "\u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0627\u0644\u062A\u0627\u0644\u064A"),
+    close: tx("Close gallery", "\u0625\u063A\u0644\u0627\u0642 \u0627\u0644\u0645\u0639\u0631\u0636")
+  },
+  reels: {
+    eyebrow: tx("Video & Reels Portfolio", "\u0645\u0639\u0631\u0636 \u0627\u0644\u0641\u064A\u062F\u064A\u0648\u0647\u0627\u062A \u0648\u0627\u0644\u0631\u064A\u0644\u0632"),
+    title: tx("Stories built to be remembered", "\u0642\u0635\u0635 \u0628\u0635\u0631\u064A\u0629 \u0635\u064F\u0645\u0645\u062A \u0644\u062A\u0628\u0642\u0649 \u0641\u064A \u0627\u0644\u0630\u0627\u0643\u0631\u0629"),
+    description: tx(
+      "Perfume-brand campaigns, behind-the-scenes reels, and motion-led visual storytelling\u2014from concept to creative production.",
+      "\u062D\u0645\u0644\u0627\u062A \u0644\u0639\u0644\u0627\u0645\u0627\u062A \u0639\u0637\u0648\u0631\u060C \u0648\u0631\u064A\u0644\u0632 \u0645\u0646 \u0627\u0644\u0643\u0648\u0627\u0644\u064A\u0633\u060C \u0648\u0633\u0631\u062F \u0628\u0635\u0631\u064A \u0645\u062A\u062D\u0631\u0643 \u064A\u0645\u062A\u062F \u0645\u0646 \u0627\u0644\u0641\u0643\u0631\u0629 \u0625\u0644\u0649 \u0627\u0644\u0625\u0646\u062A\u0627\u062C \u0627\u0644\u0625\u0628\u062F\u0627\u0639\u064A."
+    ),
+    instagramCta: tx("Visit @lasoriee.ps", "\u0632\u064A\u0627\u0631\u0629 @lasoriee.ps"),
+    victorian: tx("Victorian Chapter", "\u0627\u0644\u0641\u0635\u0644 \u0627\u0644\u0641\u064A\u0643\u062A\u0648\u0631\u064A"),
+    elegant: tx("Elegant \xB7 Golden", "\u0623\u0646\u0627\u0642\u0629 \xB7 \u0630\u0647\u0628\u064A")
+  },
+  skills: {
+    eyebrow: tx("Capabilities & tools", "\u0627\u0644\u0642\u062F\u0631\u0627\u062A \u0648\u0627\u0644\u0623\u062F\u0648\u0627\u062A"),
+    title: tx("An analytical and creative toolkit", "\u0645\u0646\u0638\u0648\u0645\u0629 \u0645\u0647\u0627\u0631\u0627\u062A \u062A\u062D\u0644\u064A\u0644\u064A\u0629 \u0648\u0625\u0628\u062F\u0627\u0639\u064A\u0629"),
+    description: tx(
+      "The tools I use to diagnose, plan, execute, facilitate, and optimize.",
+      "\u0627\u0644\u0623\u062F\u0648\u0627\u062A \u0627\u0644\u062A\u064A \u0623\u0633\u062A\u062E\u062F\u0645\u0647\u0627 \u0644\u0644\u062A\u0634\u062E\u064A\u0635 \u0648\u0627\u0644\u062A\u062E\u0637\u064A\u0637 \u0648\u0627\u0644\u062A\u0646\u0641\u064A\u0630 \u0648\u0627\u0644\u062A\u064A\u0633\u064A\u0631 \u0648\u0627\u0644\u062A\u0637\u0648\u064A\u0631."
+    )
+  },
+  achievements: {
+    eyebrow: tx("Recognition", "\u062A\u0642\u062F\u064A\u0631 \u0648\u0625\u0646\u062C\u0627\u0632"),
+    title: tx("Achievements", "\u0627\u0644\u0625\u0646\u062C\u0627\u0632\u0627\u062A"),
+    description: tx("Recognition for communication, analysis, and persuasion.", "\u062A\u0642\u062F\u064A\u0631 \u0644\u0645\u0647\u0627\u0631\u0627\u062A \u0627\u0644\u062A\u0648\u0627\u0635\u0644 \u0648\u0627\u0644\u062A\u062D\u0644\u064A\u0644 \u0648\u0627\u0644\u0625\u0642\u0646\u0627\u0639."),
+    close: tx("Close certificate", "\u0625\u063A\u0644\u0627\u0642 \u0627\u0644\u0634\u0647\u0627\u062F\u0629")
+  },
+  contact: {
+    eyebrow: tx("Let\u2019s build what\u2019s next", "\u0644\u0646\u0628\u0646\u0650 \u0627\u0644\u062E\u0637\u0648\u0629 \u0627\u0644\u0642\u0627\u062F\u0645\u0629"),
+    title: tx("Turn your next challenge into a growth opportunity", "\u062D\u0648\u0651\u0644 \u062A\u062D\u062F\u064A\u0643 \u0627\u0644\u0642\u0627\u062F\u0645 \u0625\u0644\u0649 \u0641\u0631\u0635\u0629 \u0646\u0645\u0648"),
+    description: tx(
+      "For consulting, strategy, research, training, or creative campaign collaborations, let\u2019s start a focused conversation.",
+      "\u0644\u0644\u0627\u0633\u062A\u0634\u0627\u0631\u0627\u062A \u0623\u0648 \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0623\u0648 \u0627\u0644\u0623\u0628\u062D\u0627\u062B \u0623\u0648 \u0627\u0644\u062A\u062F\u0631\u064A\u0628 \u0623\u0648 \u0627\u0644\u062A\u0639\u0627\u0648\u0646 \u0641\u064A \u0627\u0644\u062D\u0645\u0644\u0627\u062A \u0627\u0644\u0625\u0628\u062F\u0627\u0639\u064A\u0629\u060C \u0644\u0646\u0628\u062F\u0623 \u062D\u0648\u0627\u0631\u064B\u0627 \u0648\u0627\u0636\u062D\u064B\u0627 \u0648\u0647\u0627\u062F\u0641\u064B\u0627."
+    ),
+    email: tx("Email", "\u0627\u0644\u0628\u0631\u064A\u062F \u0627\u0644\u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A"),
+    phone: tx("Phone", "\u0627\u0644\u0647\u0627\u062A\u0641"),
+    location: tx("Location", "\u0627\u0644\u0645\u0648\u0642\u0639"),
+    locationValue: tx("Tulkarm, Palestine", "\u0637\u0648\u0644\u0643\u0631\u0645\u060C \u0641\u0644\u0633\u0637\u064A\u0646"),
+    emailCta: tx("Email Me", "\u0631\u0627\u0633\u0644\u064A\u0646\u064A \u0639\u0628\u0631 \u0627\u0644\u0628\u0631\u064A\u062F"),
+    linkedinCta: tx("Connect on LinkedIn", "\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u064A \u0639\u0644\u0649 \u0644\u064A\u0646\u0643\u062F\u0625\u0646")
+  },
+  loading: {
+    name: tx("Heba Al-Sayda", "\u0647\u0628\u0629 \u0633\u0639\u0627\u064A\u062F\u0629"),
+    portfolio: tx("Brand Growth Portfolio", "\u0645\u0644\u0641 \u0623\u0639\u0645\u0627\u0644 \u0646\u0645\u0648 \u0627\u0644\u0639\u0644\u0627\u0645\u0627\u062A \u0627\u0644\u062A\u062C\u0627\u0631\u064A\u0629")
+  },
+  footer: tx("Heba Al-Sayda \u2014 All Rights Reserved", "\u0647\u0628\u0629 \u0633\u0639\u0627\u064A\u062F\u0629 \u2014 \u062C\u0645\u064A\u0639 \u0627\u0644\u062D\u0642\u0648\u0642 \u0645\u062D\u0641\u0648\u0638\u0629"),
+  notFound: {
+    title: tx("Page not found", "\u0627\u0644\u0635\u0641\u062D\u0629 \u063A\u064A\u0631 \u0645\u0648\u062C\u0648\u062F\u0629"),
+    description: tx("The page you requested is unavailable.", "\u0627\u0644\u0635\u0641\u062D\u0629 \u0627\u0644\u062A\u064A \u0637\u0644\u0628\u062A\u0647\u0627 \u063A\u064A\u0631 \u0645\u062A\u0627\u062D\u0629."),
+    action: tx("Return to Home", "\u0627\u0644\u0639\u0648\u062F\u0629 \u0625\u0644\u0649 \u0627\u0644\u0631\u0626\u064A\u0633\u064A\u0629")
+  }
 };
-var contact = {
-  email: "hibanmers@gmail.com",
-  phone: "+972 59 834 9117",
-  location: "Tulkarm, Palestine",
-  linkedin: "https://www.linkedin.com/in/hiba-saaidah",
-  instagram: "https://instagram.com/lasoiree.ps"
-};
-var experience = [
+var methodologyPillars = [
   {
-    company: "Bank of Palestine",
-    role: "Marketing Training Program",
-    period: "April 2025 \u2013 Completed",
-    tags: ["Marketing", "Events", "Banking"],
-    description: "Completed an intensive training program and represented the Bank in promotional events. Attracted and engaged potential clients by distributing materials, explaining services, and delivering tailored marketing messages. Opened 35 new accounts during one promotional day."
+    num: "01",
+    title: tx("Deep Business Diagnostics", "\u062A\u062D\u0644\u064A\u0644 \u0623\u0639\u0645\u0627\u0642 \u0627\u0644\u0628\u0632\u0646\u0633"),
+    description: tx(
+      "Dive into the business structure, diagnose problems, assess SWOT factors, and use Excel and Claude to test hypotheses and answer critical questions with data.",
+      "\u0627\u0644\u063A\u0648\u0635 \u0641\u064A \u0647\u064A\u0643\u0644 \u0627\u0644\u0645\u0634\u0631\u0648\u0639\u060C \u062A\u062D\u0644\u064A\u0644 \u0627\u0644\u0645\u0634\u0643\u0644\u0627\u062A\u060C \u062F\u0631\u0627\u0633\u0629 \u0646\u0642\u0627\u0637 \u0627\u0644\u0642\u0648\u0629 \u0648\u0627\u0644\u0636\u0639\u0641 (SWOT)\u060C \u0648\u0627\u0633\u062A\u062E\u062F\u0627\u0645 Excel \u0648Claude \u0644\u0637\u0631\u062D \u0627\u0644\u0641\u0631\u0636\u064A\u0627\u062A \u0648\u0627\u0644\u0625\u062C\u0627\u0628\u0629 \u0639\u0646 \u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u0627\u0644\u062D\u0631\u062C\u0629 \u0628\u0646\u0627\u0621\u064B \u0639\u0644\u0649 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A."
+    )
   },
   {
-    company: "Roya Palestinian Organization",
-    role: "Life Skills Trainer",
-    period: "July 2025 \u2013 Completed",
-    tags: ["Training", "Youth Development", "Communication"],
-    description: "Completed a six-day specialization as a youth life skills trainer. Worked with community organizations to train teenagers in communication, self-confidence, and time management, and redesigned the training program to include practical communication simulations."
+    num: "02",
+    title: tx("Market, Trends & AI Intelligence", "\u0623\u0628\u062D\u0627\u062B \u0627\u0644\u0633\u0648\u0642 \u0648\u0627\u0644\u062A\u0631\u0646\u062F\u0627\u062A \u0648\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A"),
+    description: tx(
+      "Monitor market movements, analyze competitors precisely, and uncover hidden opportunities using AI-powered research tools.",
+      "\u0631\u0635\u062F \u0627\u062A\u062C\u0627\u0647\u0627\u062A \u0627\u0644\u0633\u0648\u0642\u060C \u062A\u062D\u0644\u064A\u0644 \u0627\u0644\u0645\u0646\u0627\u0641\u0633\u064A\u0646 \u0628\u062F\u0642\u0629\u060C \u0648\u0627\u0643\u062A\u0634\u0627\u0641 \u0627\u0644\u0641\u0631\u0635 \u0627\u0644\u0643\u0627\u0645\u0646\u0629 \u0628\u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0623\u062F\u0648\u0627\u062A \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A."
+    )
   },
   {
-    company: "EFE Palestine & Palestine Technical University",
-    role: "Career Readiness Training",
-    period: "2024",
-    tags: ["Career Ready", "Employability", "Professional Growth"],
-    description: "Completed a career readiness program preparing graduating students for the labor market: communication, teamwork, problem-solving, and professional ethics."
+    num: "03",
+    title: tx("Targeted & Creative Execution", "\u0627\u0644\u062A\u0646\u0641\u064A\u0630 \u0627\u0644\u0625\u0628\u062F\u0627\u0639\u064A \u0648\u0627\u0644\u0627\u0633\u062A\u0647\u062F\u0627\u0641"),
+    description: tx(
+      "Translate analysis into action plans, precise targeting, and carefully managed campaigns built on numbers and organic results.",
+      "\u062A\u0631\u062C\u0645\u0629 \u0627\u0644\u062A\u062D\u0644\u064A\u0644\u0627\u062A \u0625\u0644\u0649 \u062E\u0637\u0637 \u0639\u0645\u0644\u060C \u0648\u0627\u0633\u062A\u0647\u062F\u0627\u0641 \u062F\u0642\u064A\u0642\u060C \u0648\u0625\u062F\u0627\u0631\u0629 \u062D\u0645\u0644\u0627\u062A \u0645\u062F\u0631\u0648\u0633\u0629 \u062A\u064F\u0628\u0646\u0649 \u0639\u0644\u0649 \u0627\u0644\u0623\u0631\u0642\u0627\u0645 \u0648\u0627\u0644\u0646\u062A\u0627\u0626\u062C \u0627\u0644\u0639\u0636\u0648\u064A\u0629."
+    )
   },
   {
-    company: "Freelance Digital Marketing",
-    role: "Social Media Manager",
-    period: "Mar 2021 \u2013 Dec 2022",
-    tags: ["Social Media", "Project Management", "Client Relations"],
-    description: "Completed freelance social media management work that enhanced engagement by 10% and optimized audience interaction. Managed project timelines effectively, reducing delivery times by 30%."
+    num: "04",
+    title: tx("Measurement & Optimization", "\u0627\u0644\u0642\u064A\u0627\u0633 \u0648\u0627\u0644\u062A\u0637\u0648\u064A\u0631 \u0627\u0644\u0645\u0633\u062A\u0645\u0631"),
+    description: tx(
+      "Track campaign performance, measure impact through clear KPIs, and optimize continuously for stronger returns and sustainable growth.",
+      "\u0645\u062A\u0627\u0628\u0639\u0629 \u0623\u062F\u0627\u0621 \u0627\u0644\u062D\u0645\u0644\u0627\u062A\u060C \u0642\u064A\u0627\u0633 \u0627\u0644\u0623\u062B\u0631 \u0628\u062F\u0642\u0629 \u0639\u0628\u0631 \u0645\u0624\u0634\u0631\u0627\u062A \u0627\u0644\u0623\u062F\u0627\u0621 (KPIs)\u060C \u0648\u0627\u0644\u062A\u0637\u0648\u064A\u0631 \u0627\u0644\u0645\u0633\u062A\u0645\u0631 \u0644\u0636\u0645\u0627\u0646 \u0623\u0639\u0644\u0649 \u0639\u0627\u0626\u062F \u0648\u0646\u0645\u0648 \u0645\u0633\u062A\u062F\u0627\u0645."
+    )
+  }
+];
+var experiences = [
+  {
+    num: "01",
+    company: tx("Karmol Roastery & Local Retail Businesses", "\u0645\u062D\u0645\u0635 \u0643\u0631\u0645\u0648\u0644 \u0648\u0645\u062D\u0644\u0627\u062A \u062A\u062C\u0627\u0631\u064A\u0629 \u0645\u062D\u0644\u064A\u0629"),
+    role: tx("Marketing Consultant", "\u0645\u0633\u062A\u0634\u0627\u0631\u0629 \u062A\u0633\u0648\u064A\u0642"),
+    period: tx("4 Months \xB7 Completed", "4 \u0623\u0634\u0647\u0631 \xB7 \u0645\u0643\u062A\u0645\u0644"),
+    tags: [tx("Positioning", "\u0627\u0644\u062A\u0645\u0648\u0636\u0639"), tx("Brand Identity", "\u0627\u0644\u0647\u0648\u064A\u0629 \u0627\u0644\u0628\u0635\u0631\u064A\u0629"), tx("Craft-led Content", "\u0645\u062D\u062A\u0648\u0649 \u0627\u0644\u0635\u0646\u0639\u0629")],
+    desc: tx(
+      "Built positioning strategies, developed visual identity direction, and created craft-led marketing content. Delivered market and competitor studies and complete marketing plans for local shops, including Karmol\u2019s relaunch strategy.",
+      "\u0628\u0646\u0627\u0621 \u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0627\u062A \u0627\u0644\u062A\u0645\u0648\u0636\u0639\u060C \u062A\u0637\u0648\u064A\u0631 \u0627\u062A\u062C\u0627\u0647 \u0627\u0644\u0647\u0648\u064A\u0629 \u0627\u0644\u0628\u0635\u0631\u064A\u0629\u060C \u0648\u0625\u0639\u062F\u0627\u062F \u0645\u062D\u062A\u0648\u0649 \u062A\u0633\u0648\u064A\u0642\u064A \u0642\u0627\u0626\u0645 \u0639\u0644\u0649 \u0627\u0644\u0635\u0646\u0639\u0629\u060C \u0645\u0639 \u062F\u0631\u0627\u0633\u0627\u062A \u0644\u0644\u0633\u0648\u0642 \u0648\u0627\u0644\u0645\u0646\u0627\u0641\u0633\u064A\u0646 \u0648\u062E\u0637\u0637 \u062A\u0633\u0648\u064A\u0642\u064A\u0629 \u0645\u062A\u0643\u0627\u0645\u0644\u0629 \u0644\u0645\u062D\u0644\u0627\u062A \u0645\u062D\u0644\u064A\u0629\u060C \u0628\u0645\u0627 \u0641\u064A\u0647\u0627 \u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0625\u0639\u0627\u062F\u0629 \u0625\u0637\u0644\u0627\u0642 \u0643\u0631\u0645\u0648\u0644."
+    )
   },
   {
-    company: "Karunya University \u2013 Coimbatore, India",
-    role: "Marketing & Market Research Training (University Agreement)",
-    period: "2 Months (Ongoing)",
-    tags: ["International", "Market Research", "Competitor Analysis", "India"],
-    description: "Currently undertaking a two-month training program in India through a university partnership agreement, covering all aspects of marketing: market research, competitor analysis, consumer behaviour, data-driven strategy and reporting. Main tasks: conducting market research and analysing industry trends and competitors, analysing quantitative and qualitative data to support decision-making, contributing to business strategy development and operational efficiency, and preparing reports, presentations."
+    num: "02",
+    company: tx("Bank of Palestine", "\u0628\u0646\u0643 \u0641\u0644\u0633\u0637\u064A\u0646"),
+    role: tx("Promotional Team", "\u0641\u0631\u064A\u0642 \u0627\u0644\u062A\u0631\u0648\u064A\u062C"),
+    period: tx("April 2025 \xB7 Completed", "\u0646\u064A\u0633\u0627\u0646 2025 \xB7 \u0645\u0643\u062A\u0645\u0644"),
+    tags: [tx("Field Campaigns", "\u062D\u0645\u0644\u0627\u062A \u0645\u064A\u062F\u0627\u0646\u064A\u0629"), tx("Customer Acquisition", "\u062C\u0630\u0628 \u0627\u0644\u0639\u0645\u0644\u0627\u0621"), tx("35 Accounts / Day", "35 \u062D\u0633\u0627\u0628\u064B\u0627 / \u064A\u0648\u0645")],
+    desc: tx(
+      "Managed and organized field promotional activities, explained banking services, and delivered tailored marketing messages. Achieved a record of opening 35 new accounts in one working day.",
+      "\u0625\u062F\u0627\u0631\u0629 \u0648\u062A\u0646\u0638\u064A\u0645 \u0623\u0646\u0634\u0637\u0629 \u062A\u0631\u0648\u064A\u062C\u064A\u0629 \u0645\u064A\u062F\u0627\u0646\u064A\u0629\u060C \u0648\u0634\u0631\u062D \u0627\u0644\u062E\u062F\u0645\u0627\u062A \u0627\u0644\u0645\u0635\u0631\u0641\u064A\u0629 \u0628\u0631\u0633\u0627\u0626\u0644 \u062A\u0633\u0648\u064A\u0642\u064A\u0629 \u0645\u062E\u0635\u0635\u0629\u060C \u0648\u062A\u062D\u0642\u064A\u0642 \u0631\u0642\u0645 \u0642\u064A\u0627\u0633\u064A \u0628\u0641\u062A\u062D 35 \u062D\u0633\u0627\u0628\u064B\u0627 \u062C\u062F\u064A\u062F\u064B\u0627 \u0641\u064A \u064A\u0648\u0645 \u0639\u0645\u0644 \u0648\u0627\u062D\u062F."
+    ),
+    certificate: true
   },
   {
-    company: "SheTech Project \u2013 Tahaluf Consulting & Galaxy Training Center",
-    role: "Digital Marketing Specialist Training",
-    period: "Feb 2026 \u2013 Completed",
-    tags: ["Digital Marketing", "SEO/SEM", "AI Tools", "E-Commerce"],
-    description: "Completed a 96-hour professional training program supported by the U.S. Department of State, focused on advanced digital marketing and tech entrepreneurship: SEO, SEM, social media, email/content marketing, AI tools in marketing and analytics, plus a capstone project on e-commerce business models."
+    num: "03",
+    company: tx("Karunya University \xB7 Coimbatore, India \xB7 IAESTE", "\u062C\u0627\u0645\u0639\u0629 \u0643\u0627\u0631\u0648\u0646\u064A\u0627 \xB7 \u0643\u0648\u064A\u0645\u0628\u0627\u062A\u0648\u0631\u060C \u0627\u0644\u0647\u0646\u062F \xB7 IAESTE"),
+    role: tx("Marketing Researcher & Data Analyst", "\u0628\u0627\u062D\u062B\u0629 \u062A\u0633\u0648\u064A\u0642 \u0648\u0645\u062D\u0644\u0644\u0629 \u0628\u064A\u0627\u0646\u0627\u062A"),
+    period: tx("August \u2013 September 2026 \xB7 Completed", "\u0622\u0628 \u2013 \u0623\u064A\u0644\u0648\u0644 2026 \xB7 \u0645\u0643\u062A\u0645\u0644"),
+    tags: [tx("Market Research", "\u0623\u0628\u062D\u0627\u062B \u0627\u0644\u0633\u0648\u0642"), tx("Consumer Behaviour", "\u0633\u0644\u0648\u0643 \u0627\u0644\u0645\u0633\u062A\u0647\u0644\u0643"), tx("Excel", "\u0625\u0643\u0633\u0644")],
+    desc: tx(
+      "Completed two months of market and competitor research, segmentation, questionnaires, and customer interviews. Cleaned data in Excel, applied linear regression and pivot tables, and translated quantitative and qualitative findings into business recommendations. Joined an industrial visit to study operational workflows.",
+      "\u0623\u062A\u0645\u0645\u062A \u0634\u0647\u0631\u064A\u0646 \u0645\u0646 \u0623\u0628\u062D\u0627\u062B \u0627\u0644\u0633\u0648\u0642 \u0648\u0627\u0644\u0645\u0646\u0627\u0641\u0633\u064A\u0646 \u0648\u062A\u062C\u0632\u0626\u0629 \u0627\u0644\u0633\u0648\u0642 \u0648\u062A\u0635\u0645\u064A\u0645 \u0627\u0644\u0627\u0633\u062A\u0628\u064A\u0627\u0646\u0627\u062A \u0648\u0625\u062C\u0631\u0627\u0621 \u0645\u0642\u0627\u0628\u0644\u0627\u062A \u0627\u0644\u0639\u0645\u0644\u0627\u0621. \u0646\u0638\u0641\u062A \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0628\u0627\u0633\u062A\u062E\u062F\u0627\u0645 Excel \u0648\u0637\u0628\u0642\u062A \u0627\u0644\u0627\u0646\u062D\u062F\u0627\u0631 \u0627\u0644\u062E\u0637\u064A \u0648\u0627\u0644\u062C\u062F\u0627\u0648\u0644 \u0627\u0644\u0645\u062D\u0648\u0631\u064A\u0629\u060C \u0648\u062D\u0648\u0644\u062A \u0627\u0644\u0646\u062A\u0627\u0626\u062C \u0627\u0644\u0643\u0645\u064A\u0629 \u0648\u0627\u0644\u0646\u0648\u0639\u064A\u0629 \u0625\u0644\u0649 \u062A\u0648\u0635\u064A\u0627\u062A \u0644\u0644\u0623\u0639\u0645\u0627\u0644\u060C \u0645\u0639 \u0632\u064A\u0627\u0631\u0629 \u0635\u0646\u0627\u0639\u064A\u0629 \u0644\u062F\u0631\u0627\u0633\u0629 \u0633\u064A\u0631 \u0627\u0644\u0639\u0645\u0644\u064A\u0627\u062A."
+    )
+  },
+  {
+    num: "04",
+    company: tx("Academic Research \xB7 AI & Marketing", "\u0627\u0644\u0628\u062D\u062B \u0627\u0644\u0639\u0644\u0645\u064A \u0627\u0644\u0623\u0643\u0627\u062F\u064A\u0645\u064A \xB7 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A \u0648\u0627\u0644\u062A\u0633\u0648\u064A\u0642"),
+    role: tx("Researcher", "\u0628\u0627\u062D\u062B\u0629"),
+    period: tx("Advanced Research Study", "\u062F\u0631\u0627\u0633\u0629 \u0628\u062D\u062B\u064A\u0629 \u0645\u062A\u0642\u062F\u0645\u0629"),
+    tags: [tx("AI Adoption", "\u062A\u0628\u0646\u064A \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A"), tx("SMEs", "\u0627\u0644\u0634\u0631\u0643\u0627\u062A \u0627\u0644\u0635\u063A\u064A\u0631\u0629 \u0648\u0627\u0644\u0645\u062A\u0648\u0633\u0637\u0629"), tx("Palestine", "\u0641\u0644\u0633\u0637\u064A\u0646")],
+    desc: tx(
+      "Prepared an advanced research study on the impact of artificial intelligence on marketing strategies and the barriers to its adoption among small and medium-sized enterprises in Palestine.",
+      "\u0625\u0639\u062F\u0627\u062F \u062F\u0631\u0627\u0633\u0629 \u0628\u062D\u062B\u064A\u0629 \u0645\u062A\u0642\u062F\u0645\u0629 \u062D\u0648\u0644 \u062A\u0623\u062B\u064A\u0631 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A \u0639\u0644\u0649 \u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0627\u062A \u0627\u0644\u062A\u0633\u0648\u064A\u0642 \u0648\u062A\u062D\u062F\u064A\u062F \u0639\u0648\u0627\u0626\u0642 \u062A\u0628\u0646\u064A\u0647 \u0628\u064A\u0646 \u0627\u0644\u0634\u0631\u0643\u0627\u062A \u0627\u0644\u0635\u063A\u064A\u0631\u0629 \u0648\u0627\u0644\u0645\u062A\u0648\u0633\u0637\u0629 \u0641\u064A \u0641\u0644\u0633\u0637\u064A\u0646."
+    )
+  },
+  {
+    num: "05",
+    company: tx("Roya Palestinian Organization", "\u0645\u0624\u0633\u0633\u0629 \u0631\u0624\u064A\u0627 \u0627\u0644\u0641\u0644\u0633\u0637\u064A\u0646\u064A\u0629"),
+    role: tx("Facilitator & Life Skills Trainer", "\u0645\u064A\u0633\u0631\u0629 \u0648\u0645\u062F\u0631\u0628\u0629 \u0645\u0647\u0627\u0631\u0627\u062A \u062D\u064A\u0627\u062A\u064A\u0629"),
+    period: tx("Completed", "\u0645\u0643\u062A\u0645\u0644"),
+    tags: [tx("Facilitation", "\u0627\u0644\u062A\u064A\u0633\u064A\u0631"), tx("Training Design", "\u062A\u0635\u0645\u064A\u0645 \u0627\u0644\u062A\u062F\u0631\u064A\u0628"), tx("Communication", "\u0627\u0644\u062A\u0648\u0627\u0635\u0644")],
+    desc: tx(
+      "Trained teenagers in communication and time management through practical simulations. Coordinated a community psychological first aid initiative for children with a PhD expert, and organized a three-day recreational program led by the trained teams.",
+      "\u062F\u0631\u0628\u062A \u0627\u0644\u064A\u0627\u0641\u0639\u064A\u0646 \u0639\u0644\u0649 \u0627\u0644\u062A\u0648\u0627\u0635\u0644 \u0648\u0625\u062F\u0627\u0631\u0629 \u0627\u0644\u0648\u0642\u062A \u0639\u0628\u0631 \u0645\u062D\u0627\u0643\u0627\u0629 \u062A\u0637\u0628\u064A\u0642\u064A\u0629. \u0646\u0633\u0642\u062A \u0645\u0628\u0627\u062F\u0631\u0629 \u0645\u062C\u062A\u0645\u0639\u064A\u0629 \u0644\u0644\u0625\u0633\u0639\u0627\u0641 \u0627\u0644\u0646\u0641\u0633\u064A \u0627\u0644\u0623\u0648\u0644\u064A \u0644\u0644\u0623\u0637\u0641\u0627\u0644 \u0628\u0627\u0644\u062A\u0639\u0627\u0648\u0646 \u0645\u0639 \u062E\u0628\u064A\u0631 \u062D\u0627\u0635\u0644 \u0639\u0644\u0649 \u0627\u0644\u062F\u0643\u062A\u0648\u0631\u0627\u0647\u060C \u0648\u0646\u0638\u0645\u062A \u0628\u0631\u0646\u0627\u0645\u062C\u064B\u0627 \u062A\u0631\u0641\u064A\u0647\u064A\u064B\u0627 \u0644\u062B\u0644\u0627\u062B\u0629 \u0623\u064A\u0627\u0645 \u0628\u0645\u0634\u0627\u0631\u0643\u0629 \u0627\u0644\u0641\u0631\u0642 \u0627\u0644\u0645\u062F\u0631\u0628\u0629."
+    )
+  },
+  {
+    num: "06",
+    company: tx("SheTech \xB7 Tahaluf Consulting & Galaxy Training Center", "SheTech \xB7 \u062A\u062D\u0627\u0644\u0641 \u0644\u0644\u0627\u0633\u062A\u0634\u0627\u0631\u0627\u062A \u0648\u0645\u0631\u0643\u0632 \u063A\u0627\u0644\u0627\u0643\u0633\u064A \u0644\u0644\u062A\u062F\u0631\u064A\u0628"),
+    role: tx("Digital Marketing Specialist Training", "\u062A\u062F\u0631\u064A\u0628 \u0623\u062E\u0635\u0627\u0626\u064A\u0629 \u062A\u0633\u0648\u064A\u0642 \u0631\u0642\u0645\u064A"),
+    period: tx("February \u2013 July 2026 \xB7 Completed", "\u0634\u0628\u0627\u0637 \u2013 \u062A\u0645\u0648\u0632 2026 \xB7 \u0645\u0643\u062A\u0645\u0644"),
+    tags: [tx("96 Hours", "96 \u0633\u0627\u0639\u0629"), tx("AI in Marketing", "\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A \u0641\u064A \u0627\u0644\u062A\u0633\u0648\u064A\u0642"), tx("U.S. Department of State", "\u0627\u0644\u062E\u0627\u0631\u062C\u064A\u0629 \u0627\u0644\u0623\u0645\u0631\u064A\u0643\u064A\u0629")],
+    desc: tx(
+      "Completed a 96-hour professional program supported by the U.S. Department of State, covering SEO, SEM, social media, content, AI-assisted analytics, e-commerce business models, and tech entrepreneurship.",
+      "\u0625\u062A\u0645\u0627\u0645 \u0628\u0631\u0646\u0627\u0645\u062C \u0645\u0647\u0646\u064A \u0644\u0645\u062F\u0629 96 \u0633\u0627\u0639\u0629 \u0628\u062F\u0639\u0645 \u0645\u0646 \u0648\u0632\u0627\u0631\u0629 \u0627\u0644\u062E\u0627\u0631\u062C\u064A\u0629 \u0627\u0644\u0623\u0645\u0631\u064A\u0643\u064A\u0629\u060C \u0634\u0645\u0644 SEO \u0648SEM \u0648\u0648\u0633\u0627\u0626\u0644 \u0627\u0644\u062A\u0648\u0627\u0635\u0644 \u0648\u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0648\u0627\u0644\u062A\u062D\u0644\u064A\u0644\u0627\u062A \u0627\u0644\u0645\u062F\u0639\u0648\u0645\u0629 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A \u0648\u0646\u0645\u0627\u0630\u062C \u0623\u0639\u0645\u0627\u0644 \u0627\u0644\u062A\u062C\u0627\u0631\u0629 \u0627\u0644\u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A\u0629 \u0648\u0631\u064A\u0627\u062F\u0629 \u0627\u0644\u0623\u0639\u0645\u0627\u0644 \u0627\u0644\u062A\u0642\u0646\u064A\u0629."
+    )
+  },
+  {
+    num: "07",
+    company: tx("Marketing Direction \xB7 Tulkarm", "\u0627\u0644\u0625\u062F\u0627\u0631\u0629 \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A\u0629 \xB7 \u0637\u0648\u0644\u0643\u0631\u0645"),
+    role: tx("Marketing Director", "\u0645\u062F\u064A\u0631\u0629 \u062A\u0633\u0648\u064A\u0642"),
+    period: tx("March \u2013 April 2026 \xB7 Completed", "\u0622\u0630\u0627\u0631 \u2013 \u0646\u064A\u0633\u0627\u0646 2026 \xB7 \u0645\u0643\u062A\u0645\u0644"),
+    tags: [tx("Campaign Direction", "\u062A\u0648\u062C\u064A\u0647 \u0627\u0644\u062D\u0645\u0644\u0627\u062A"), tx("Client Coordination", "\u062A\u0646\u0633\u064A\u0642 \u0627\u0644\u0639\u0645\u0644\u0627\u0621"), tx("Production", "\u0627\u0644\u0625\u0646\u062A\u0627\u062C")],
+    desc: tx("Developed marketing plans and content scripts, coordinated schedules and client communication, directed photographers on shoots, and defined brand identity guidelines for consistent campaign production.", "\u0637\u0648\u0631\u062A \u062E\u0637\u0637 \u0627\u0644\u062A\u0633\u0648\u064A\u0642 \u0648\u0633\u0643\u0631\u064A\u0628\u062A\u0627\u062A \u0627\u0644\u0645\u062D\u062A\u0648\u0649\u060C \u0648\u0646\u0633\u0642\u062A \u0627\u0644\u0645\u0648\u0627\u0639\u064A\u062F \u0648\u0627\u0644\u062A\u0648\u0627\u0635\u0644 \u0645\u0639 \u0627\u0644\u0639\u0645\u0644\u0627\u0621\u060C \u0648\u0648\u062C\u0647\u062A \u0627\u0644\u0645\u0635\u0648\u0631\u064A\u0646 \u062E\u0644\u0627\u0644 \u062C\u0644\u0633\u0627\u062A \u0627\u0644\u062A\u0635\u0648\u064A\u0631\u060C \u0648\u062D\u062F\u062F\u062A \u0625\u0631\u0634\u0627\u062F\u0627\u062A \u0627\u0644\u0647\u0648\u064A\u0629 \u0644\u0636\u0645\u0627\u0646 \u0627\u062A\u0633\u0627\u0642 \u0625\u0646\u062A\u0627\u062C \u0627\u0644\u062D\u0645\u0644\u0627\u062A.")
+  }
+];
+var caseStudies = [
+  {
+    id: "karmol",
+    number: "01",
+    title: tx("Karmol Roastery Relaunch Strategy", "\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0625\u0639\u0627\u062F\u0629 \u0625\u0637\u0644\u0627\u0642 \u0645\u062D\u0645\u0635 \u0643\u0631\u0645\u0648\u0644"),
+    subtitle: tx("From discount-led selling to authentic craft", "\u0645\u0646 \u0627\u0644\u0628\u064A\u0639 \u0628\u0627\u0644\u062E\u0635\u0648\u0645\u0627\u062A \u0625\u0644\u0649 \u0625\u0628\u0631\u0627\u0632 \u0627\u0644\u0635\u0646\u0639\u0629 \u0627\u0644\u062D\u0642\u064A\u0642\u064A\u0629"),
+    overview: tx(
+      "A comprehensive relaunch strategy for a local roastery in Tulkarm, centered on authentic in-house roasting and blending instead of random discounts. The work included visual identity direction, behind-the-scenes Reels scripts, market positioning, and campaign planning.",
+      "\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0625\u0639\u0627\u062F\u0629 \u0625\u0637\u0644\u0627\u0642 \u0634\u0627\u0645\u0644\u0629 \u0644\u0645\u062D\u0645\u0635 \u0645\u062D\u0644\u064A \u0641\u064A \u0637\u0648\u0644\u0643\u0631\u0645\u060C \u062A\u0631\u0643\u0632 \u0639\u0644\u0649 \u0627\u0644\u0635\u0646\u0639\u0629 \u0627\u0644\u062D\u0642\u064A\u0642\u064A\u0629 \u0627\u0644\u0645\u062A\u0645\u062B\u0644\u0629 \u0628\u0627\u0644\u062A\u062D\u0645\u064A\u0635 \u0648\u0627\u0644\u062E\u0644\u0637 \u062F\u0627\u062E\u0644 \u0627\u0644\u0645\u062D\u0644 \u0628\u062F\u0644\u064B\u0627 \u0645\u0646 \u0627\u0644\u062E\u0635\u0648\u0645\u0627\u062A \u0627\u0644\u0639\u0634\u0648\u0627\u0626\u064A\u0629. \u062A\u0636\u0645\u0646\u062A \u0628\u0646\u0627\u0621 \u0627\u062A\u062C\u0627\u0647 \u0627\u0644\u0647\u0648\u064A\u0629 \u0627\u0644\u0628\u0635\u0631\u064A\u0629\u060C \u0648\u0633\u0643\u0631\u064A\u0628\u062A\u0627\u062A \u0631\u064A\u0644\u0632 \u0627\u0644\u0643\u0648\u0627\u0644\u064A\u0633\u060C \u0648\u0627\u0644\u062A\u0645\u0648\u0636\u0639 \u0627\u0644\u0633\u0648\u0642\u064A\u060C \u0648\u062E\u0637\u0629 \u0627\u0644\u062D\u0645\u0644\u0627\u062A."
+    ),
+    tags: [tx("Market & Competitors", "\u0627\u0644\u0633\u0648\u0642 \u0648\u0627\u0644\u0645\u0646\u0627\u0641\u0633\u0648\u0646"), tx("Brand Positioning", "\u062A\u0645\u0648\u0636\u0639 \u0627\u0644\u0639\u0644\u0627\u0645\u0629"), tx("Content & Campaigns", "\u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0648\u0627\u0644\u062D\u0645\u0644\u0627\u062A")],
+    deliverables: [
+      { label: tx("Arabic Marketing Plan", "\u062E\u0637\u0629 \u0627\u0644\u0639\u0645\u0644 \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A\u0629 \u2014 \u0639\u0631\u0628\u064A"), file: karmolArabicPlan.url, format: "PDF" },
+      { label: tx("Original English Plan", "\u0627\u0644\u062E\u0637\u0629 \u0627\u0644\u0625\u0646\u062C\u0644\u064A\u0632\u064A\u0629 \u0627\u0644\u0623\u0635\u0644\u064A\u0629"), file: "/files/Karmol_Original_Marketing_Plan_EN.docx", format: "DOCX" },
+      { label: tx("Final Integrated Plan", "\u0627\u0644\u062E\u0637\u0629 \u0627\u0644\u0646\u0647\u0627\u0626\u064A\u0629 \u0627\u0644\u0645\u062A\u0643\u0627\u0645\u0644\u0629 \u0648\u0627\u0644\u0645\u0648\u0633\u0639\u0629"), file: "/files/Karmol_Final_Plan_EN.docx", format: "DOCX" }
+    ]
+  },
+  {
+    id: "laundry",
+    number: "02",
+    title: tx("On-Demand Laundry App Strategy", "\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u062A\u0637\u0628\u064A\u0642 \u062E\u062F\u0645\u0627\u062A \u0627\u0644\u063A\u0633\u064A\u0644 \u062D\u0633\u0628 \u0627\u0644\u0637\u0644\u0628"),
+    subtitle: tx("A market-backed service launch roadmap", "\u062E\u0627\u0631\u0637\u0629 \u0625\u0637\u0644\u0627\u0642 \u062E\u062F\u0645\u0629 \u0645\u0628\u0646\u064A\u0629 \u0639\u0644\u0649 \u062F\u0631\u0627\u0633\u0629 \u0627\u0644\u0633\u0648\u0642"),
+    overview: tx(
+      "Strategic research and planning for an on-demand laundry and ironing application, including PESTEL macro-environment analysis, SWOT, market segmentation, competitor understanding, and the extended 7 Ps marketing mix.",
+      "\u062F\u0631\u0627\u0633\u0629 \u0648\u062A\u062E\u0637\u064A\u0637 \u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A \u0644\u062A\u0637\u0628\u064A\u0642 \u063A\u0633\u064A\u0644 \u0648\u0643\u064A \u0645\u0644\u0627\u0628\u0633 \u062D\u0633\u0628 \u0627\u0644\u0637\u0644\u0628\u060C \u0645\u062A\u0636\u0645\u0646\u0629 \u062A\u062D\u0644\u064A\u0644 \u0627\u0644\u0628\u064A\u0626\u0629 \u0627\u0644\u0643\u0644\u064A\u0629 PESTEL\u060C \u0648\u062A\u062D\u0644\u064A\u0644 SWOT\u060C \u0648\u062A\u062C\u0632\u0626\u0629 \u0627\u0644\u0633\u0648\u0642\u060C \u0648\u0641\u0647\u0645 \u0627\u0644\u0645\u0646\u0627\u0641\u0633\u064A\u0646\u060C \u0648\u062A\u0637\u0628\u064A\u0642 \u0627\u0644\u0645\u0632\u064A\u062C \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A \u0627\u0644\u0645\u0648\u0633\u0639 7Ps."
+    ),
+    tags: [tx("PESTEL & SWOT", "PESTEL \u0648SWOT"), tx("Segmentation", "\u062A\u062C\u0632\u0626\u0629 \u0627\u0644\u0633\u0648\u0642"), tx("7 Ps", "\u0627\u0644\u0645\u0632\u064A\u062C 7Ps")],
+    deliverables: [
+      { label: tx("Full App Marketing Plan", "\u062A\u062D\u0645\u064A\u0644 \u0627\u0644\u062E\u0637\u0629 \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A\u0629 \u0627\u0644\u0643\u0627\u0645\u0644\u0629 \u0644\u0644\u062A\u0637\u0628\u064A\u0642"), file: "/files/Laundry_App_Marketing_Plan.pptx", format: "PPTX" }
+    ]
+  }
+];
+var supportingProjects = [
+  {
+    id: "logo",
+    title: tx("Logo Guidelines", "\u062F\u0644\u064A\u0644 \u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0627\u0644\u0634\u0639\u0627\u0631"),
+    desc: tx("Brand identity and logo usage specifications for consistent application.", "\u0645\u0648\u0627\u0635\u0641\u0627\u062A \u0627\u0644\u0647\u0648\u064A\u0629 \u0648\u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0627\u0644\u0634\u0639\u0627\u0631 \u0644\u0636\u0645\u0627\u0646 \u0627\u062A\u0633\u0627\u0642 \u062A\u0637\u0628\u064A\u0642\u0647."),
+    file: "/files/Logo_Guidelines.pdf"
+  },
+  {
+    id: "research",
+    title: tx("Marketing Research Methodology", "\u0645\u0646\u0647\u062C\u064A\u0629 \u0627\u0644\u0628\u062D\u062B \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A"),
+    desc: tx("A research framework for structured, comprehensive market analysis.", "\u0625\u0637\u0627\u0631 \u0628\u062D\u062B\u064A \u0644\u062A\u062D\u0644\u064A\u0644 \u0627\u0644\u0633\u0648\u0642 \u0628\u0634\u0643\u0644 \u0645\u0646\u0638\u0645 \u0648\u0634\u0627\u0645\u0644."),
+    file: "/files/Marketing_Research_Methodology.pdf"
+  },
+  {
+    id: "volunteer",
+    title: tx("Volunteer at Work Leadership", "\u0627\u0644\u0642\u064A\u0627\u062F\u0629 \u0648\u0627\u0644\u062A\u0637\u0648\u0639 \u0641\u064A \u0627\u0644\u0639\u0645\u0644"),
+    desc: tx("A presentation on leadership, initiative, and volunteer experience.", "\u0639\u0631\u0636 \u062A\u0642\u062F\u064A\u0645\u064A \u062D\u0648\u0644 \u0627\u0644\u0642\u064A\u0627\u062F\u0629 \u0648\u0627\u0644\u0645\u0628\u0627\u062F\u0631\u0629 \u0648\u0627\u0644\u062A\u062C\u0631\u0628\u0629 \u0627\u0644\u062A\u0637\u0648\u0639\u064A\u0629."),
+    link: "https://app.presentations.ai/view/Q5ysg6"
+  }
+];
+var skillGroups = [
+  {
+    title: tx("Business Diagnostics", "\u062A\u0634\u062E\u064A\u0635 \u0627\u0644\u0623\u0639\u0645\u0627\u0644"),
+    skills: [tx("Business Model Analysis", "\u062A\u062D\u0644\u064A\u0644 \u0646\u0645\u0648\u0630\u062C \u0627\u0644\u0639\u0645\u0644"), tx("SWOT & Critical Questions", "SWOT \u0648\u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u0627\u0644\u062D\u0631\u062C\u0629"), tx("Growth Strategy", "\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0627\u062A \u0627\u0644\u0646\u0645\u0648")]
+  },
+  {
+    title: tx("Market Intelligence", "\u0630\u0643\u0627\u0621 \u0627\u0644\u0633\u0648\u0642"),
+    skills: [tx("Market & Competitor Research", "\u0623\u0628\u062D\u0627\u062B \u0627\u0644\u0633\u0648\u0642 \u0648\u0627\u0644\u0645\u0646\u0627\u0641\u0633\u064A\u0646"), tx("Trend Analysis", "\u062A\u062D\u0644\u064A\u0644 \u0627\u0644\u0627\u062A\u062C\u0627\u0647\u0627\u062A"), tx("Audience Segmentation", "\u062A\u062C\u0632\u0626\u0629 \u0627\u0644\u062C\u0645\u0647\u0648\u0631")]
+  },
+  {
+    title: tx("Data & AI", "\u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0648\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A"),
+    skills: [tx("Excel: Regression & Pivot Tables", "Excel: \u0627\u0644\u0627\u0646\u062D\u062F\u0627\u0631 \u0648\u0627\u0644\u062C\u062F\u0627\u0648\u0644 \u0627\u0644\u0645\u062D\u0648\u0631\u064A\u0629"), tx("Claude & AI Research", "Claude \u0648\u0623\u0628\u062D\u0627\u062B \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A"), tx("AI-driven Insights", "\u0631\u0624\u0649 \u0645\u062F\u0639\u0648\u0645\u0629 \u0628\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A")]
+  },
+  {
+    title: tx("Campaigns & Measurement", "\u0627\u0644\u062D\u0645\u0644\u0627\u062A \u0648\u0627\u0644\u0642\u064A\u0627\u0633"),
+    skills: [tx("Targeting & Campaign Planning", "\u0627\u0644\u0627\u0633\u062A\u0647\u062F\u0627\u0641 \u0648\u062A\u062E\u0637\u064A\u0637 \u0627\u0644\u062D\u0645\u0644\u0627\u062A"), tx("SEO / SEM", "SEO / SEM"), tx("KPIs & Optimization", "\u0645\u0624\u0634\u0631\u0627\u062A \u0627\u0644\u0623\u062F\u0627\u0621 \u0648\u0627\u0644\u062A\u0637\u0648\u064A\u0631")]
+  },
+  {
+    title: tx("Training & Management", "\u0627\u0644\u062A\u062F\u0631\u064A\u0628 \u0648\u0625\u062F\u0627\u0631\u0629 \u0627\u0644\u0623\u0639\u0645\u0627\u0644"),
+    skills: [tx("Facilitation", "\u0627\u0644\u062A\u064A\u0633\u064A\u0631"), tx("Training Design", "\u062A\u0635\u0645\u064A\u0645 \u0627\u0644\u062A\u062F\u0631\u064A\u0628"), tx("Project & Business Management", "\u0625\u062F\u0627\u0631\u0629 \u0627\u0644\u0645\u0634\u0627\u0631\u064A\u0639 \u0648\u0627\u0644\u0623\u0639\u0645\u0627\u0644")]
+  },
+  {
+    title: tx("Creative Production", "\u0627\u0644\u0625\u0646\u062A\u0627\u062C \u0627\u0644\u0625\u0628\u062F\u0627\u0639\u064A"),
+    skills: [tx("Adobe Photoshop", "Adobe Photoshop"), tx("Reels & Visual Storytelling", "\u0627\u0644\u0631\u064A\u0644\u0632 \u0648\u0627\u0644\u0633\u0631\u062F \u0627\u0644\u0628\u0635\u0631\u064A"), tx("Illustrator & Canva", "Illustrator \u0648Canva")]
   }
 ];
 var achievements = [
   {
-    title: "National Debate Champion",
-    subtitle: "Palestinian Universities Debate Competition",
-    description: "Winner at the national level \u2014 selected as one of the top six debaters to represent the university. Praised for exceptional persuasion skills and sharp analytical thinking."
+    title: tx("National Debate Champion", "\u0628\u0637\u0644\u0629 \u0627\u0644\u0645\u0646\u0627\u0638\u0631\u0627\u062A \u0639\u0644\u0649 \u0627\u0644\u0645\u0633\u062A\u0648\u0649 \u0627\u0644\u0648\u0637\u0646\u064A"),
+    subtitle: tx("Palestinian Universities Debate Competition", "\u0645\u0633\u0627\u0628\u0642\u0629 \u0645\u0646\u0627\u0638\u0631\u0627\u062A \u0627\u0644\u062C\u0627\u0645\u0639\u0627\u062A \u0627\u0644\u0641\u0644\u0633\u0637\u064A\u0646\u064A\u0629"),
+    desc: tx(
+      "National-level winner selected among the top six debaters to represent the university, recognized for persuasive communication, sharp analysis, and precise refutation.",
+      "\u0641\u0648\u0632 \u0639\u0644\u0649 \u0627\u0644\u0645\u0633\u062A\u0648\u0649 \u0627\u0644\u0648\u0637\u0646\u064A \u0648\u0627\u062E\u062A\u064A\u0627\u0631 \u0636\u0645\u0646 \u0623\u0641\u0636\u0644 \u0633\u062A\u0629 \u0645\u0646\u0627\u0638\u0631\u064A\u0646 \u0644\u062A\u0645\u062B\u064A\u0644 \u0627\u0644\u062C\u0627\u0645\u0639\u0629\u060C \u0645\u0639 \u062A\u0642\u062F\u064A\u0631 \u0644\u0645\u0647\u0627\u0631\u0627\u062A \u0627\u0644\u0625\u0642\u0646\u0627\u0639 \u0648\u0627\u0644\u062A\u062D\u0644\u064A\u0644 \u0627\u0644\u0639\u0645\u064A\u0642 \u0648\u0627\u0644\u062F\u062D\u0636 \u0627\u0644\u062F\u0642\u064A\u0642."
+    )
   }
 ];
-var projects = [
-  {
-    title: "CleanSwift Marketing Plan",
-    description: "Comprehensive PowerPoint presentation showcasing marketing strategy and business planning.",
-    type: "document",
-    file: "/files/CleanSwift_Marketing_Plan.pptx"
-  },
-  {
-    title: "Laundry App Marketing Plan",
-    description: "Detailed marketing strategy and business plan for a mobile laundry application.",
-    type: "document",
-    file: "/files/Laundry_App_Marketing_Plan.pptx"
-  },
-  {
-    title: "Logo Guidelines",
-    description: "Brand identity guidelines and logo usage specifications for consistent branding.",
-    type: "document",
-    file: "/files/Logo_Guidelines.pdf"
-  },
-  {
-    title: "Marketing Research Methodology",
-    description: "Research framework and methodology for comprehensive market analysis.",
-    type: "document",
-    file: "/files/Marketing_Research_Methodology.pdf"
-  },
-  {
-    title: "Volunteer at Work Leadership",
-    description: "Presentation showcasing leadership skills and volunteer experience in a professional competition.",
-    type: "presentation",
-    link: "https://app.presentations.ai/view/Q5ysg6"
-  }
-];
-var designs = [
-  "LV Capucines \u2014 Product Ad",
-  "YOYOSO \u2014 Product Promotion",
-  "YSL Libre \u2014 Perfume Ad",
-  "Boeing \u2014 Vintage Poster (Photoshop)",
-  "Chanel Coco Noir \u2014 Ad Design",
-  "Flowers \u2014 Photography (Photoshop)",
-  "Delicious Burger \u2014 Food Ad (Photoshop)"
-];
-var skillGroups = [
-  { title: "E-Commerce", skills: ["Online Store Management", "SEO Optimization", "Data Analysis"] },
-  {
-    title: "Marketing",
-    skills: [
-      "Market & Competitor Analysis",
-      "Campaign Planning",
-      "Strategy Development",
-      "Performance Analysis"
-    ]
-  },
-  { title: "Business", skills: ["Project Management", "Strategic Planning"] },
-  { title: "Technical", skills: ["Java", "HTML & PHP", "SQL", "Graphic Design"] },
-  { title: "Design Tools", skills: ["Adobe Photoshop", "Adobe Illustrator", "Canva", "AI Tools"] },
-  {
-    title: "Soft Skills",
-    skills: [
-      "Emotional Intelligence",
-      "Effective Teamwork",
-      "Communication",
-      "Diplomatic Handling"
-    ]
-  }
-];
+
+// src/lib/mcp/data.ts
+var profile = { name: siteCopy.hero.name.en, nameArabic: siteCopy.hero.name.ar, headline: siteCopy.hero.roles.en, headlineArabic: siteCopy.hero.roles.ar, summary: siteCopy.hero.bio.en, summaryArabic: siteCopy.hero.bio.ar, location: "Tulkarm, Palestine", highlights: methodologyPillars.map((p) => p.description.en) };
+var contact = { email: "hibanmers@gmail.com", phone: "+972 59 834 9117", location: "Tulkarm, Palestine", linkedin: "https://www.linkedin.com/in/hiba-saaidah", instagram: "https://instagram.com/lasoriee.ps" };
+var experience = experiences.map((e) => ({ company: e.company.en, companyArabic: e.company.ar, role: e.role.en, roleArabic: e.role.ar, period: e.period.en, periodArabic: e.period.ar, tags: e.tags.map((t) => t.en), description: e.desc.en, descriptionArabic: e.desc.ar }));
+var achievements2 = achievements.map((a) => ({ title: a.title.en, titleArabic: a.title.ar, description: a.desc.en, descriptionArabic: a.desc.ar }));
+var projects = [...caseStudies.map((p) => ({ title: p.title.en, titleArabic: p.title.ar, description: p.overview.en, descriptionArabic: p.overview.ar, deliverables: p.deliverables })), ...supportingProjects.map((p) => ({ title: p.title.en, titleArabic: p.title.ar, description: p.desc.en, descriptionArabic: p.desc.ar, file: p.file, link: p.link }))];
+var designs = ["LV Capucines \u2014 Product Ad", "YOYOSO \u2014 Product Promotion", "YSL Libre \u2014 Perfume Ad", "Boeing \u2014 Vintage Poster (Photoshop)", "Chanel Coco Noir \u2014 Ad Design", "Flowers \u2014 Photography (Photoshop)", "Delicious Burger \u2014 Food Ad (Photoshop)"];
+var skillGroups2 = skillGroups.map((g) => ({ title: g.title.en, titleArabic: g.title.ar, skills: g.skills.map((s) => s.en), skillsArabic: g.skills.map((s) => s.ar) }));
 
 // src/lib/mcp/tools/get-contact.ts
 var get_contact_default = defineTool({
@@ -182,9 +415,9 @@ var list_experience_default = defineTool3({
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
     content: [
-      { type: "text", text: JSON.stringify({ experience, achievements }, null, 2) }
+      { type: "text", text: JSON.stringify({ experience, achievements: achievements2 }, null, 2) }
     ],
-    structuredContent: { experience, achievements }
+    structuredContent: { experience, achievements: achievements2 }
   })
 });
 
@@ -220,8 +453,8 @@ var list_skills_default = defineTool5({
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
-    content: [{ type: "text", text: JSON.stringify(skillGroups, null, 2) }],
-    structuredContent: { skillGroups }
+    content: [{ type: "text", text: JSON.stringify(skillGroups2, null, 2) }],
+    structuredContent: { skillGroups: skillGroups2 }
   })
 });
 
@@ -230,7 +463,7 @@ var mcp_default = defineMcp({
   name: "portfolio",
   title: "Portfolio",
   version: "0.1.0",
-  instructions: "Public tools for Hiba Saaydeh's portfolio. Use `get_profile` for her background, `list_experience` for work history and achievements, `list_projects` for projects and design work, `list_skills` for skills and tools, and `get_contact` for public contact links.",
+  instructions: "Public tools for Heba Al-Sayda's portfolio. Use `get_profile` for her background, `list_experience` for work history and achievements, `list_projects` for projects and design work, `list_skills` for skills and tools, and `get_contact` for public contact links.",
   tools: [
     get_profile_default,
     list_experience_default,

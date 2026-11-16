@@ -1,33 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { achievements, siteCopy } from "@/content/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
+import { Button } from "@/components/ui/button";
+import SectionHeading from "./SectionHeading";
 import { Award, X } from "lucide-react";
 import debateCertificate from "@/assets/debate-certificate.jpg";
 
-const achievements = [
-  {
-    title: "National Debate Champion",
-    subtitle: "Palestinian Universities Debate Competition",
-    desc: "Winner at the National Level – Selected as one of the top six debaters to represent the university. Praised for exceptional persuasion skills and sharp analytical thinking.",
-    image: debateCertificate,
-  },
-];
-
 const AchievementsSection = () => {
+  const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
     <section id="achievements" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">Achievements</h2>
-          <p className="mt-4 text-lg text-muted-foreground">Recognition & Awards</p>
-        </motion.div>
-
+        <SectionHeading {...siteCopy.achievements} />
         <div className="max-w-2xl mx-auto">
           {achievements.map((item, i) => (
             <motion.div
@@ -43,18 +30,18 @@ const AchievementsSection = () => {
                   <Award className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
-                  <p className="text-primary text-sm mt-1">{item.subtitle}</p>
+                  <h3 className="text-xl font-bold text-foreground">{t(item.title)}</h3>
+                  <p className="text-primary text-sm mt-1">{t(item.subtitle)}</p>
                 </div>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.desc}</p>
-              {item.image && (
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{t(item.desc)}</p>
+              {debateCertificate && (
                 <motion.img
-                  src={item.image}
-                  alt={item.title}
+                  src={debateCertificate}
+                  alt={t(item.title)}
                   className="w-full rounded-lg cursor-pointer hover:opacity-90 transition-opacity border border-border"
                   whileHover={{ scale: 1.02 }}
-                  onClick={() => setSelectedImage(item.image)}
+                  onClick={() => setSelectedImage(debateCertificate)}
                 />
               )}
             </motion.div>
@@ -72,15 +59,15 @@ const AchievementsSection = () => {
             className="fixed inset-0 z-[100] bg-background/90 backdrop-blur-md flex items-center justify-center p-6"
             onClick={() => setSelectedImage(null)}
           >
-            <button onClick={() => setSelectedImage(null)} className="absolute top-6 right-6 text-foreground hover:text-primary transition-colors">
+            <Button variant="ghost" size="icon" aria-label={t(siteCopy.achievements.close)} onClick={() => setSelectedImage(null)} className="absolute top-6 right-6 text-foreground hover:text-primary transition-colors">
               <X className="w-8 h-8" />
-            </button>
+            </Button>
             <motion.img
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               src={selectedImage}
-              alt="Certificate"
+              alt={t(siteCopy.experience.certificateAlt)}
               className="max-w-full max-h-[85vh] rounded-xl shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />

@@ -1,26 +1,16 @@
 import { motion } from "framer-motion";
+import { siteCopy } from "@/content/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
+import SectionHeading from "./SectionHeading";
 import watercolorPainting from "@/assets/watercolor-painting.webp";
 
-const cards = [
-  { num: "01", title: "The Strategist", desc: "A highly motivated E-Commerce and Business Administration student with strong skills in digital marketing, programming, and graphic design. I bring analytical thinking to creative challenges." },
-  { num: "02", title: "The Communicator", desc: "Fluent in English with high emotional intelligence and excellent diplomacy. Winner at the National Level – Palestinian Universities Debate Competition, recognized for exceptional persuasion skills." },
-  { num: "03", title: "The Professional", desc: "I integrate marketing strategy, visual design, and coding into one seamless workflow — from idea to fully functional digital product." },
-];
-
 const AboutSection = () => {
+  const { t } = useLanguage();
+  const cards = siteCopy.about.cards;
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">About Me</h2>
-          <p className="mt-4 text-lg text-muted-foreground">The Story Behind the Vision</p>
-        </motion.div>
+        <SectionHeading {...siteCopy.about} />
 
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <motion.div
@@ -31,7 +21,7 @@ const AboutSection = () => {
             className="lg:col-span-1 flex justify-center"
           >
             <div className="w-80 h-[420px] rounded-2xl overflow-hidden glow-pink border border-border">
-              <img src={watercolorPainting} alt="Artistic painting" className="w-full h-full object-cover" />
+              <img src={watercolorPainting} alt={t(siteCopy.about.imageAlt)} className="w-full h-full object-cover" />
             </div>
           </motion.div>
 
@@ -48,8 +38,8 @@ const AboutSection = () => {
                 <div className="flex items-start gap-4">
                   <span className="text-4xl font-serif font-bold text-primary/20 group-hover:text-primary/40 transition-colors shrink-0">{card.num}</span>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">{card.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">{card.desc}</p>
+                    <h3 className="text-xl font-bold text-foreground mb-2">{t(card.title)}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">{t(card.desc)}</p>
                   </div>
                 </div>
               </motion.div>

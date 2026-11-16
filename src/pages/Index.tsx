@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import MethodologySection from "@/components/MethodologySection";
+import { useLanguage } from "@/context/LanguageContext";
+import { siteCopy } from "@/content/portfolio";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -12,6 +15,7 @@ import StarField from "@/components/StarField";
 import LoadingScreen from "@/components/LoadingScreen";
 
 const Index = () => {
+  const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -26,6 +30,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <MethodologySection />
       <ExperienceSection />
       <AchievementsSection />
       <WorkSection />
@@ -33,7 +38,7 @@ const Index = () => {
       <SkillsSection />
       <ContactSection />
       <footer className="relative py-8 text-center border-t border-border">
-        <p className="text-sm text-muted-foreground">© 2025 Hiba Saaydeh — All Rights Reserved</p>
+        <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} {t(siteCopy.footer)}</p>
       </footer>
     </div>
   );

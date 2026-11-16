@@ -1,4 +1,5 @@
 import { tx, type LocalizedText } from "@/lib/language";
+import karmolArabicPlan from "@/assets/karmol-arabic-marketing-plan.pdf.asset.json";
 
 export const navItems = [
   { id: "home", label: tx("Home", "الرئيسية") },
@@ -223,11 +224,11 @@ export const experiences = [
     num: "03",
     company: tx("Karunya University · Coimbatore, India · IAESTE", "جامعة كارونيا · كويمباتور، الهند · IAESTE"),
     role: tx("Marketing Researcher & Data Analyst", "باحثة تسويق ومحللة بيانات"),
-    period: tx("2 Months · Ongoing", "شهران · مستمر"),
+    period: tx("August – September 2026 · Completed", "آب – أيلول 2026 · مكتمل"),
     tags: [tx("Market Research", "أبحاث السوق"), tx("Consumer Behaviour", "سلوك المستهلك"), tx("Excel", "إكسل")],
     desc: tx(
-      "Currently conducting market research, studying consumer behaviour, analyzing industry and competitor trends, and using Excel to evaluate quantitative and qualitative business data, support decisions, and prepare reports and presentations.",
-      "إجراء أبحاث السوق حاليًا، ودراسة سلوك المستهلك، وتحليل اتجاهات الصناعة والمنافسين، واستخدام Excel لتحليل بيانات الأعمال الكمية والنوعية ودعم القرار وإعداد التقارير والعروض التقديمية.",
+      "Completed two months of market and competitor research, segmentation, questionnaires, and customer interviews. Cleaned data in Excel, applied linear regression and pivot tables, and translated quantitative and qualitative findings into business recommendations. Joined an industrial visit to study operational workflows.",
+      "أتممت شهرين من أبحاث السوق والمنافسين وتجزئة السوق وتصميم الاستبيانات وإجراء مقابلات العملاء. نظفت البيانات باستخدام Excel وطبقت الانحدار الخطي والجداول المحورية، وحولت النتائج الكمية والنوعية إلى توصيات للأعمال، مع زيارة صناعية لدراسة سير العمليات.",
     ),
   },
   {
@@ -245,23 +246,31 @@ export const experiences = [
     num: "05",
     company: tx("Roya Palestinian Organization", "مؤسسة رؤيا الفلسطينية"),
     role: tx("Facilitator & Life Skills Trainer", "ميسرة ومدربة مهارات حياتية"),
-    period: tx("July 2025 · Completed", "تموز 2025 · مكتمل"),
+    period: tx("Completed", "مكتمل"),
     tags: [tx("Facilitation", "التيسير"), tx("Training Design", "تصميم التدريب"), tx("Communication", "التواصل")],
     desc: tx(
-      "Facilitated practical learning in communication, self-confidence, and time management, and redesigned activities around real-life simulations and clear feedback.",
-      "تيسير تعلم تطبيقي في التواصل والثقة بالنفس وإدارة الوقت، وإعادة تصميم الأنشطة لتشمل محاكاة مواقف واقعية وتغذية راجعة واضحة.",
+      "Trained teenagers in communication and time management through practical simulations. Coordinated a community psychological first aid initiative for children with a PhD expert, and organized a three-day recreational program led by the trained teams.",
+      "دربت اليافعين على التواصل وإدارة الوقت عبر محاكاة تطبيقية. نسقت مبادرة مجتمعية للإسعاف النفسي الأولي للأطفال بالتعاون مع خبير حاصل على الدكتوراه، ونظمت برنامجًا ترفيهيًا لثلاثة أيام بمشاركة الفرق المدربة.",
     ),
   },
   {
     num: "06",
     company: tx("SheTech · Tahaluf Consulting & Galaxy Training Center", "SheTech · تحالف للاستشارات ومركز غالاكسي للتدريب"),
     role: tx("Digital Marketing Specialist Training", "تدريب أخصائية تسويق رقمي"),
-    period: tx("February 2026 · Completed", "شباط 2026 · مكتمل"),
+    period: tx("February – July 2026 · Completed", "شباط – تموز 2026 · مكتمل"),
     tags: [tx("96 Hours", "96 ساعة"), tx("AI in Marketing", "الذكاء الاصطناعي في التسويق"), tx("U.S. Department of State", "الخارجية الأمريكية")],
     desc: tx(
       "Completed a 96-hour professional program supported by the U.S. Department of State, covering SEO, SEM, social media, content, AI-assisted analytics, e-commerce business models, and tech entrepreneurship.",
       "إتمام برنامج مهني لمدة 96 ساعة بدعم من وزارة الخارجية الأمريكية، شمل SEO وSEM ووسائل التواصل والمحتوى والتحليلات المدعومة بالذكاء الاصطناعي ونماذج أعمال التجارة الإلكترونية وريادة الأعمال التقنية.",
     ),
+  },
+  {
+    num: "07",
+    company: tx("Marketing Direction · Tulkarm", "الإدارة التسويقية · طولكرم"),
+    role: tx("Marketing Director", "مديرة تسويق"),
+    period: tx("March – April 2026 · Completed", "آذار – نيسان 2026 · مكتمل"),
+    tags: [tx("Campaign Direction", "توجيه الحملات"), tx("Client Coordination", "تنسيق العملاء"), tx("Production", "الإنتاج")],
+    desc: tx("Developed marketing plans and content scripts, coordinated schedules and client communication, directed photographers on shoots, and defined brand identity guidelines for consistent campaign production.", "طورت خطط التسويق وسكريبتات المحتوى، ونسقت المواعيد والتواصل مع العملاء، ووجهت المصورين خلال جلسات التصوير، وحددت إرشادات الهوية لضمان اتساق إنتاج الحملات."),
   },
 ];
 
@@ -283,7 +292,7 @@ export const caseStudies = [
     ),
     tags: [tx("Market & Competitors", "السوق والمنافسون"), tx("Brand Positioning", "تموضع العلامة"), tx("Content & Campaigns", "المحتوى والحملات")],
     deliverables: [
-      { label: tx("Arabic Marketing Plan", "خطة العمل التسويقية — عربي"), file: "/files/خطة_كرمول_التسويقية.pdf", format: "PDF" },
+      { label: tx("Arabic Marketing Plan", "خطة العمل التسويقية — عربي"), file: karmolArabicPlan.url, format: "PDF" },
       { label: tx("Original English Plan", "الخطة الإنجليزية الأصلية"), file: "/files/Karmol_Original_Marketing_Plan_EN.docx", format: "DOCX" },
       { label: tx("Final Integrated Plan", "الخطة النهائية المتكاملة والموسعة"), file: "/files/Karmol_Final_Plan_EN.docx", format: "DOCX" },
     ] satisfies Deliverable[],
@@ -336,7 +345,7 @@ export const skillGroups = [
   },
   {
     title: tx("Data & AI", "البيانات والذكاء الاصطناعي"),
-    skills: [tx("Excel Analysis", "تحليل البيانات بـExcel"), tx("Claude & AI Research", "Claude وأبحاث الذكاء الاصطناعي"), tx("AI-driven Insights", "رؤى مدعومة بالذكاء الاصطناعي")],
+    skills: [tx("Excel: Regression & Pivot Tables", "Excel: الانحدار والجداول المحورية"), tx("Claude & AI Research", "Claude وأبحاث الذكاء الاصطناعي"), tx("AI-driven Insights", "رؤى مدعومة بالذكاء الاصطناعي")],
   },
   {
     title: tx("Campaigns & Measurement", "الحملات والقياس"),

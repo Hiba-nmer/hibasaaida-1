@@ -10,7 +10,7 @@ export default defineMcp({
   title: "Portfolio",
   version: "0.1.0",
   instructions:
-    "Public tools for Hiba Saaydeh's portfolio. Use `get_profile` for her background, `list_experience` for work history and achievements, `list_projects` for projects and design work, `list_skills` for skills and tools, and `get_contact` for public contact links.",
+    "Public tools for Heba Al-Sayda's portfolio. Use `get_profile` for her background, `list_experience` for work history and achievements, `list_projects` for projects and design work, `list_skills` for skills and tools, and `get_contact` for public contact links.",
   tools: [
     getProfileTool,
     listExperienceTool,

@@ -1,16 +1,11 @@
 import { motion } from "framer-motion";
+import { skillGroups, siteCopy } from "@/content/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
+import SectionHeading from "./SectionHeading";
 import flowersSky from "@/assets/flowers-sky.png";
 
-const skillGroups = [
-  { title: "E-Commerce", skills: ["Online Store Management", "SEO Optimization", "Data Analysis"] },
-  { title: "Marketing", skills: ["Market & Competitor Analysis", "Campaign Planning", "Strategy Development", "Performance Analysis"] },
-  { title: "Business", skills: ["Project Management", "Strategic Planning"] },
-  { title: "Technical", skills: ["Java", "HTML & PHP", "SQL", "Graphic Design"] },
-  { title: "Design Tools", skills: ["Adobe Photoshop", "Adobe Illustrator", "Canva", "AI Tools"] },
-  { title: "Soft Skills", skills: ["Emotional Intelligence", "Effective Teamwork", "Communication", "Diplomatic Handling"] },
-];
-
 const SkillsSection = () => {
+  const { t } = useLanguage();
   return (
     <section id="skills" className="py-24 px-6 relative overflow-hidden">
       {/* Flowers background - fully visible like original */}
@@ -20,16 +15,7 @@ const SkillsSection = () => {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">Skills & Tools</h2>
-          <p className="mt-4 text-lg text-muted-foreground">My Creative Arsenal</p>
-        </motion.div>
-
+        <SectionHeading {...siteCopy.skills} />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillGroups.map((group, i) => (
             <motion.div
@@ -40,12 +26,12 @@ const SkillsSection = () => {
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 hover:bg-card transition-all duration-300"
             >
-              <h3 className="text-lg font-bold text-primary mb-4">{group.title}</h3>
+              <h3 className="text-lg font-bold text-primary mb-4">{t(group.title)}</h3>
               <div className="space-y-3">
                 {group.skills.map((skill, j) => (
                   <div key={j} className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary/60 shrink-0" />
-                    <span className="text-sm text-muted-foreground">{skill}</span>
+                    <span className="text-sm text-muted-foreground">{t(skill)}</span>
                   </div>
                 ))}
               </div>

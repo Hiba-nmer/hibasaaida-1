@@ -1,5 +1,6 @@
 # Portfolio professional identity update
 
+- [ ] Use the supplied Arabic Karmol PDF and refresh professional experience from the supplied CV without publishing the CV.
 - [ ] Add full Arabic/English language switching, RTL/LTR support, typography, and metadata.
 - [ ] Rebuild the hero, about, methodology, and experience around the new professional identity with no student positioning.
 - [ ] Add structured Karmol and Laundry case studies with working deliverable downloads, including an Arabic Karmol PDF.

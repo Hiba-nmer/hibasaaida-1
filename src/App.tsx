@@ -6,11 +6,13 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+import { LanguageProvider } from "@/context/LanguageContext";
+
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
+    <LanguageProvider><TooltipProvider>
       <Toaster />
       <Sonner />
       <HashRouter>
@@ -20,7 +22,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </HashRouter>
-    </TooltipProvider>
+    </TooltipProvider></LanguageProvider>
   </QueryClientProvider>
 );
 

@@ -1,68 +1,23 @@
 import { motion } from "framer-motion";
-
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
+import { siteCopy } from "@/content/portfolio";
 const HeroSection = () => {
-  return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
-      {/* Animated gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/5 blur-3xl"
-        />
-        <motion.div
-          animate={{ x: [0, -20, 0], y: [0, 30, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-primary/3 blur-3xl"
-        />
+  const { t } = useLanguage();
+  const c = siteCopy.hero;
+  return <section id="home" className="relative flex min-h-[85svh] items-center justify-center px-6 pb-16 pt-32">
+    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }} className="relative z-10 max-w-4xl text-center">
+      <p className="mb-6 text-sm text-primary">{t(c.eyebrow)}</p>
+      <h1 className="text-5xl font-bold leading-tight text-foreground md:text-7xl lg:text-8xl">{t(c.name)}</h1>
+      <p className="mx-auto mt-7 max-w-3xl text-xl leading-relaxed text-primary md:text-2xl">{t(c.roles)}</p>
+      <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">{t(c.bio)}</p>
+      <div className="mt-9 flex flex-wrap justify-center gap-4">
+        <Button asChild size="lg"><a href="#work">{t(c.primaryCta)}<ArrowUpRight className="ms-2 h-4 w-4" /></a></Button>
+        <Button asChild variant="outline" size="lg"><a href="#contact">{t(c.secondaryCta)}</a></Button>
       </div>
-
-      <div className="relative z-10 text-center px-6 max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight text-foreground">
-            Turning Ideas Into
-          </h1>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gradient mt-2">
-            <span className="text-gradient">Impact</span>
-          </h1>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-8 space-y-2"
-        >
-          <p className="text-xl md:text-2xl text-foreground/90 font-medium tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
-            E-Commerce & Digital Marketing Specialist
-          </p>
-          <p className="text-lg md:text-xl text-muted-foreground italic tracking-wider" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            Creative Strategist · Designer · Web Builder
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="mt-16 text-muted-foreground text-sm flex flex-col items-center gap-2"
-        >
-          <span className="italic tracking-[0.3em] uppercase" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Scroll to explore</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-5 h-8 border-2 border-muted-foreground/40 rounded-full flex justify-center pt-1"
-          >
-            <div className="w-1 h-2 rounded-full bg-primary" />
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
+      <a href="#about" className="mt-12 inline-flex items-center gap-3 text-sm text-muted-foreground">{t(c.scroll)}<ArrowDown className="h-4 w-4" /></a>
+    </motion.div>
+  </section>;
 };
-
 export default HeroSection;

@@ -22,11 +22,11 @@ const SectionHeading = ({ eyebrow, title, description, align = "center" }: Secti
       className={`mb-12 max-w-3xl ${alignment}`}
     >
       {eyebrow && (
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+        <p className="mb-4 text-xs font-semibold uppercase text-primary">
           {t(eyebrow)}
         </p>
       )}
-      <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground md:text-5xl">
+      <h2 className="text-balance text-3xl font-bold leading-tight text-foreground md:text-5xl">
         {t(title)}
       </h2>
       {description && (

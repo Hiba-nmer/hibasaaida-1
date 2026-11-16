@@ -3,13 +3,11 @@ import { useWebMCP } from "use-webmcp-tool";
 import { runWebMCPTool } from "@/lib/webmcp-telemetry";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
-import workCleanswift from "@/assets/work-cleanswift.jpg";
 import workLaundry from "@/assets/work-laundry.jpg";
 import workLogo from "@/assets/work-logo.jpg";
 import workResearch from "@/assets/work-research.jpg";
 import workVolunteer from "@/assets/work-volunteer.jpg";
 import workKarmolPlan from "@/assets/work-karmol-plan.jpg";
-import workKarmolResearch from "@/assets/work-karmol-research.jpg";
 
 import designLvBag from "@/assets/design-lv-bag.jpg";
 import designYoyoso from "@/assets/design-yoyoso.jpg";
@@ -19,182 +17,27 @@ import designChanel from "@/assets/design-chanel.png";
 import designFlowers from "@/assets/design-flowers.jpg";
 import designBurger from "@/assets/design-burger.jpg";
 
-const projects = [
-  { title: "CleanSwift Marketing Plan", desc: "Comprehensive PowerPoint presentation showcasing marketing strategy and business planning", file: "/files/CleanSwift_Marketing_Plan.pptx", image: workCleanswift },
-  { title: "Laundry App Marketing Plan", desc: "Detailed marketing strategy and business plan for mobile laundry application", file: "/files/Laundry_App_Marketing_Plan.pptx", image: workLaundry },
-  { title: "Logo Guidelines", desc: "Brand identity guidelines and logo usage specifications for consistent branding", file: "/files/Logo_Guidelines.pdf", image: workLogo },
-  { title: "Marketing Research Methodology", desc: "Research framework and methodology for comprehensive market analysis", file: "/files/Marketing_Research_Methodology.pdf", image: workResearch },
-  { title: "Volunteer at Work Leadership", desc: "Presentation showcasing leadership skills and volunteer experience in professional competition", link: "https://app.presentations.ai/view/Q5ysg6", image: workVolunteer },
-  { title: "Karmol — Final Marketing Plan", desc: "Client work for Karmol, a retail shop I worked with: full marketing plan covering positioning, market study, competitor analysis, pricing and campaign roadmap", file: "/files/Karmol_Final_Plan_EN.docx", image: workKarmolPlan },
-  { title: "Karmol — Original Marketing Plan & Market Study", desc: "Client work for Karmol: the original marketing plan with market research, competitor benchmarking, target audience analysis and strategic recommendations", file: "/files/Karmol_Original_Marketing_Plan_EN.docx", image: workKarmolResearch },
-];
-
+import { caseStudies, supportingProjects, siteCopy } from "@/content/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
+import { tx } from "@/lib/language";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import SectionHeading from "./SectionHeading";
 const designImages = [designLvBag, designYoyoso, designLibre, designBoeing, designChanel, designFlowers, designBurger];
-const designTitles = [
-  "LV Capucines — Product Ad",
-  "YOYOSO — Product Promotion",
-  "YSL Libre — Perfume Ad",
-  "Boeing — Vintage Poster (Photoshop)",
-  "Chanel Coco Noir — Ad Design",
-  "Flowers — Photography (Photoshop)",
-  "Delicious Burger — Food Ad (Photoshop)",
-];
-
+const designTitles = [tx("LV Capucines — Product Ad", "LV Capucines — إعلان منتج"), tx("YOYOSO — Product Promotion", "YOYOSO — ترويج منتج"), tx("YSL Libre — Perfume Ad", "YSL Libre — إعلان عطر"), tx("Boeing — Vintage Poster (Photoshop)", "بوينغ — ملصق كلاسيكي (Photoshop)"), tx("Chanel Coco Noir — Ad Design", "Chanel Coco Noir — تصميم إعلاني"), tx("Flowers — Photography (Photoshop)", "زهور — تصوير (Photoshop)"), tx("Delicious Burger — Food Ad (Photoshop)", "برغر — إعلان طعام (Photoshop)")];
 const WorkSection = () => {
-  const [showDesigns, setShowDesigns] = useState(false);
-  const [currentDesign, setCurrentDesign] = useState(0);
-
-  useWebMCP({
-    name: "read_portfolio_work",
-    description: "Read the projects and graphic designs displayed in My Work without opening or downloading anything.",
-    annotations: { readOnlyHint: true, untrustedContentHint: true },
-    execute: () => runWebMCPTool("read_portfolio_work", () => [
-      ...projects.map((project) => `${project.title}: ${project.desc}`),
-      `Graphic designs: ${designTitles.join("; ")}`,
-      ...(showDesigns ? [`Open design: ${designTitles[currentDesign]}`] : []),
-    ].join("\n")),
-  });
-
-  return (
-    <section id="work" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">My Work</h2>
-          <p className="mt-4 text-lg text-muted-foreground">Projects & Documents</p>
-        </motion.div>
-
-        {/* Project cards with 3D perspective */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group cursor-pointer [perspective:1000px]"
-              onClick={() => {
-                if (project.file) {
-                  const a = document.createElement("a");
-                  a.href = project.file;
-                  a.download = project.file.split("/").pop() || "file";
-                  a.click();
-                } else if (project.link) {
-                  window.open(project.link, "_blank");
-                }
-              }}
-            >
-              <div className="relative bg-card/80 backdrop-blur-sm border border-border rounded-xl overflow-hidden transition-all duration-500 group-hover:border-primary/40 group-hover:[transform:rotateY(-5deg)_rotateX(3deg)_scale(1.02)] group-hover:shadow-[0_20px_60px_-15px_hsl(330_85%_60%/0.3)] [transform-style:preserve-3d]">
-                <div className="w-full h-48 overflow-hidden bg-secondary/50">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-foreground mb-2">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{project.desc}</p>
-                  {project.file && (
-                    <div className="mt-4 flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Download className="w-4 h-4" />
-                      <span>Click to Download</span>
-                    </div>
-                  )}
-                  {project.link && (
-                    <div className="mt-4 flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ExternalLink className="w-4 h-4" />
-                      <span>View Presentation</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Graphic Design - Single Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12"
-        >
-          <div
-            className="group cursor-pointer [perspective:1000px] max-w-md mx-auto"
-            onClick={() => { setShowDesigns(true); setCurrentDesign(0); }}
-          >
-            <div className="relative bg-card/80 backdrop-blur-sm border border-border rounded-xl overflow-hidden transition-all duration-500 group-hover:border-primary/40 group-hover:[transform:rotateY(-5deg)_rotateX(3deg)_scale(1.02)] group-hover:shadow-[0_20px_60px_-15px_hsl(330_85%_60%/0.3)] [transform-style:preserve-3d]">
-              <div className="w-full h-56 overflow-hidden bg-secondary/50 relative">
-                <img
-                  src={designLvBag}
-                  alt="Graphic Design Portfolio"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent flex items-end p-6">
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground">Graphic Design Portfolio</h3>
-                    <p className="text-sm text-muted-foreground mt-1">Click to view {designImages.length} designs</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Design Gallery Popup */}
-      <AnimatePresence>
-        {showDesigns && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-background/90 backdrop-blur-md flex items-center justify-center p-6"
-            onClick={() => setShowDesigns(false)}
-          >
-            <button onClick={() => setShowDesigns(false)} className="absolute top-6 right-6 text-foreground hover:text-primary transition-colors z-10">
-              <X className="w-8 h-8" />
-            </button>
-
-            {/* Navigation arrows */}
-            <button
-              onClick={(e) => { e.stopPropagation(); setCurrentDesign((prev) => (prev - 1 + designImages.length) % designImages.length); }}
-              className="absolute left-4 md:left-8 text-foreground hover:text-primary transition-colors z-10"
-            >
-              <ChevronLeft className="w-10 h-10" />
-            </button>
-            <button
-              onClick={(e) => { e.stopPropagation(); setCurrentDesign((prev) => (prev + 1) % designImages.length); }}
-              className="absolute right-4 md:right-8 text-foreground hover:text-primary transition-colors z-10"
-            >
-              <ChevronRight className="w-10 h-10" />
-            </button>
-
-            <div className="text-center" onClick={(e) => e.stopPropagation()}>
-              <motion.img
-                key={currentDesign}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                src={designImages[currentDesign]}
-                alt={designTitles[currentDesign]}
-                className="max-w-full max-h-[75vh] rounded-xl shadow-2xl mx-auto"
-              />
-              <p className="text-foreground font-medium mt-4">{designTitles[currentDesign]}</p>
-              <p className="text-muted-foreground text-sm mt-1">{currentDesign + 1} / {designImages.length}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </section>
-  );
+ const { t } = useLanguage();
+ const [showDesigns, setShowDesigns] = useState(false);
+ const [currentDesign, setCurrentDesign] = useState(0);
+ useWebMCP({ name: "read_portfolio_work", description: "Read the case studies and designs displayed on the page.", annotations: { readOnlyHint: true, untrustedContentHint: true }, execute: () => runWebMCPTool("read_portfolio_work", () => caseStudies.map(p => `${t(p.title)}: ${t(p.overview)}`).join("\n")) });
+ return <><section id="work" className="px-6 py-24"><div className="mx-auto max-w-6xl"><SectionHeading {...siteCopy.work} />
+ <div className="space-y-16">{caseStudies.map((project, i) => <article key={project.id} className="grid items-start gap-8 border-t border-border pt-8 lg:grid-cols-2">
+ <div><span className="font-serif text-4xl text-primary/50">{project.number}</span><h3 className="mt-4 text-3xl leading-tight text-foreground">{t(project.title)}</h3><p className="mt-3 text-primary">{t(project.subtitle)}</p><p className="mt-5 leading-relaxed text-muted-foreground">{t(project.overview)}</p><div className="mt-5 flex flex-wrap gap-2">{project.tags.map(tag => <span key={tag.en} className="rounded border border-border px-3 py-1 text-xs text-muted-foreground">{t(tag)}</span>)}</div></div>
+ <div><img src={i === 0 ? workKarmolPlan : workLaundry} alt={t(project.title)} className="aspect-[4/3] w-full rounded-lg object-cover" /><h4 className="mb-3 mt-6 text-lg text-foreground">{t(siteCopy.work.deliverables)}</h4><div className="flex flex-col items-start gap-3">{project.deliverables.map(d => <Button asChild variant="outline" key={d.file} className="h-auto max-w-full justify-start whitespace-normal py-3 text-start"><a href={d.file} download={d.file.split('/').pop()}><Download className="me-3 h-4 w-4 shrink-0" /><span>{t(d.label)} · {d.format}</span></a></Button>)}</div></div>
+ </article>)}</div>
+ <div className="mt-20"><h3 className="mb-8 text-2xl">{t(siteCopy.work.supportingTitle)}</h3><div className="grid gap-6 md:grid-cols-3">{supportingProjects.map((p,i) => <article key={p.id} className="overflow-hidden rounded-lg border border-border bg-card/80 backdrop-blur-sm"><img src={[workLogo,workResearch,workVolunteer][i]} alt={t(p.title)} className="aspect-[4/3] w-full object-cover" /><div className="p-5"><h4 className="text-lg">{t(p.title)}</h4><p className="mt-3 text-sm text-muted-foreground">{t(p.desc)}</p><Button asChild variant="link" className="mt-4 px-0"><a href={p.file || p.link} download={p.file ? p.file.split('/').pop() : undefined} target={p.link ? "_blank" : undefined} rel="noopener noreferrer">{p.file ? <Download className="me-2 h-4 w-4" /> : <ExternalLink className="me-2 h-4 w-4" />}{t(p.file ? siteCopy.work.download : siteCopy.work.viewPresentation)}</a></Button></div></article>)}</div></div>
+ </div></section>
+ <section id="creative" className="px-6 py-24"><div className="mx-auto max-w-6xl"><SectionHeading {...siteCopy.creative} /><div className="mx-auto max-w-xl overflow-hidden rounded-lg border border-border bg-card/80"><img src={designLvBag} alt={t(siteCopy.creative.title)} className="aspect-[4/3] w-full object-cover" /><div className="flex flex-wrap items-center justify-between gap-4 p-6"><p className="text-muted-foreground">{t(siteCopy.creative.designsCount)}</p><Button onClick={() => {setCurrentDesign(0);setShowDesigns(true);}}>{t(siteCopy.creative.openGallery)}</Button></div></div></div></section>
+ <Dialog open={showDesigns} onOpenChange={setShowDesigns}><DialogContent className="max-w-4xl"><DialogTitle>{t(designTitles[currentDesign])}</DialogTitle><img src={designImages[currentDesign]} alt={t(designTitles[currentDesign])} className="mx-auto max-h-[65vh] w-full object-contain" /><div className="flex items-center justify-between"><Button variant="outline" size="icon" title={t(siteCopy.creative.previous)} aria-label={t(siteCopy.creative.previous)} onClick={() => setCurrentDesign(p => (p-1+designImages.length)%designImages.length)}><ChevronLeft /></Button><span>{currentDesign+1} / {designImages.length}</span><Button variant="outline" size="icon" title={t(siteCopy.creative.next)} aria-label={t(siteCopy.creative.next)} onClick={() => setCurrentDesign(p => (p+1)%designImages.length)}><ChevronRight /></Button></div></DialogContent></Dialog></>;
 };
-
 export default WorkSection;

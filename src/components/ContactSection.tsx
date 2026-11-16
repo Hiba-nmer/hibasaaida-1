@@ -1,110 +1,16 @@
-import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import crownImage from "@/assets/crown.png";
-
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
+import { siteCopy } from "@/content/portfolio";
+import SectionHeading from "./SectionHeading";
 const ContactSection = () => {
-  return (
-    <section id="contact" className="py-24 px-6 relative overflow-hidden">
-      {/* Crown background - like flowers in skills */}
-      <div className="absolute inset-0">
-        <img src={crownImage} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-background/70" />
-      </div>
-
-      <div className="max-w-4xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">Let's Create Something Amazing</h2>
-          <p className="mt-4 text-lg text-muted-foreground">Ready to transform your brand? Let's collaborate and make magic happen.</p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 text-center hover:bg-card transition-all duration-300"
-          >
-            <Mail className="w-6 h-6 text-primary mx-auto mb-3" />
-            <p className="text-sm text-muted-foreground mb-1">Email</p>
-            <p className="text-sm text-foreground font-medium">hibanmers@gmail.com</p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 text-center hover:bg-card transition-all duration-300"
-          >
-            <Phone className="w-6 h-6 text-primary mx-auto mb-3" />
-            <p className="text-sm text-muted-foreground mb-1">Phone</p>
-            <p className="text-sm text-foreground font-medium">+972 59 834 9117</p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 text-center hover:bg-card transition-all duration-300"
-          >
-            <MapPin className="w-6 h-6 text-primary mx-auto mb-3" />
-            <p className="text-sm text-muted-foreground mb-1">Location</p>
-            <p className="text-sm text-foreground font-medium">Tulkarm, Palestine</p>
-          </motion.div>
-          <motion.a
-            href="https://www.linkedin.com/in/hiba-saaidah"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 text-center hover:bg-card hover:border-primary/40 transition-all duration-300"
-          >
-            <Linkedin className="w-6 h-6 text-primary mx-auto mb-3" />
-            <p className="text-sm text-muted-foreground mb-1">LinkedIn</p>
-            <p className="text-sm text-foreground font-medium">Hiba Saaidah</p>
-          </motion.a>
-        </div>
-
-        <motion.form
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-8 space-y-4 hover:bg-card transition-all duration-300"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <div className="grid md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              placeholder="Name"
-              className="bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-            />
-          </div>
-          <textarea
-            placeholder="Message"
-            rows={5}
-            className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
-          />
-          <button
-            type="submit"
-            className="w-full bg-primary text-primary-foreground rounded-lg py-3 font-medium hover:opacity-90 transition-opacity"
-          >
-            Send Message
-          </button>
-        </motion.form>
-      </div>
-    </section>
-  );
+ const { t } = useLanguage(); const c = siteCopy.contact;
+ return <section id="contact" className="relative overflow-hidden px-6 py-24"><div className="absolute inset-0"><img src={crownImage} alt="" className="h-full w-full object-cover" /><div className="absolute inset-0 bg-background/80" /></div><div className="relative mx-auto max-w-5xl"><SectionHeading {...c} />
+ <div className="grid gap-8 border-y border-border py-8 md:grid-cols-3">
+ <div className="min-w-0"><Mail className="mb-3 text-primary" /><p className="text-sm text-muted-foreground">{t(c.email)}</p><a dir="ltr" className="break-all" href="mailto:hibanmers@gmail.com">hibanmers@gmail.com</a></div>
+ <div><Phone className="mb-3 text-primary" /><p className="text-sm text-muted-foreground">{t(c.phone)}</p><a dir="ltr" href="tel:+972598349117">+972 59 834 9117</a></div>
+ <div><MapPin className="mb-3 text-primary" /><p className="text-sm text-muted-foreground">{t(c.location)}</p><p>{t(c.locationValue)}</p></div></div>
+ <div className="mt-10 flex flex-wrap justify-center gap-4"><Button asChild size="lg"><a href="https://www.linkedin.com/in/hiba-saaidah" target="_blank" rel="noopener noreferrer"><Linkedin className="me-2 h-4 w-4" />{t(c.linkedinCta)}</a></Button><Button asChild size="lg" variant="outline"><a href="mailto:hibanmers@gmail.com"><Mail className="me-2 h-4 w-4" />{t(c.emailCta)}</a></Button></div></div></section>;
 };
-
 export default ContactSection;

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,7 +32,13 @@
     --input: 260 15% 16%;
     --ring: 330 85% 60%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
+    --journal-background: 150 8% 7%;
+    --journal-accent: 135 25% 68%;
+    --journal-border: 140 18% 30%;
+    --journal-overlay: 150 30% 9%;
+    --splash-start: 330 85% 45%;
+    --splash-end: 320 70% 40%;
 
     --sidebar-background: 260 20% 6%;
     --sidebar-foreground: 0 0% 90%;
@@ -54,8 +58,8 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
-    background: hsl(260 30% 4%);
+    font-family: 'Work Sans', 'Noto Sans Arabic', sans-serif;
+    background: hsl(var(--background));
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -89,4 +93,16 @@
       radial-gradient(ellipse at 30% 50%, hsl(330 70% 40% / 0.08) 0%, transparent 50%),
       radial-gradient(ellipse at 70% 30%, hsl(280 60% 35% / 0.06) 0%, transparent 40%);
   }
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+section { scroll-margin-top: 90px; }
+* { letter-spacing: 0 !important; }
+html[lang="ar"] body, html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4 { font-family: 'Noto Sans Arabic', sans-serif; }
+.journal-bg { background: hsl(var(--journal-background)); }
+.journal-overlay { background: hsl(var(--journal-overlay) / .85); }
+.splash-bg { background: linear-gradient(135deg, hsl(var(--splash-start)), hsl(var(--splash-end))); }
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto; }
+ *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
