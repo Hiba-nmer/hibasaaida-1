@@ -1,5 +1,4 @@
 import { tx, type LocalizedText } from "@/lib/language";
-import karmolArabicPlan from "@/assets/karmol-arabic-marketing-plan.pdf.asset.json";
 
 export const navItems = [
   { id: "home", label: tx("Home", "الرئيسية") },
@@ -93,7 +92,7 @@ export const siteCopy = {
     ),
     deliverables: tx("Case study deliverables", "ملفات دراسة الحالة"),
     download: tx("Download", "تحميل"),
-    supportingTitle: tx("Research, Identity & Presentations", "أبحاث وهوية وعروض تقديمية"),
+    supportingTitle: tx("Identity & Presentations", "هوية وعروض تقديمية"),
     supportingDescription: tx("Additional strategy and communication resources.", "مصادر إضافية في الاستراتيجية والتواصل."),
     viewPresentation: tx("View Presentation", "عرض التقديم"),
   },
@@ -292,7 +291,7 @@ export const caseStudies = [
     ),
     tags: [tx("Market & Competitors", "السوق والمنافسون"), tx("Brand Positioning", "تموضع العلامة"), tx("Content & Campaigns", "المحتوى والحملات")],
     deliverables: [
-      { label: tx("Arabic Marketing Plan", "خطة العمل التسويقية — عربي"), file: karmolArabicPlan.url, format: "PDF" },
+      { label: tx("Arabic Marketing Plan", "خطة العمل التسويقية — عربي"), file: "/files/Karmol_Arabic_Marketing_Plan.pdf", format: "PDF" },
       { label: tx("Original English Plan", "الخطة الإنجليزية الأصلية"), file: "/files/Karmol_Original_Marketing_Plan_EN.docx", format: "DOCX" },
       { label: tx("Final Integrated Plan", "الخطة النهائية المتكاملة والموسعة"), file: "/files/Karmol_Final_Plan_EN.docx", format: "DOCX" },
     ] satisfies Deliverable[],
@@ -309,6 +308,7 @@ export const caseStudies = [
     tags: [tx("PESTEL & SWOT", "PESTEL وSWOT"), tx("Segmentation", "تجزئة السوق"), tx("7 Ps", "المزيج 7Ps")],
     deliverables: [
       { label: tx("Full App Marketing Plan", "تحميل الخطة التسويقية الكاملة للتطبيق"), file: "/files/Laundry_App_Marketing_Plan.pptx", format: "PPTX" },
+      { label: tx("Marketing Research Methodology", "منهجية البحث التسويقي"), file: "/files/Marketing_Research_Methodology.pdf", format: "PDF" },
     ] satisfies Deliverable[],
   },
 ];
@@ -319,12 +319,6 @@ export const supportingProjects = [
     title: tx("Logo Guidelines", "دليل استخدام الشعار"),
     desc: tx("Brand identity and logo usage specifications for consistent application.", "مواصفات الهوية واستخدام الشعار لضمان اتساق تطبيقه."),
     file: "/files/Logo_Guidelines.pdf",
-  },
-  {
-    id: "research",
-    title: tx("Marketing Research Methodology", "منهجية البحث التسويقي"),
-    desc: tx("A research framework for structured, comprehensive market analysis.", "إطار بحثي لتحليل السوق بشكل منظم وشامل."),
-    file: "/files/Marketing_Research_Methodology.pdf",
   },
   {
     id: "volunteer",

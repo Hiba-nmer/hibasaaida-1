@@ -10,7 +10,6 @@ import { defineTool } from "npm:@lovable.dev/mcp-js@0.25.1";
 
 // src/content/portfolio.ts
 import { tx } from "npm:@/lib/language";
-import karmolArabicPlan from "npm:@/assets/karmol-arabic-marketing-plan.pdf.asset.json";
 var navItems = [
   { id: "home", label: tx("Home", "\u0627\u0644\u0631\u0626\u064A\u0633\u064A\u0629") },
   { id: "about", label: tx("About", "\u0639\u0646\u064A") },
@@ -102,7 +101,7 @@ var siteCopy = {
     ),
     deliverables: tx("Case study deliverables", "\u0645\u0644\u0641\u0627\u062A \u062F\u0631\u0627\u0633\u0629 \u0627\u0644\u062D\u0627\u0644\u0629"),
     download: tx("Download", "\u062A\u062D\u0645\u064A\u0644"),
-    supportingTitle: tx("Research, Identity & Presentations", "\u0623\u0628\u062D\u0627\u062B \u0648\u0647\u0648\u064A\u0629 \u0648\u0639\u0631\u0648\u0636 \u062A\u0642\u062F\u064A\u0645\u064A\u0629"),
+    supportingTitle: tx("Identity & Presentations", "\u0647\u0648\u064A\u0629 \u0648\u0639\u0631\u0648\u0636 \u062A\u0642\u062F\u064A\u0645\u064A\u0629"),
     supportingDescription: tx("Additional strategy and communication resources.", "\u0645\u0635\u0627\u062F\u0631 \u0625\u0636\u0627\u0641\u064A\u0629 \u0641\u064A \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0648\u0627\u0644\u062A\u0648\u0627\u0635\u0644."),
     viewPresentation: tx("View Presentation", "\u0639\u0631\u0636 \u0627\u0644\u062A\u0642\u062F\u064A\u0645")
   },
@@ -292,7 +291,7 @@ var caseStudies = [
     ),
     tags: [tx("Market & Competitors", "\u0627\u0644\u0633\u0648\u0642 \u0648\u0627\u0644\u0645\u0646\u0627\u0641\u0633\u0648\u0646"), tx("Brand Positioning", "\u062A\u0645\u0648\u0636\u0639 \u0627\u0644\u0639\u0644\u0627\u0645\u0629"), tx("Content & Campaigns", "\u0627\u0644\u0645\u062D\u062A\u0648\u0649 \u0648\u0627\u0644\u062D\u0645\u0644\u0627\u062A")],
     deliverables: [
-      { label: tx("Arabic Marketing Plan", "\u062E\u0637\u0629 \u0627\u0644\u0639\u0645\u0644 \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A\u0629 \u2014 \u0639\u0631\u0628\u064A"), file: karmolArabicPlan.url, format: "PDF" },
+      { label: tx("Arabic Marketing Plan", "\u062E\u0637\u0629 \u0627\u0644\u0639\u0645\u0644 \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A\u0629 \u2014 \u0639\u0631\u0628\u064A"), file: "/files/Karmol_Arabic_Marketing_Plan.pdf", format: "PDF" },
       { label: tx("Original English Plan", "\u0627\u0644\u062E\u0637\u0629 \u0627\u0644\u0625\u0646\u062C\u0644\u064A\u0632\u064A\u0629 \u0627\u0644\u0623\u0635\u0644\u064A\u0629"), file: "/files/Karmol_Original_Marketing_Plan_EN.docx", format: "DOCX" },
       { label: tx("Final Integrated Plan", "\u0627\u0644\u062E\u0637\u0629 \u0627\u0644\u0646\u0647\u0627\u0626\u064A\u0629 \u0627\u0644\u0645\u062A\u0643\u0627\u0645\u0644\u0629 \u0648\u0627\u0644\u0645\u0648\u0633\u0639\u0629"), file: "/files/Karmol_Final_Plan_EN.docx", format: "DOCX" }
     ]
@@ -308,7 +307,8 @@ var caseStudies = [
     ),
     tags: [tx("PESTEL & SWOT", "PESTEL \u0648SWOT"), tx("Segmentation", "\u062A\u062C\u0632\u0626\u0629 \u0627\u0644\u0633\u0648\u0642"), tx("7 Ps", "\u0627\u0644\u0645\u0632\u064A\u062C 7Ps")],
     deliverables: [
-      { label: tx("Full App Marketing Plan", "\u062A\u062D\u0645\u064A\u0644 \u0627\u0644\u062E\u0637\u0629 \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A\u0629 \u0627\u0644\u0643\u0627\u0645\u0644\u0629 \u0644\u0644\u062A\u0637\u0628\u064A\u0642"), file: "/files/Laundry_App_Marketing_Plan.pptx", format: "PPTX" }
+      { label: tx("Full App Marketing Plan", "\u062A\u062D\u0645\u064A\u0644 \u0627\u0644\u062E\u0637\u0629 \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A\u0629 \u0627\u0644\u0643\u0627\u0645\u0644\u0629 \u0644\u0644\u062A\u0637\u0628\u064A\u0642"), file: "/files/Laundry_App_Marketing_Plan.pptx", format: "PPTX" },
+      { label: tx("Marketing Research Methodology", "\u0645\u0646\u0647\u062C\u064A\u0629 \u0627\u0644\u0628\u062D\u062B \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A"), file: "/files/Marketing_Research_Methodology.pdf", format: "PDF" }
     ]
   }
 ];
@@ -318,12 +318,6 @@ var supportingProjects = [
     title: tx("Logo Guidelines", "\u062F\u0644\u064A\u0644 \u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0627\u0644\u0634\u0639\u0627\u0631"),
     desc: tx("Brand identity and logo usage specifications for consistent application.", "\u0645\u0648\u0627\u0635\u0641\u0627\u062A \u0627\u0644\u0647\u0648\u064A\u0629 \u0648\u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0627\u0644\u0634\u0639\u0627\u0631 \u0644\u0636\u0645\u0627\u0646 \u0627\u062A\u0633\u0627\u0642 \u062A\u0637\u0628\u064A\u0642\u0647."),
     file: "/files/Logo_Guidelines.pdf"
-  },
-  {
-    id: "research",
-    title: tx("Marketing Research Methodology", "\u0645\u0646\u0647\u062C\u064A\u0629 \u0627\u0644\u0628\u062D\u062B \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A"),
-    desc: tx("A research framework for structured, comprehensive market analysis.", "\u0625\u0637\u0627\u0631 \u0628\u062D\u062B\u064A \u0644\u062A\u062D\u0644\u064A\u0644 \u0627\u0644\u0633\u0648\u0642 \u0628\u0634\u0643\u0644 \u0645\u0646\u0638\u0645 \u0648\u0634\u0627\u0645\u0644."),
-    file: "/files/Marketing_Research_Methodology.pdf"
   },
   {
     id: "volunteer",
