@@ -23,6 +23,20 @@ const Index = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // In-page links (#work, #contact...) must scroll, not change the hash route.
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as HTMLElement).closest?.('a[href^="#"]') as HTMLAnchorElement | null;
+      if (!a) return;
+      const el = document.getElementById(a.getAttribute("href")!.slice(1));
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
+
   return (
     <div className="min-h-screen space-bg">
       <LoadingScreen isLoading={isLoading} />
