@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { caseStudies, experiences, supportingProjects } from "@/content/portfolio";
+import { caseStudies, experiences, featuredCampaigns, supportingProjects } from "@/content/portfolio";
 import { directionFor } from "@/lib/language";
 
 describe("portfolio case studies", () => {
@@ -21,6 +21,11 @@ describe("portfolio case studies", () => {
   it("preserves the verified Bank of Palestine result", () => {
     const bank = experiences.find((item) => item.company.en === "Bank of Palestine");
     expect(bank?.tags.some((tag) => tag.en === "35 Accounts / Day")).toBe(true);
+  });
+
+  it("records 50 qualified leads from the Rashfh Cafe field campaign", () => {
+    const campaign = featuredCampaigns.find((item) => item.id === "bank-field-campaign");
+    expect(campaign?.metric?.value).toBe(50);
   });
 
   it("uses the latest completed Karunya training dates", () => {

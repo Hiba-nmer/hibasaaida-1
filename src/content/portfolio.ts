@@ -83,6 +83,17 @@ export const siteCopy = {
     viewCertificate: tx("View Certificate", "عرض الشهادة"),
     certificateAlt: tx("Professional certificate", "شهادة مهنية"),
   },
+  campaigns: {
+    eyebrow: tx("Field impact & community leadership", "أثر ميداني وقيادة مجتمعية"),
+    title: tx("Featured Campaigns & Strategic Initiatives", "أبرز الحملات والمبادرات الاستراتيجية"),
+    description: tx(
+      "Practical coordination, measurable acquisition, and community programs delivered through strong local partnerships.",
+      "تنسيق عملي، واستحواذ قابل للقياس، وبرامج مجتمعية نُفذت عبر شراكات محلية قوية.",
+    ),
+    openPhoto: tx("Open photo preview", "فتح معاينة الصورة"),
+    closePreview: tx("Close photo preview", "إغلاق معاينة الصورة"),
+    previewDescription: tx("Enlarged campaign photo", "صورة موسعة من الحملة"),
+  },
   work: {
     eyebrow: tx("Selected strategy engagements", "نماذج من مشاريعي الاستراتيجية"),
     title: tx("Featured Case Studies", "دراسات حالة مختارة"),
@@ -270,6 +281,31 @@ export const experiences = [
     period: tx("March – April 2026 · Completed", "آذار – نيسان 2026 · مكتمل"),
     tags: [tx("Campaign Direction", "توجيه الحملات"), tx("Client Coordination", "تنسيق العملاء"), tx("Production", "الإنتاج")],
     desc: tx("Developed marketing plans and content scripts, coordinated schedules and client communication, directed photographers on shoots, and defined brand identity guidelines for consistent campaign production.", "طورت خطط التسويق وسكريبتات المحتوى، ونسقت المواعيد والتواصل مع العملاء، ووجهت المصورين خلال جلسات التصوير، وحددت إرشادات الهوية لضمان اتساق إنتاج الحملات."),
+  },
+];
+
+export const featuredCampaigns = [
+  {
+    id: "bank-field-campaign",
+    organization: tx("Bank of Palestine · Rashfh Cafe, Tulkarm", "بنك فلسطين · مقهى رشفة، طولكرم"),
+    title: tx("Bank of Palestine Field Campaign", "حملة الترويج الميداني والاستحواذ – بنك فلسطين"),
+    description: tx(
+      "Coordinated an on-ground promotional and customer-acquisition campaign at Rashfh Cafe, engaging visitors through direct conversations and tailored banking-service messages.",
+      "نسقت حملة ترويجية ميدانية لجذب العملاء في مقهى رشفة، وتفاعلت مع الزوار عبر حوارات مباشرة ورسائل مخصصة عن الخدمات المصرفية.",
+    ),
+    metric: {
+      value: 50,
+      label: tx("qualified leads collected in one day", "عميلًا محتملًا مؤهلًا تم جمعهم في يوم واحد"),
+    },
+  },
+  {
+    id: "psychological-first-aid",
+    organization: tx("Roya Palestinian Organization · Community Initiative", "مؤسسة رؤيا الفلسطينية · مبادرة مجتمعية"),
+    title: tx("Community & Psychological First Aid Initiative", "مبادرة \"الإسعاف النفسي الأولي\" والمجتمع المحلي"),
+    description: tx(
+      "Coordinated the initiative with Roya Palestinian Organization, trained a local team, and delivered an interactive program for children that strengthened participation and community engagement.",
+      "نسقت المبادرة مع مؤسسة رؤيا الفلسطينية، ودربت فريقًا محليًا، ونفذت برنامجًا تفاعليًا للأطفال عزز المشاركة والتفاعل المجتمعي.",
+    ),
   },
 ];
 

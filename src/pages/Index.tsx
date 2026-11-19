@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
+import CampaignsSection from "@/components/CampaignsSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import WorkSection from "@/components/WorkSection";
 import InstagramPortfolio from "@/components/InstagramPortfolio";
@@ -46,6 +47,7 @@ const Index = () => {
       <AboutSection />
       <MethodologySection />
       <ExperienceSection />
+      <CampaignsSection />
       <AchievementsSection />
       <WorkSection />
       <InstagramPortfolio />

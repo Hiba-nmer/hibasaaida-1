@@ -40,6 +40,14 @@
     --splash-start: 330 85% 45%;
     --splash-end: 320 70% 40%;
 
+    --campaign-background: 338 73% 97%;
+    --campaign-card: 0 0% 100%;
+    --campaign-foreground: 330 30% 18%;
+    --campaign-muted: 330 15% 35%;
+    --campaign-border: 338 45% 87%;
+    --campaign-accent: 330 65% 38%;
+    --campaign-accent-soft: 338 65% 95%;
+
     --sidebar-background: 260 20% 6%;
     --sidebar-foreground: 0 0% 90%;
     --sidebar-primary: 330 85% 60%;

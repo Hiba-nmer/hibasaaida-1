@@ -94,6 +94,17 @@ var siteCopy = {
     viewCertificate: tx("View Certificate", "\u0639\u0631\u0636 \u0627\u0644\u0634\u0647\u0627\u062F\u0629"),
     certificateAlt: tx("Professional certificate", "\u0634\u0647\u0627\u062F\u0629 \u0645\u0647\u0646\u064A\u0629")
   },
+  campaigns: {
+    eyebrow: tx("Field impact & community leadership", "\u0623\u062B\u0631 \u0645\u064A\u062F\u0627\u0646\u064A \u0648\u0642\u064A\u0627\u062F\u0629 \u0645\u062C\u062A\u0645\u0639\u064A\u0629"),
+    title: tx("Featured Campaigns & Strategic Initiatives", "\u0623\u0628\u0631\u0632 \u0627\u0644\u062D\u0645\u0644\u0627\u062A \u0648\u0627\u0644\u0645\u0628\u0627\u062F\u0631\u0627\u062A \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629"),
+    description: tx(
+      "Practical coordination, measurable acquisition, and community programs delivered through strong local partnerships.",
+      "\u062A\u0646\u0633\u064A\u0642 \u0639\u0645\u0644\u064A\u060C \u0648\u0627\u0633\u062A\u062D\u0648\u0627\u0630 \u0642\u0627\u0628\u0644 \u0644\u0644\u0642\u064A\u0627\u0633\u060C \u0648\u0628\u0631\u0627\u0645\u062C \u0645\u062C\u062A\u0645\u0639\u064A\u0629 \u0646\u064F\u0641\u0630\u062A \u0639\u0628\u0631 \u0634\u0631\u0627\u0643\u0627\u062A \u0645\u062D\u0644\u064A\u0629 \u0642\u0648\u064A\u0629."
+    ),
+    openPhoto: tx("Open photo preview", "\u0641\u062A\u062D \u0645\u0639\u0627\u064A\u0646\u0629 \u0627\u0644\u0635\u0648\u0631\u0629"),
+    closePreview: tx("Close photo preview", "\u0625\u063A\u0644\u0627\u0642 \u0645\u0639\u0627\u064A\u0646\u0629 \u0627\u0644\u0635\u0648\u0631\u0629"),
+    previewDescription: tx("Enlarged campaign photo", "\u0635\u0648\u0631\u0629 \u0645\u0648\u0633\u0639\u0629 \u0645\u0646 \u0627\u0644\u062D\u0645\u0644\u0629")
+  },
   work: {
     eyebrow: tx("Selected strategy engagements", "\u0646\u0645\u0627\u0630\u062C \u0645\u0646 \u0645\u0634\u0627\u0631\u064A\u0639\u064A \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629"),
     title: tx("Featured Case Studies", "\u062F\u0631\u0627\u0633\u0627\u062A \u062D\u0627\u0644\u0629 \u0645\u062E\u062A\u0627\u0631\u0629"),
@@ -281,6 +292,30 @@ var experiences = [
     desc: tx("Developed marketing plans and content scripts, coordinated schedules and client communication, directed photographers on shoots, and defined brand identity guidelines for consistent campaign production.", "\u0637\u0648\u0631\u062A \u062E\u0637\u0637 \u0627\u0644\u062A\u0633\u0648\u064A\u0642 \u0648\u0633\u0643\u0631\u064A\u0628\u062A\u0627\u062A \u0627\u0644\u0645\u062D\u062A\u0648\u0649\u060C \u0648\u0646\u0633\u0642\u062A \u0627\u0644\u0645\u0648\u0627\u0639\u064A\u062F \u0648\u0627\u0644\u062A\u0648\u0627\u0635\u0644 \u0645\u0639 \u0627\u0644\u0639\u0645\u0644\u0627\u0621\u060C \u0648\u0648\u062C\u0647\u062A \u0627\u0644\u0645\u0635\u0648\u0631\u064A\u0646 \u062E\u0644\u0627\u0644 \u062C\u0644\u0633\u0627\u062A \u0627\u0644\u062A\u0635\u0648\u064A\u0631\u060C \u0648\u062D\u062F\u062F\u062A \u0625\u0631\u0634\u0627\u062F\u0627\u062A \u0627\u0644\u0647\u0648\u064A\u0629 \u0644\u0636\u0645\u0627\u0646 \u0627\u062A\u0633\u0627\u0642 \u0625\u0646\u062A\u0627\u062C \u0627\u0644\u062D\u0645\u0644\u0627\u062A.")
   }
 ];
+var featuredCampaigns = [
+  {
+    id: "bank-field-campaign",
+    organization: tx("Bank of Palestine \xB7 Rashfh Cafe, Tulkarm", "\u0628\u0646\u0643 \u0641\u0644\u0633\u0637\u064A\u0646 \xB7 \u0645\u0642\u0647\u0649 \u0631\u0634\u0641\u0629\u060C \u0637\u0648\u0644\u0643\u0631\u0645"),
+    title: tx("Bank of Palestine Field Campaign", "\u062D\u0645\u0644\u0629 \u0627\u0644\u062A\u0631\u0648\u064A\u062C \u0627\u0644\u0645\u064A\u062F\u0627\u0646\u064A \u0648\u0627\u0644\u0627\u0633\u062A\u062D\u0648\u0627\u0630 \u2013 \u0628\u0646\u0643 \u0641\u0644\u0633\u0637\u064A\u0646"),
+    description: tx(
+      "Coordinated an on-ground promotional and customer-acquisition campaign at Rashfh Cafe, engaging visitors through direct conversations and tailored banking-service messages.",
+      "\u0646\u0633\u0642\u062A \u062D\u0645\u0644\u0629 \u062A\u0631\u0648\u064A\u062C\u064A\u0629 \u0645\u064A\u062F\u0627\u0646\u064A\u0629 \u0644\u062C\u0630\u0628 \u0627\u0644\u0639\u0645\u0644\u0627\u0621 \u0641\u064A \u0645\u0642\u0647\u0649 \u0631\u0634\u0641\u0629\u060C \u0648\u062A\u0641\u0627\u0639\u0644\u062A \u0645\u0639 \u0627\u0644\u0632\u0648\u0627\u0631 \u0639\u0628\u0631 \u062D\u0648\u0627\u0631\u0627\u062A \u0645\u0628\u0627\u0634\u0631\u0629 \u0648\u0631\u0633\u0627\u0626\u0644 \u0645\u062E\u0635\u0635\u0629 \u0639\u0646 \u0627\u0644\u062E\u062F\u0645\u0627\u062A \u0627\u0644\u0645\u0635\u0631\u0641\u064A\u0629."
+    ),
+    metric: {
+      value: 50,
+      label: tx("qualified leads collected in one day", "\u0639\u0645\u064A\u0644\u064B\u0627 \u0645\u062D\u062A\u0645\u0644\u064B\u0627 \u0645\u0624\u0647\u0644\u064B\u0627 \u062A\u0645 \u062C\u0645\u0639\u0647\u0645 \u0641\u064A \u064A\u0648\u0645 \u0648\u0627\u062D\u062F")
+    }
+  },
+  {
+    id: "psychological-first-aid",
+    organization: tx("Roya Palestinian Organization \xB7 Community Initiative", "\u0645\u0624\u0633\u0633\u0629 \u0631\u0624\u064A\u0627 \u0627\u0644\u0641\u0644\u0633\u0637\u064A\u0646\u064A\u0629 \xB7 \u0645\u0628\u0627\u062F\u0631\u0629 \u0645\u062C\u062A\u0645\u0639\u064A\u0629"),
+    title: tx("Community & Psychological First Aid Initiative", '\u0645\u0628\u0627\u062F\u0631\u0629 "\u0627\u0644\u0625\u0633\u0639\u0627\u0641 \u0627\u0644\u0646\u0641\u0633\u064A \u0627\u0644\u0623\u0648\u0644\u064A" \u0648\u0627\u0644\u0645\u062C\u062A\u0645\u0639 \u0627\u0644\u0645\u062D\u0644\u064A'),
+    description: tx(
+      "Coordinated the initiative with Roya Palestinian Organization, trained a local team, and delivered an interactive program for children that strengthened participation and community engagement.",
+      "\u0646\u0633\u0642\u062A \u0627\u0644\u0645\u0628\u0627\u062F\u0631\u0629 \u0645\u0639 \u0645\u0624\u0633\u0633\u0629 \u0631\u0624\u064A\u0627 \u0627\u0644\u0641\u0644\u0633\u0637\u064A\u0646\u064A\u0629\u060C \u0648\u062F\u0631\u0628\u062A \u0641\u0631\u064A\u0642\u064B\u0627 \u0645\u062D\u0644\u064A\u064B\u0627\u060C \u0648\u0646\u0641\u0630\u062A \u0628\u0631\u0646\u0627\u0645\u062C\u064B\u0627 \u062A\u0641\u0627\u0639\u0644\u064A\u064B\u0627 \u0644\u0644\u0623\u0637\u0641\u0627\u0644 \u0639\u0632\u0632 \u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0629 \u0648\u0627\u0644\u062A\u0641\u0627\u0639\u0644 \u0627\u0644\u0645\u062C\u062A\u0645\u0639\u064A."
+    )
+  }
+];
 var caseStudies = [
   {
     id: "karmol",
@@ -370,7 +405,7 @@ var profile = { name: siteCopy.hero.name.en, nameArabic: siteCopy.hero.name.ar, 
 var contact = { email: "hibanmers@gmail.com", phone: "+972 59 834 9117", location: "Tulkarm, Palestine", linkedin: "https://www.linkedin.com/in/hiba-saaidah", instagram: "https://instagram.com/lasoriee.ps" };
 var experience = experiences.map((e) => ({ company: e.company.en, companyArabic: e.company.ar, role: e.role.en, roleArabic: e.role.ar, period: e.period.en, periodArabic: e.period.ar, tags: e.tags.map((t) => t.en), description: e.desc.en, descriptionArabic: e.desc.ar }));
 var achievements2 = achievements.map((a) => ({ title: a.title.en, titleArabic: a.title.ar, description: a.desc.en, descriptionArabic: a.desc.ar }));
-var projects = [...caseStudies.map((p) => ({ title: p.title.en, titleArabic: p.title.ar, description: p.overview.en, descriptionArabic: p.overview.ar, deliverables: p.deliverables })), ...supportingProjects.map((p) => ({ title: p.title.en, titleArabic: p.title.ar, description: p.desc.en, descriptionArabic: p.desc.ar, file: p.file, link: p.link }))];
+var projects = [...caseStudies.map((p) => ({ title: p.title.en, titleArabic: p.title.ar, description: p.overview.en, descriptionArabic: p.overview.ar, deliverables: p.deliverables })), ...supportingProjects.map((p) => ({ title: p.title.en, titleArabic: p.title.ar, description: p.desc.en, descriptionArabic: p.desc.ar, file: p.file, link: p.link })), ...featuredCampaigns.map((c) => ({ title: c.title.en, titleArabic: c.title.ar, description: c.description.en, descriptionArabic: c.description.ar, organization: c.organization.en, organizationArabic: c.organization.ar, qualifiedLeads: c.metric?.value }))];
 var designs = ["LV Capucines \u2014 Product Ad", "YOYOSO \u2014 Product Promotion", "YSL Libre \u2014 Perfume Ad", "Boeing \u2014 Vintage Poster (Photoshop)", "Chanel Coco Noir \u2014 Ad Design", "Flowers \u2014 Photography (Photoshop)", "Delicious Burger \u2014 Food Ad (Photoshop)"];
 var skillGroups2 = skillGroups.map((g) => ({ title: g.title.en, titleArabic: g.title.ar, skills: g.skills.map((s) => s.en), skillsArabic: g.skills.map((s) => s.ar) }));
 
