@@ -127,6 +127,10 @@ export const siteCopy = {
       "Every visual in this section — films, reels, and stills — was designed by me with AI for La Soiree, a niche perfume brand. Spanish elegance, Khaleeji soul, from concept to final creative.",
       "كل ما تراه هنا من فيديوهات وصور صمّمته بنفسي باستخدام الذكاء الاصطناعي لماركة العطور La Soiree. أناقة إسبانية وروح خليجية، من الفكرة حتى العمل النهائي.",
     ),
+    immersion: tx(
+      "Each film draws you into the soul of the fragrance, surrounding you with Victorian elegance and an old-money atmosphere — like stepping into another world, not simply watching an advertisement.",
+      "كل فيديو يأخذك إلى روح العطر ويُعيشك أجواء العصر الفيكتوري وأناقة الـ Old Money؛ كأنك تدخل عالمًا آخر، لا مجرد مشاهدة إعلان.",
+    ),
     credit: tx(
       "All visuals designed with AI by Hiba Saaidah for La Soiree.",
       "جميع التصاميم هنا من إبداع هبة سعيدة باستخدام الذكاء الاصطناعي لماركة La Soiree.",
