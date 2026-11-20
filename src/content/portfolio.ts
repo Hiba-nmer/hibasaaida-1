@@ -349,18 +349,20 @@ export const caseStudies = [
   },
 ];
 
-export const supportingProjects = [
+export type SupportingProject = {
+  id: string;
+  title: LocalizedText;
+  desc: LocalizedText;
+  file?: string;
+  link?: string;
+};
+
+export const supportingProjects: SupportingProject[] = [
   {
     id: "logo",
     title: tx("Logo Guidelines", "دليل استخدام الشعار"),
     desc: tx("Brand identity and logo usage specifications for consistent application.", "مواصفات الهوية واستخدام الشعار لضمان اتساق تطبيقه."),
     file: "/files/Logo_Guidelines.pdf",
-  },
-  {
-    id: "volunteer",
-    title: tx("Volunteer at Work Leadership", "القيادة والتطوع في العمل"),
-    desc: tx("A presentation on leadership, initiative, and volunteer experience.", "عرض تقديمي حول القيادة والمبادرة والتجربة التطوعية."),
-    link: "https://app.presentations.ai/view/Q5ysg6",
   },
 ];
 

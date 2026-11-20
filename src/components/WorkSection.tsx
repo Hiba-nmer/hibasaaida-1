@@ -4,7 +4,6 @@ import { runWebMCPTool } from "@/lib/webmcp-telemetry";
 import { Download, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import workLaundry from "@/assets/work-laundry.jpg";
 import workLogo from "@/assets/work-logo.jpg";
-import workVolunteer from "@/assets/work-volunteer.jpg";
 import workKarmolPlan from "@/assets/work-karmol-plan.jpg";
 
 import designLvBag from "@/assets/design-lv-bag.jpg";
@@ -21,7 +20,7 @@ import { tx } from "@/lib/language";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import SectionHeading from "./SectionHeading";
-const supportingImages: Record<string, string> = { logo: workLogo, volunteer: workVolunteer };
+const supportingImages: Record<string, string> = { logo: workLogo };
 const designImages = [designLvBag, designYoyoso, designLibre, designBoeing, designChanel, designFlowers, designBurger];
 const designTitles = [tx("LV Capucines — Product Ad", "LV Capucines — إعلان منتج"), tx("YOYOSO — Product Promotion", "YOYOSO — ترويج منتج"), tx("YSL Libre — Perfume Ad", "YSL Libre — إعلان عطر"), tx("Boeing — Vintage Poster (Photoshop)", "بوينغ — ملصق كلاسيكي (Photoshop)"), tx("Chanel Coco Noir — Ad Design", "Chanel Coco Noir — تصميم إعلاني"), tx("Flowers — Photography (Photoshop)", "زهور — تصوير (Photoshop)"), tx("Delicious Burger — Food Ad (Photoshop)", "برغر — إعلان طعام (Photoshop)")];
 const WorkSection = () => {
