@@ -124,8 +124,12 @@ export const siteCopy = {
     eyebrow: tx("Video & Reels Portfolio", "معرض الفيديوهات والريلز"),
     title: tx("Stories built to be remembered", "قصص بصرية صُممت لتبقى في الذاكرة"),
     description: tx(
-      "Perfume-brand campaigns, behind-the-scenes reels, and motion-led visual storytelling—from concept to creative production.",
-      "حملات لعلامات عطور، وريلز من الكواليس، وسرد بصري متحرك يمتد من الفكرة إلى الإنتاج الإبداعي.",
+      "Every visual in this section — films, reels, and stills — was designed by me with AI for La Soiree, a niche perfume brand. Spanish elegance, Khaleeji soul, from concept to final creative.",
+      "كل ما تراه هنا من فيديوهات وصور صمّمته بنفسي باستخدام الذكاء الاصطناعي لماركة العطور La Soiree. أناقة إسبانية وروح خليجية، من الفكرة حتى العمل النهائي.",
+    ),
+    credit: tx(
+      "All visuals designed with AI by Hiba Saaidah for La Soiree.",
+      "جميع التصاميم هنا من إبداع هبة سعيدة باستخدام الذكاء الاصطناعي لماركة La Soiree.",
     ),
     instagramCta: tx("Visit @lasoriee.ps", "زيارة @lasoriee.ps"),
     victorian: tx("Victorian Chapter", "الفصل الفيكتوري"),

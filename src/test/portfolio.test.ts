@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { caseStudies, experiences, featuredCampaigns, supportingProjects } from "@/content/portfolio";
+import { caseStudies, experiences, featuredCampaigns, siteCopy, supportingProjects } from "@/content/portfolio";
 import { directionFor } from "@/lib/language";
 
 describe("portfolio case studies", () => {
@@ -42,5 +42,16 @@ describe("portfolio case studies", () => {
       ...supportingProjects.flatMap((project) => project.file ? [project.file] : []),
     ];
     expect(publicFiles.some((file) => /cv/i.test(file))).toBe(false);
+  });
+
+  it("credits the reels gallery as AI-designed for La Soiree in both languages", () => {
+    const { description, credit } = siteCopy.reels;
+
+    expect(description.en).toContain("AI");
+    expect(description.en).toContain("La Soiree");
+    expect(description.ar).toContain("الذكاء الاصطناعي");
+    expect(description.ar).toContain("La Soiree");
+    expect(credit.en).toContain("La Soiree");
+    expect(credit.ar).toContain("La Soiree");
   });
 });

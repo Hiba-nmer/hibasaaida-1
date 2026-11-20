@@ -14,7 +14,6 @@ import img2 from "@/assets/instagram_books_roses.png.asset.json";
 import img3 from "@/assets/instagram_base_notes.png.asset.json";
 import img4 from "@/assets/instagram_heart_notes.png.asset.json";
 import img5 from "@/assets/instagram_top_notes.png.asset.json";
-import img6 from "@/assets/instagram_vintage_card.png.asset.json";
 import imgHorse from "@/assets/insta_horse_arch.png.asset.json";
 import imgApples from "@/assets/insta_apples_music.png.asset.json";
 import imgFruit from "@/assets/insta_fruit_bowl.png.asset.json";
@@ -30,7 +29,6 @@ type Post = {
 const victorianPosts: Post[] = [
   { type: "video", src: vNew2.url, caption: tx("Victorian Elegance", "أناقة فيكتورية"), height: "h-[420px]" },
   { type: "image", src: imgHorse.url, caption: tx("Victorian Garden", "حديقة فيكتورية"), height: "h-[360px]" },
-  { type: "image", src: img6.url, caption: tx("Crafted to Last", "صُنع ليدوم"), height: "h-[400px]" },
   { type: "image", src: img2.url, caption: tx("Timeless Mood", "أجواء خالدة"), height: "h-[380px]" },
   { type: "video", src: v4.url, caption: tx("Midnight Bloom", "زهرة منتصف الليل"), height: "h-[300px]" },
 ];
@@ -60,7 +58,7 @@ const ClusterLabel = ({ children }: { children: React.ReactNode }) => <div class
 const InstagramPortfolio = () => {
  const { t } = useLanguage();
  return <section id="instagram-portfolio" className="journal-bg relative px-6 py-24"><div className="mx-auto max-w-7xl"><div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
- <div><div className="mb-12"><p className="text-sm text-[hsl(var(--journal-accent))]">{t(siteCopy.reels.eyebrow)}</p><h2 className="mt-6 text-4xl leading-tight text-[hsl(var(--journal-accent))] md:text-5xl">{t(siteCopy.reels.title)}</h2><p className="mt-6 max-w-md leading-relaxed text-muted-foreground">{t(siteCopy.reels.description)}</p><Button asChild variant="outline" className="mt-8 border-[hsl(var(--journal-border))] text-[hsl(var(--journal-accent))]"><a href="https://instagram.com/lasoriee.ps" target="_blank" rel="noopener noreferrer"><Instagram className="me-2 h-4 w-4" />{t(siteCopy.reels.instagramCta)}</a></Button></div>
+ <div><div className="mb-12"><p className="text-sm text-[hsl(var(--journal-accent))]">{t(siteCopy.reels.eyebrow)}</p><h2 className="mt-6 text-4xl leading-tight text-[hsl(var(--journal-accent))] md:text-5xl">{t(siteCopy.reels.title)}</h2><p className="mt-6 max-w-md leading-relaxed text-muted-foreground">{t(siteCopy.reels.description)}</p><p className="mt-5 max-w-md border-s-2 border-[hsl(var(--journal-accent))] ps-4 text-sm italic leading-relaxed text-[hsl(var(--journal-accent))]">{t(siteCopy.reels.credit)}</p><Button asChild variant="outline" className="mt-8 border-[hsl(var(--journal-border))] text-[hsl(var(--journal-accent))]"><a href="https://instagram.com/lasoriee.ps" target="_blank" rel="noopener noreferrer"><Instagram className="me-2 h-4 w-4" />{t(siteCopy.reels.instagramCta)}</a></Button></div>
  <ClusterLabel>{t(siteCopy.reels.victorian)}</ClusterLabel><div className="columns-1 gap-5 sm:columns-2">{victorianPosts.map((post,i) => <PostCard key={post.src} post={post} i={i} />)}</div></div>
  <div><ClusterLabel>{t(siteCopy.reels.elegant)}</ClusterLabel><div className="columns-1 gap-5 sm:columns-2">{elegantPosts.map((post,i) => <PostCard key={post.src} post={post} i={i} />)}</div></div>
  </div></div></section>;
