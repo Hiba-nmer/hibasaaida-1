@@ -355,12 +355,6 @@ var supportingProjects = [
     title: tx("Logo Guidelines", "\u062F\u0644\u064A\u0644 \u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0627\u0644\u0634\u0639\u0627\u0631"),
     desc: tx("Brand identity and logo usage specifications for consistent application.", "\u0645\u0648\u0627\u0635\u0641\u0627\u062A \u0627\u0644\u0647\u0648\u064A\u0629 \u0648\u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0627\u0644\u0634\u0639\u0627\u0631 \u0644\u0636\u0645\u0627\u0646 \u0627\u062A\u0633\u0627\u0642 \u062A\u0637\u0628\u064A\u0642\u0647."),
     file: "/files/Logo_Guidelines.pdf"
-  },
-  {
-    id: "volunteer",
-    title: tx("Volunteer at Work Leadership", "\u0627\u0644\u0642\u064A\u0627\u062F\u0629 \u0648\u0627\u0644\u062A\u0637\u0648\u0639 \u0641\u064A \u0627\u0644\u0639\u0645\u0644"),
-    desc: tx("A presentation on leadership, initiative, and volunteer experience.", "\u0639\u0631\u0636 \u062A\u0642\u062F\u064A\u0645\u064A \u062D\u0648\u0644 \u0627\u0644\u0642\u064A\u0627\u062F\u0629 \u0648\u0627\u0644\u0645\u0628\u0627\u062F\u0631\u0629 \u0648\u0627\u0644\u062A\u062C\u0631\u0628\u0629 \u0627\u0644\u062A\u0637\u0648\u0639\u064A\u0629."),
-    link: "https://app.presentations.ai/view/Q5ysg6"
   }
 ];
 var skillGroups = [
