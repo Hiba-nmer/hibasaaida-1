@@ -54,7 +54,7 @@ const elegantPosts: Post[] = [
   { type: "image", src: img1.url, caption: tx("Spicy Weather", "Spicy Weather"), aspect: "aspect-[1440/1921]" },
 ];
 
-const PostCard = ({ post, i }: { post: Post; i: number }) => {
+const PostCard = ({ post, i, className = "w-full" }: { post: Post; i: number; className?: string }) => {
   const { t } = useLanguage();
   const [showDetails, setShowDetails] = useState(false);
   const toggleDetails = () => setShowDetails((visible) => !visible);
@@ -65,7 +65,7 @@ const PostCard = ({ post, i }: { post: Post; i: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: Math.min(i * 0.06, 0.4) }}
-      className={`group relative overflow-hidden border border-[hsl(var(--journal-border))] ${post.aspect}`}
+      className={`group relative overflow-hidden border border-[hsl(var(--journal-border))] ${post.aspect} ${className}`}
     >
       {post.type === "video" ? (
         <video
@@ -117,39 +117,38 @@ const InstagramPortfolio = () => {
   return (
     <section id="instagram-portfolio" className="journal-bg relative px-6 py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-10">
-          <div>
-            <div className="mb-8">
-              <p className="text-sm text-[hsl(var(--journal-accent))]">{t(siteCopy.reels.eyebrow)}</p>
-              <h2 className="mt-6 text-4xl leading-tight text-[hsl(var(--journal-accent))] md:text-5xl">{t(siteCopy.reels.title)}</h2>
-              <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">{t(siteCopy.reels.description)}</p>
-              <p className="mt-4 max-w-md leading-relaxed text-muted-foreground">{t(siteCopy.reels.immersion)}</p>
-              <p className="mt-5 max-w-md border-s-2 border-[hsl(var(--journal-accent))] ps-4 text-sm italic leading-relaxed text-[hsl(var(--journal-accent))]">{t(siteCopy.reels.credit)}</p>
-              <Button asChild variant="outline" className="mt-8 border-[hsl(var(--journal-border))] text-[hsl(var(--journal-accent))]">
-                <a href="https://instagram.com/lasoriee.ps" target="_blank" rel="noopener noreferrer">
-                  <Instagram className="me-2 h-4 w-4" />
-                  {t(siteCopy.reels.instagramCta)}
-                </a>
-              </Button>
-            </div>
-            <ClusterLabel>{t(siteCopy.reels.victorian)}</ClusterLabel>
-            <div className="grid grid-cols-2 gap-3">
-              {victorianColumns.map((column, ci) => (
-                <div key={ci} className="flex flex-col gap-3">
-                  {column.map((post, i) => (
-                    <PostCard key={post.src} post={post} i={ci * 3 + i} />
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <ClusterLabel>{t(siteCopy.reels.elegant)}</ClusterLabel>
-            <div className="flex flex-col gap-3">
-              {elegantPosts.map((post, i) => (
-                <PostCard key={post.src} post={post} i={i} />
-              ))}
-            </div>
+        <div className="mb-10 max-w-2xl">
+          <p className="text-sm text-[hsl(var(--journal-accent))]">{t(siteCopy.reels.eyebrow)}</p>
+          <h2 className="mt-6 text-4xl leading-tight text-[hsl(var(--journal-accent))] md:text-5xl">{t(siteCopy.reels.title)}</h2>
+          <p className="mt-6 leading-relaxed text-muted-foreground">{t(siteCopy.reels.description)}</p>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t(siteCopy.reels.immersion)}</p>
+          <p className="mt-5 border-s-2 border-[hsl(var(--journal-accent))] ps-4 text-sm italic leading-relaxed text-[hsl(var(--journal-accent))]">{t(siteCopy.reels.credit)}</p>
+          <Button asChild variant="outline" className="mt-8 border-[hsl(var(--journal-border))] text-[hsl(var(--journal-accent))]">
+            <a href="https://instagram.com/lasoriee.ps" target="_blank" rel="noopener noreferrer">
+              <Instagram className="me-2 h-4 w-4" />
+              {t(siteCopy.reels.instagramCta)}
+            </a>
+          </Button>
+        </div>
+
+        <ClusterLabel>{t(siteCopy.reels.victorian)}</ClusterLabel>
+        <div className="flex flex-col items-center gap-4 md:h-[min(31rem,calc((100vw_-_5rem)/2.34))] md:flex-row md:justify-center">
+          {featuredVictorian.map((post, i) => (
+            <PostCard key={post.src} post={post} i={i} className="w-full md:h-full md:w-auto md:shrink-0" />
+          ))}
+        </div>
+        <div className="mt-4 grid grid-cols-2 items-start gap-3 lg:grid-cols-4">
+          {victorianPhotos.map((post, i) => (
+            <PostCard key={post.src} post={post} i={i + featuredVictorian.length} />
+          ))}
+        </div>
+
+        <div className="mt-12">
+          <ClusterLabel>{t(siteCopy.reels.elegant)}</ClusterLabel>
+          <div className="flex flex-col items-center gap-4 md:h-[min(28rem,calc((100vw_-_5rem)/2.53))] md:flex-row md:justify-center">
+            {elegantPosts.map((post, i) => (
+              <PostCard key={post.src} post={post} i={i} className="w-full md:h-full md:w-auto md:shrink-0" />
+            ))}
           </div>
         </div>
       </div>
