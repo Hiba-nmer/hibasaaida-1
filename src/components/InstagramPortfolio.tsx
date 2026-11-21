@@ -23,24 +23,23 @@ type Post = {
   aspect: string;
 };
 
-// Victorian / vintage cluster — two tight columns; the requested pairs stay side by side.
-const victorianColumns: Post[][] = [
-  [
-    { type: "video", src: spanishWhisper.url, caption: tx("Spanish Whisper", "همسة إسبانية"), aspect: "aspect-[16/9]" },
-    { type: "image", src: imgApples.url, caption: tx("Heart of Nature", "قلب الطبيعة"), aspect: "aspect-[1078/1350]" },
-    { type: "video", src: vNew2.url, caption: tx("Victorian Elegance", "أناقة فيكتورية"), aspect: "aspect-[9/16]" },
-  ],
-  [
-    { type: "image", src: imgHorse.url, caption: tx("Victorian Garden", "حديقة فيكتورية"), aspect: "aspect-[1078/1358]" },
-    { type: "image", src: imgFruit.url, caption: tx("Royal Still Life", "مشهد ملكي"), aspect: "aspect-[1078/1423]" },
-    {
-      type: "image",
-      src: timelessMood.url,
-      caption: tx("Timeless Mood", "أجواء خالدة"),
-      details: tx("This image is composed of the perfume's ingredients.", "هذه الصورة مكوّنة من مكونات العطر."),
-      aspect: "aspect-[941/1672]",
-    },
-  ],
+// The two strongest films lead the gallery at their native frame ratios.
+const featuredVictorian: Post[] = [
+  { type: "video", src: spanishWhisper.url, caption: tx("Spanish Whisper", "همسة إسبانية"), aspect: "aspect-[16/9]" },
+  { type: "video", src: vNew2.url, caption: tx("Victorian Elegance", "أناقة فيكتورية"), aspect: "aspect-[9/16]" },
+];
+
+const victorianPhotos: Post[] = [
+  { type: "image", src: imgHorse.url, caption: tx("Victorian Garden", "حديقة فيكتورية"), aspect: "aspect-[1078/1358]" },
+  { type: "image", src: imgApples.url, caption: tx("Heart of Nature", "قلب الطبيعة"), aspect: "aspect-[1078/1350]" },
+  { type: "image", src: imgFruit.url, caption: tx("Royal Still Life", "مشهد ملكي"), aspect: "aspect-[1078/1423]" },
+  {
+    type: "image",
+    src: timelessMood.url,
+    caption: tx("Timeless Mood", "أجواء خالدة"),
+    details: tx("This image is composed of the perfume's ingredients.", "هذه الصورة مكوّنة من مكونات العطر."),
+    aspect: "aspect-[941/1672]",
+  },
 ];
 
 // Elegant / golden cluster — kept on its own, stacked closely.

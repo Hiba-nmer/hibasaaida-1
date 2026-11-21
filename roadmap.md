@@ -16,3 +16,4 @@
 - [x] Reorder the Photoshop gallery to Boeing, Chanel, Flowers, then the remaining designs.
 - [x] Remove the three perfume-note images and two requested videos from Visual Stories.
 - [x] Arrange the reels gallery in tight paired columns with every video and photo at its full frame ratio.
+- [ ] Feature Spanish Whisper and Victorian Elegance side by side at full size, remove all video zoom, and tighten the remaining gallery layout.
