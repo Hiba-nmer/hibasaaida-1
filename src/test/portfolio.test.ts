@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { caseStudies, experiences, featuredCampaigns, siteCopy, supportingProjects } from "@/content/portfolio";
+import { caseStudies, designTitles, experiences, featuredCampaigns, siteCopy, supportingProjects } from "@/content/portfolio";
 import { directionFor } from "@/lib/language";
 
 describe("portfolio case studies", () => {
@@ -8,9 +8,18 @@ describe("portfolio case studies", () => {
 
     expect(laundry?.deliverables.map((item) => item.file)).toEqual([
       "/files/Laundry_App_Marketing_Plan.pptx",
+      "/files/Laundry_App_Marketing_Plan.pdf",
       "/files/Marketing_Research_Methodology.pdf",
     ]);
     expect(supportingProjects.some((project) => project.id === "research")).toBe(false);
+  });
+
+  it("opens the design gallery with Boeing, Chanel, then Flowers", () => {
+    expect(designTitles.slice(0, 3).map((title) => title.en)).toEqual([
+      "Boeing — Vintage Poster (Photoshop)",
+      "Chanel Coco Noir — Ad Design",
+      "Flowers — Photography (Photoshop)",
+    ]);
   });
 
   it("keeps Arabic content right-to-left and English content left-to-right", () => {

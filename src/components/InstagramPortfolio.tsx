@@ -5,16 +5,11 @@ import { siteCopy } from "@/content/portfolio";
 import { tx, type LocalizedText } from "@/lib/language";
 import { Button } from "@/components/ui/button";
 import { Instagram } from "lucide-react";
-import v1 from "@/assets/gemini_generated_video_4dc3a9c4.mp4.asset.json";
-import v4 from "@/assets/gemini_generated_video_c97403c1.mp4.asset.json";
 import spanishWhisper from "@/assets/instagram_spanish_whisper.mp4.asset.json";
 import vNew2 from "@/assets/gemini_generated_video_979fcb94.mp4.asset.json";
 import vNew3 from "@/assets/gemini_generated_video_e52ccfe2.mp4.asset.json";
 import img1 from "@/assets/perfume_img_20260526_100701_579.jpg.asset.json";
 import timelessMood from "@/assets/instagram_timeless_mood.png.asset.json";
-import img3 from "@/assets/instagram_base_notes.png.asset.json";
-import img4 from "@/assets/instagram_heart_notes.png.asset.json";
-import img5 from "@/assets/instagram_top_notes.png.asset.json";
 import imgHorse from "@/assets/insta_horse_arch.png.asset.json";
 import imgApples from "@/assets/insta_apples_music.png.asset.json";
 import imgFruit from "@/assets/insta_fruit_bowl.png.asset.json";
@@ -53,18 +48,7 @@ const elegantPosts: Post[] = [
     height: "h-[380px]",
   },
   { type: "image", src: img1.url, caption: tx("Spicy Weather", "Spicy Weather"), height: "h-[340px]" },
-  { type: "image", src: img3.url, caption: tx("Base Notes", "النفحات الأساسية"), height: "h-[380px]" },
-  { type: "image", src: img4.url, caption: tx("Heart Notes", "نفحات القلب"), height: "h-[360px]" },
-  { type: "image", src: img5.url, caption: tx("Top Notes", "النفحات العليا"), height: "h-[380px]" },
-  { type: "video", src: v1.url, caption: tx("Every drop tells a story...", "كل قطرة تحكي قصة..."), height: "h-[280px]" },
 ];
-
-const closingPost: Post = {
-  type: "video",
-  src: v4.url,
-  caption: tx("Midnight Bloom", "زهرة منتصف الليل"),
-  height: "h-[300px]",
-};
 
 const PostCard = ({ post, i }: { post: Post; i: number }) => {
   const { t } = useLanguage();
@@ -155,9 +139,6 @@ const InstagramPortfolio = () => {
               {elegantPosts.map((post, i) => <PostCard key={post.src} post={post} i={i} />)}
             </div>
           </div>
-        </div>
-        <div className="mx-auto mt-5 max-w-md">
-          <PostCard post={closingPost} i={0} />
         </div>
       </div>
     </section>

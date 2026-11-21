@@ -179,6 +179,16 @@ export const siteCopy = {
   },
 };
 
+export const designTitles = [
+  tx("Boeing — Vintage Poster (Photoshop)", "بوينغ — ملصق كلاسيكي (Photoshop)"),
+  tx("Chanel Coco Noir — Ad Design", "Chanel Coco Noir — تصميم إعلاني"),
+  tx("Flowers — Photography (Photoshop)", "زهور — تصوير (Photoshop)"),
+  tx("LV Capucines — Product Ad", "LV Capucines — إعلان منتج"),
+  tx("YOYOSO — Product Promotion", "YOYOSO — ترويج منتج"),
+  tx("YSL Libre — Perfume Ad", "YSL Libre — إعلان عطر"),
+  tx("Delicious Burger — Food Ad (Photoshop)", "برغر — إعلان طعام (Photoshop)"),
+];
+
 export const methodologyPillars = [
   {
     num: "01",
@@ -352,6 +362,7 @@ export const caseStudies = [
     tags: [tx("PESTEL & SWOT", "PESTEL وSWOT"), tx("Segmentation", "تجزئة السوق"), tx("7 Ps", "المزيج 7Ps")],
     deliverables: [
       { label: tx("Full App Marketing Plan", "تحميل الخطة التسويقية الكاملة للتطبيق"), file: "/files/Laundry_App_Marketing_Plan.pptx", format: "PPTX" },
+      { label: tx("Detailed Marketing Plan", "الخطة التسويقية التفصيلية"), file: "/files/Laundry_App_Marketing_Plan.pdf", format: "PDF" },
       { label: tx("Marketing Research Methodology", "منهجية البحث التسويقي"), file: "/files/Marketing_Research_Methodology.pdf", format: "PDF" },
     ] satisfies Deliverable[],
   },

@@ -14,15 +14,13 @@ import designChanel from "@/assets/design-chanel.png";
 import designFlowers from "@/assets/design-flowers.jpg";
 import designBurger from "@/assets/design-burger.jpg";
 
-import { caseStudies, supportingProjects, siteCopy } from "@/content/portfolio";
+import { caseStudies, supportingProjects, siteCopy, designTitles } from "@/content/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
-import { tx } from "@/lib/language";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import SectionHeading from "./SectionHeading";
 const supportingImages: Record<string, string> = { logo: workLogo };
-const designImages = [designLvBag, designYoyoso, designLibre, designBoeing, designChanel, designFlowers, designBurger];
-const designTitles = [tx("LV Capucines — Product Ad", "LV Capucines — إعلان منتج"), tx("YOYOSO — Product Promotion", "YOYOSO — ترويج منتج"), tx("YSL Libre — Perfume Ad", "YSL Libre — إعلان عطر"), tx("Boeing — Vintage Poster (Photoshop)", "بوينغ — ملصق كلاسيكي (Photoshop)"), tx("Chanel Coco Noir — Ad Design", "Chanel Coco Noir — تصميم إعلاني"), tx("Flowers — Photography (Photoshop)", "زهور — تصوير (Photoshop)"), tx("Delicious Burger — Food Ad (Photoshop)", "برغر — إعلان طعام (Photoshop)")];
+const designImages = [designBoeing, designChanel, designFlowers, designLvBag, designYoyoso, designLibre, designBurger];
 const WorkSection = () => {
  const { t } = useLanguage();
  const [showDesigns, setShowDesigns] = useState(false);
@@ -35,7 +33,7 @@ const WorkSection = () => {
  </article>)}</div>
  <div className="mt-20"><h3 className="mb-8 text-2xl">{t(siteCopy.work.supportingTitle)}</h3><div className="grid gap-6 md:grid-cols-2">{supportingProjects.map((p) => <article key={p.id} className="overflow-hidden rounded-lg border border-border bg-card/80 backdrop-blur-sm"><img src={supportingImages[p.id]} alt={t(p.title)} className="aspect-[4/3] w-full object-cover" /><div className="p-5"><h4 className="text-lg">{t(p.title)}</h4><p className="mt-3 text-sm text-muted-foreground">{t(p.desc)}</p><Button asChild variant="link" className="mt-4 px-0"><a href={p.file || p.link} download={p.file ? p.file.split('/').pop() : undefined} target={p.link ? "_blank" : undefined} rel="noopener noreferrer">{p.file ? <Download className="me-2 h-4 w-4" /> : <ExternalLink className="me-2 h-4 w-4" />}{t(p.file ? siteCopy.work.download : siteCopy.work.viewPresentation)}</a></Button></div></article>)}</div></div>
  </div></section>
- <section id="creative" className="px-6 py-24"><div className="mx-auto max-w-6xl"><SectionHeading {...siteCopy.creative} /><div className="mx-auto max-w-xl overflow-hidden rounded-lg border border-border bg-card/80"><img src={designLvBag} alt={t(siteCopy.creative.title)} className="aspect-[4/3] w-full object-cover" /><div className="flex flex-wrap items-center justify-between gap-4 p-6"><p className="text-muted-foreground">{t(siteCopy.creative.designsCount)}</p><Button onClick={() => {setCurrentDesign(0);setShowDesigns(true);}}>{t(siteCopy.creative.openGallery)}</Button></div></div></div></section>
+ <section id="creative" className="px-6 py-24"><div className="mx-auto max-w-6xl"><SectionHeading {...siteCopy.creative} /><div className="mx-auto max-w-xl overflow-hidden rounded-lg border border-border bg-card/80"><img src={designBoeing} alt={t(designTitles[0])} className="aspect-[4/3] w-full object-cover" /><div className="flex flex-wrap items-center justify-between gap-4 p-6"><p className="text-muted-foreground">{t(siteCopy.creative.designsCount)}</p><Button onClick={() => {setCurrentDesign(0);setShowDesigns(true);}}>{t(siteCopy.creative.openGallery)}</Button></div></div></div></section>
  <Dialog open={showDesigns} onOpenChange={setShowDesigns}><DialogContent className="max-w-4xl" closeLabel={t(siteCopy.creative.close)}><DialogTitle>{t(designTitles[currentDesign])}</DialogTitle><img src={designImages[currentDesign]} alt={t(designTitles[currentDesign])} className="mx-auto max-h-[65vh] w-full object-contain" /><div className="flex items-center justify-between"><Button variant="outline" size="icon" title={t(siteCopy.creative.previous)} aria-label={t(siteCopy.creative.previous)} onClick={() => setCurrentDesign(p => (p-1+designImages.length)%designImages.length)}><ChevronLeft /></Button><span>{currentDesign+1} / {designImages.length}</span><Button variant="outline" size="icon" title={t(siteCopy.creative.next)} aria-label={t(siteCopy.creative.next)} onClick={() => setCurrentDesign(p => (p+1)%designImages.length)}><ChevronRight /></Button></div></DialogContent></Dialog></>;
 };
 export default WorkSection;

@@ -189,6 +189,15 @@ var siteCopy = {
     action: tx("Return to Home", "\u0627\u0644\u0639\u0648\u062F\u0629 \u0625\u0644\u0649 \u0627\u0644\u0631\u0626\u064A\u0633\u064A\u0629")
   }
 };
+var designTitles = [
+  tx("Boeing \u2014 Vintage Poster (Photoshop)", "\u0628\u0648\u064A\u0646\u063A \u2014 \u0645\u0644\u0635\u0642 \u0643\u0644\u0627\u0633\u064A\u0643\u064A (Photoshop)"),
+  tx("Chanel Coco Noir \u2014 Ad Design", "Chanel Coco Noir \u2014 \u062A\u0635\u0645\u064A\u0645 \u0625\u0639\u0644\u0627\u0646\u064A"),
+  tx("Flowers \u2014 Photography (Photoshop)", "\u0632\u0647\u0648\u0631 \u2014 \u062A\u0635\u0648\u064A\u0631 (Photoshop)"),
+  tx("LV Capucines \u2014 Product Ad", "LV Capucines \u2014 \u0625\u0639\u0644\u0627\u0646 \u0645\u0646\u062A\u062C"),
+  tx("YOYOSO \u2014 Product Promotion", "YOYOSO \u2014 \u062A\u0631\u0648\u064A\u062C \u0645\u0646\u062A\u062C"),
+  tx("YSL Libre \u2014 Perfume Ad", "YSL Libre \u2014 \u0625\u0639\u0644\u0627\u0646 \u0639\u0637\u0631"),
+  tx("Delicious Burger \u2014 Food Ad (Photoshop)", "\u0628\u0631\u063A\u0631 \u2014 \u0625\u0639\u0644\u0627\u0646 \u0637\u0639\u0627\u0645 (Photoshop)")
+];
 var methodologyPillars = [
   {
     num: "01",
@@ -353,6 +362,7 @@ var caseStudies = [
     tags: [tx("PESTEL & SWOT", "PESTEL \u0648SWOT"), tx("Segmentation", "\u062A\u062C\u0632\u0626\u0629 \u0627\u0644\u0633\u0648\u0642"), tx("7 Ps", "\u0627\u0644\u0645\u0632\u064A\u062C 7Ps")],
     deliverables: [
       { label: tx("Full App Marketing Plan", "\u062A\u062D\u0645\u064A\u0644 \u0627\u0644\u062E\u0637\u0629 \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A\u0629 \u0627\u0644\u0643\u0627\u0645\u0644\u0629 \u0644\u0644\u062A\u0637\u0628\u064A\u0642"), file: "/files/Laundry_App_Marketing_Plan.pptx", format: "PPTX" },
+      { label: tx("Detailed Marketing Plan", "\u0627\u0644\u062E\u0637\u0629 \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A\u0629 \u0627\u0644\u062A\u0641\u0635\u064A\u0644\u064A\u0629"), file: "/files/Laundry_App_Marketing_Plan.pdf", format: "PDF" },
       { label: tx("Marketing Research Methodology", "\u0645\u0646\u0647\u062C\u064A\u0629 \u0627\u0644\u0628\u062D\u062B \u0627\u0644\u062A\u0633\u0648\u064A\u0642\u064A"), file: "/files/Marketing_Research_Methodology.pdf", format: "PDF" }
     ]
   }
@@ -408,7 +418,7 @@ var contact = { email: "hibanmers@gmail.com", phone: "+972 59 834 9117", locatio
 var experience = experiences.map((e) => ({ company: e.company.en, companyArabic: e.company.ar, role: e.role.en, roleArabic: e.role.ar, period: e.period.en, periodArabic: e.period.ar, tags: e.tags.map((t) => t.en), description: e.desc.en, descriptionArabic: e.desc.ar }));
 var achievements2 = achievements.map((a) => ({ title: a.title.en, titleArabic: a.title.ar, description: a.desc.en, descriptionArabic: a.desc.ar }));
 var projects = [...caseStudies.map((p) => ({ title: p.title.en, titleArabic: p.title.ar, description: p.overview.en, descriptionArabic: p.overview.ar, deliverables: p.deliverables })), ...supportingProjects.map((p) => ({ title: p.title.en, titleArabic: p.title.ar, description: p.desc.en, descriptionArabic: p.desc.ar, file: p.file, link: p.link })), ...featuredCampaigns.map((c) => ({ title: c.title.en, titleArabic: c.title.ar, description: c.description.en, descriptionArabic: c.description.ar, organization: c.organization.en, organizationArabic: c.organization.ar, qualifiedLeads: c.metric?.value }))];
-var designs = ["LV Capucines \u2014 Product Ad", "YOYOSO \u2014 Product Promotion", "YSL Libre \u2014 Perfume Ad", "Boeing \u2014 Vintage Poster (Photoshop)", "Chanel Coco Noir \u2014 Ad Design", "Flowers \u2014 Photography (Photoshop)", "Delicious Burger \u2014 Food Ad (Photoshop)"];
+var designs = designTitles.map((title) => title.en);
 var skillGroups2 = skillGroups.map((g) => ({ title: g.title.en, titleArabic: g.title.ar, skills: g.skills.map((s) => s.en), skillsArabic: g.skills.map((s) => s.ar) }));
 
 // src/lib/mcp/tools/get-contact.ts

@@ -9,3 +9,9 @@
 - [x] Move Marketing Research Methodology and all laundry-app resources under the Laundry case study.
 - [x] Test content rules and verify language switching, navigation, galleries, and downloads in the preview.
 - [x] Add the bilingual Featured Campaigns section with four supplied photos and click-to-enlarge previews.
+
+# Current portfolio refinements
+
+- [x] Add the missing Laundry App marketing-plan PDF to its case study.
+- [x] Reorder the Photoshop gallery to Boeing, Chanel, Flowers, then the remaining designs.
+- [x] Remove the three perfume-note images and two requested videos from Visual Stories.
