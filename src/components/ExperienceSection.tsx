@@ -53,7 +53,7 @@ const ExperienceSection = () => {
                       {exp.certificate && (
                         <Button
                           onClick={() => setShowCertificate(bankCertificate)}
-                          className="mt-4 text-sm text-primary hover:text-primary/80 font-medium transition-colors underline underline-offset-4"
+                          className="mt-4 text-sm text-primary-foreground hover:text-primary-foreground/80 font-medium transition-colors underline underline-offset-4"
                         >
                           {t(siteCopy.experience.viewCertificate)}
                         </Button>

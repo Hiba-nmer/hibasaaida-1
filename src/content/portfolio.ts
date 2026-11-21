@@ -80,7 +80,7 @@ export const siteCopy = {
       "Consulting, field campaigns, international research, facilitation, and academic inquiry—all connected by evidence-led decisions.",
       "استشارات وحملات ميدانية وأبحاث دولية وتيسير وبحث أكاديمي، تجمعها قرارات مبنية على الدليل.",
     ),
-    viewCertificate: tx("View Certificate", "عرض الشهادة"),
+    viewCertificate: tx("View Certificate", "اظهار الشهادة"),
     certificateAlt: tx("Professional certificate", "شهادة مهنية"),
   },
   campaigns: {
