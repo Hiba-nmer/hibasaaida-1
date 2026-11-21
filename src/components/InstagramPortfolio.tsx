@@ -19,35 +19,40 @@ type Post = {
   src: string;
   caption: LocalizedText;
   details?: LocalizedText;
-  height: string;
+  // Each file's real frame ratio, so the full picture always shows (no cropping).
+  aspect: string;
 };
 
-// Victorian / vintage cluster — the requested pairs stay side by side on desktop.
-const victorianPosts: Post[] = [
-  { type: "video", src: spanishWhisper.url, caption: tx("Spanish Whisper", "همسة إسبانية"), height: "h-[420px]" },
-  { type: "image", src: imgHorse.url, caption: tx("Victorian Garden", "حديقة فيكتورية"), height: "h-[420px]" },
-  { type: "image", src: imgApples.url, caption: tx("Heart of Nature", "قلب الطبيعة"), height: "h-[380px]" },
-  { type: "image", src: imgFruit.url, caption: tx("Royal Still Life", "مشهد ملكي"), height: "h-[380px]" },
-  { type: "video", src: vNew2.url, caption: tx("Victorian Elegance", "أناقة فيكتورية"), height: "h-[420px]" },
-  {
-    type: "image",
-    src: timelessMood.url,
-    caption: tx("Timeless Mood", "أجواء خالدة"),
-    details: tx("This image is composed of the perfume's ingredients.", "هذه الصورة مكوّنة من مكونات العطر."),
-    height: "h-[420px]",
-  },
+// Victorian / vintage cluster — two tight columns; the requested pairs stay side by side.
+const victorianColumns: Post[][] = [
+  [
+    { type: "video", src: spanishWhisper.url, caption: tx("Spanish Whisper", "همسة إسبانية"), aspect: "aspect-[16/9]" },
+    { type: "image", src: imgApples.url, caption: tx("Heart of Nature", "قلب الطبيعة"), aspect: "aspect-[1078/1350]" },
+    { type: "video", src: vNew2.url, caption: tx("Victorian Elegance", "أناقة فيكتورية"), aspect: "aspect-[9/16]" },
+  ],
+  [
+    { type: "image", src: imgHorse.url, caption: tx("Victorian Garden", "حديقة فيكتورية"), aspect: "aspect-[1078/1358]" },
+    { type: "image", src: imgFruit.url, caption: tx("Royal Still Life", "مشهد ملكي"), aspect: "aspect-[1078/1423]" },
+    {
+      type: "image",
+      src: timelessMood.url,
+      caption: tx("Timeless Mood", "أجواء خالدة"),
+      details: tx("This image is composed of the perfume's ingredients.", "هذه الصورة مكوّنة من مكونات العطر."),
+      aspect: "aspect-[941/1672]",
+    },
+  ],
 ];
 
-// Elegant / golden cluster — kept on its own
+// Elegant / golden cluster — kept on its own, stacked closely.
 const elegantPosts: Post[] = [
   {
     type: "video",
     src: vNew3.url,
     caption: tx("Khaleeji Soul", "روح خليجية"),
     details: tx("This video is composed of the perfume's ingredients.", "هذا الفيديو مكوّن من مكونات العطر."),
-    height: "h-[380px]",
+    aspect: "aspect-[16/9]",
   },
-  { type: "image", src: img1.url, caption: tx("Spicy Weather", "Spicy Weather"), height: "h-[340px]" },
+  { type: "image", src: img1.url, caption: tx("Spicy Weather", "Spicy Weather"), aspect: "aspect-[1440/1921]" },
 ];
 
 const PostCard = ({ post, i }: { post: Post; i: number }) => {
@@ -61,7 +66,7 @@ const PostCard = ({ post, i }: { post: Post; i: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: Math.min(i * 0.06, 0.4) }}
-      className={`group relative mb-5 break-inside-avoid overflow-hidden border border-[hsl(var(--journal-border))] ${post.height}`}
+      className={`group relative overflow-hidden border border-[hsl(var(--journal-border))] ${post.aspect}`}
     >
       {post.type === "video" ? (
         <video
@@ -92,11 +97,11 @@ const PostCard = ({ post, i }: { post: Post; i: number }) => {
       )}
       <div
         aria-live="polite"
-        className={`journal-overlay pointer-events-none absolute inset-x-0 bottom-0 p-5 text-center backdrop-blur-md transition-opacity group-hover:opacity-100 group-focus-within:opacity-100 ${showDetails ? "opacity-100" : "opacity-0"}`}
+        className={`journal-overlay pointer-events-none absolute inset-x-0 bottom-0 p-4 text-center backdrop-blur-md transition-opacity group-hover:opacity-100 group-focus-within:opacity-100 ${showDetails ? "opacity-100" : "opacity-0"}`}
       >
-        <p className="text-lg italic text-[hsl(var(--journal-accent))]">{t(post.caption)}</p>
+        <p className="text-base italic text-[hsl(var(--journal-accent))]">{t(post.caption)}</p>
         {post.details && showDetails && (
-          <p className="mt-2 text-sm leading-relaxed text-[hsl(var(--journal-accent))]">{t(post.details)}</p>
+          <p className="mt-1.5 text-xs leading-relaxed text-[hsl(var(--journal-accent))]">{t(post.details)}</p>
         )}
       </div>
     </motion.div>
@@ -104,18 +109,18 @@ const PostCard = ({ post, i }: { post: Post; i: number }) => {
 };
 
 const ClusterLabel = ({ children }: { children: React.ReactNode }) => (
-  <div className="mb-5 border-b border-[hsl(var(--journal-border))] pb-3 text-sm text-[hsl(var(--journal-accent))]">{children}</div>
+  <div className="mb-4 border-b border-[hsl(var(--journal-border))] pb-3 text-sm text-[hsl(var(--journal-accent))]">{children}</div>
 );
 
 const InstagramPortfolio = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="instagram-portfolio" className="journal-bg relative px-6 py-24">
+    <section id="instagram-portfolio" className="journal-bg relative px-6 py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-10">
           <div>
-            <div className="mb-12">
+            <div className="mb-8">
               <p className="text-sm text-[hsl(var(--journal-accent))]">{t(siteCopy.reels.eyebrow)}</p>
               <h2 className="mt-6 text-4xl leading-tight text-[hsl(var(--journal-accent))] md:text-5xl">{t(siteCopy.reels.title)}</h2>
               <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">{t(siteCopy.reels.description)}</p>
@@ -129,14 +134,22 @@ const InstagramPortfolio = () => {
               </Button>
             </div>
             <ClusterLabel>{t(siteCopy.reels.victorian)}</ClusterLabel>
-            <div className="grid items-start gap-5 sm:grid-cols-2">
-              {victorianPosts.map((post, i) => <PostCard key={post.src} post={post} i={i} />)}
+            <div className="grid grid-cols-2 gap-3">
+              {victorianColumns.map((column, ci) => (
+                <div key={ci} className="flex flex-col gap-3">
+                  {column.map((post, i) => (
+                    <PostCard key={post.src} post={post} i={ci * 3 + i} />
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
           <div>
             <ClusterLabel>{t(siteCopy.reels.elegant)}</ClusterLabel>
-            <div className="columns-1 gap-5 sm:columns-2">
-              {elegantPosts.map((post, i) => <PostCard key={post.src} post={post} i={i} />)}
+            <div className="flex flex-col gap-3">
+              {elegantPosts.map((post, i) => (
+                <PostCard key={post.src} post={post} i={i} />
+              ))}
             </div>
           </div>
         </div>
