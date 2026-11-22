@@ -5,6 +5,7 @@ import { featuredCampaigns, siteCopy } from "@/content/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 import type { LocalizedText } from "@/lib/language";
 import { cn } from "@/lib/utils";
+import { assetUrl } from "@/lib/assets";
 import {
   Dialog,
   DialogContent,
@@ -24,28 +25,28 @@ type CampaignPhoto = {
 
 const photos = {
   cafe: {
-    src: cafeCampaign.url,
+    src: assetUrl(cafeCampaign),
     alt: tx(
       "Bank of Palestine field campaign at Rashfh Cafe in Tulkarm",
       "حملة بنك فلسطين الميدانية في مقهى رشفة بطولكرم",
     ),
   },
   training: {
-    src: teamTraining.url,
+    src: assetUrl(teamTraining),
     alt: tx(
       "Local team preparation and psychological first aid training session",
       "جلسة إعداد وتدريب الفريق المحلي على الإسعاف النفسي الأولي",
     ),
   },
   activity: {
-    src: kidsActivity.url,
+    src: assetUrl(kidsActivity),
     alt: tx(
       "Children participating in an interactive community activity",
       "أطفال يشاركون في نشاط مجتمعي تفاعلي",
     ),
   },
   community: {
-    src: communitySession.url,
+    src: assetUrl(communitySession),
     alt: tx(
       "Children and facilitators gathered during the community session",
       "الأطفال والميسرون خلال اللقاء المجتمعي",

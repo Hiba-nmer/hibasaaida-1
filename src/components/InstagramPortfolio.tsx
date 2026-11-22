@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { siteCopy } from "@/content/portfolio";
 import { tx, type LocalizedText } from "@/lib/language";
+import { assetUrl } from "@/lib/assets";
 import { Button } from "@/components/ui/button";
 import { Instagram } from "lucide-react";
 import spanishWhisper from "@/assets/instagram_spanish_whisper.mp4.asset.json";
@@ -25,17 +26,17 @@ type Post = {
 
 // The two strongest films lead the gallery at their native frame ratios.
 const featuredVictorian: Post[] = [
-  { type: "video", src: spanishWhisper.url, caption: tx("Spanish Whisper", "همسة إسبانية"), aspect: "aspect-[16/9]" },
-  { type: "video", src: vNew2.url, caption: tx("Victorian Elegance", "أناقة فيكتورية"), aspect: "aspect-[9/16]" },
+  { type: "video", src: assetUrl(spanishWhisper), caption: tx("Spanish Whisper", "همسة إسبانية"), aspect: "aspect-[16/9]" },
+  { type: "video", src: assetUrl(vNew2), caption: tx("Victorian Elegance", "أناقة فيكتورية"), aspect: "aspect-[9/16]" },
 ];
 
 const victorianPhotos: Post[] = [
-  { type: "image", src: imgHorse.url, caption: tx("Victorian Garden", "حديقة فيكتورية"), aspect: "aspect-[1078/1358]" },
-  { type: "image", src: imgApples.url, caption: tx("Heart of Nature", "قلب الطبيعة"), aspect: "aspect-[1078/1350]" },
-  { type: "image", src: imgFruit.url, caption: tx("Royal Still Life", "مشهد ملكي"), aspect: "aspect-[1078/1423]" },
+  { type: "image", src: assetUrl(imgHorse), caption: tx("Victorian Garden", "حديقة فيكتورية"), aspect: "aspect-[1078/1358]" },
+  { type: "image", src: assetUrl(imgApples), caption: tx("Heart of Nature", "قلب الطبيعة"), aspect: "aspect-[1078/1350]" },
+  { type: "image", src: assetUrl(imgFruit), caption: tx("Royal Still Life", "مشهد ملكي"), aspect: "aspect-[1078/1423]" },
   {
     type: "image",
-    src: timelessMood.url,
+    src: assetUrl(timelessMood),
     caption: tx("Timeless Mood", "أجواء خالدة"),
     details: tx("This image is composed of the perfume's ingredients.", "هذه الصورة مكوّنة من مكونات العطر."),
     aspect: "aspect-[941/1672]",
@@ -46,12 +47,12 @@ const victorianPhotos: Post[] = [
 const elegantPosts: Post[] = [
   {
     type: "video",
-    src: vNew3.url,
+    src: assetUrl(vNew3),
     caption: tx("Khaleeji Soul", "روح خليجية"),
     details: tx("This video is composed of the perfume's ingredients.", "هذا الفيديو مكوّن من مكونات العطر."),
     aspect: "aspect-[16/9]",
   },
-  { type: "image", src: img1.url, caption: tx("Spicy Weather", "Spicy Weather"), aspect: "aspect-[1440/1921]" },
+  { type: "image", src: assetUrl(img1), caption: tx("Spicy Weather", "Spicy Weather"), aspect: "aspect-[1440/1921]" },
 ];
 
 const PostCard = ({ post, i, className = "w-full" }: { post: Post; i: number; className?: string }) => {
@@ -77,7 +78,7 @@ const PostCard = ({ post, i, className = "w-full" }: { post: Post; i: number; cl
           playsInline
           preload="metadata"
           onClick={post.details ? toggleDetails : undefined}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover"
         />
       ) : (
         <button
